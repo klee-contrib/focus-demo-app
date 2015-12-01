@@ -47,7 +47,7 @@
     "babel-runtime": "^5.8.24",
     "body-parser": "^1.14.1",
     "css-loader": "^0.21.0",
-    "eslint": "1.5.1",
+    "eslint": "1.10.3",
     "eslint-config-focus": "0.3.0",
     "eslint-plugin-filenames": "0.1.1",
     "eslint-plugin-react": "3.5.0",
