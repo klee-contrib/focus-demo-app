@@ -75,7 +75,7 @@
     "jquery": "3.0.0-alpha1",
     "lodash": "^3.10.1",
     "material-design-icons": "^2.0.0",
-    "material-design-lite": "1.0.5",
+    "material-design-lite": "1.0.6",
     "moment": "^2.10.3",
     "native-promise-only": "^0.8.0-a",
     "numeral": "^1.5.3",
