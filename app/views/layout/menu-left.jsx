@@ -1,4 +1,5 @@
 import React from 'react';
+import Backbone from 'backbone';
 import Menu from 'focus-components/components/menu';
 
 const menuItems = [
@@ -6,9 +7,13 @@ const menuItems = [
     { icon:'search', onClick:function() { console.log('I click here search'); } }
 ];
 
+function onBrandClick () {
+    Backbone.history.navigate('#', true);
+}
+
 function DemoMenuLeft() {
     return (
-        <Menu items={menuItems} />
+        <Menu items={menuItems} handleBrandClick={onBrandClick} />
     );
 }
 

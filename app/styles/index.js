@@ -1,3 +1,4 @@
+import './advanced-search.scss';
 import './back-to-top.scss';
 import './concept-card.scss';
 import './field.scss';

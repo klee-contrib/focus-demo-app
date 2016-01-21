@@ -4,10 +4,12 @@ import FocusComponents from 'focus-components';
 import render from 'focus-core/application/render';
 import Layout from 'focus-components/components/layout';
 import ConfirmWrapper from 'focus-components/components/confirm';
-import DemoMenuLeft from '../views/menu/menu-left';
+import DemoMenuLeft from '../views/layout/menu-left';
+import Footer from '../views/layout/footer';
 
 render(Layout, `.${__ANCHOR_CLASS__}`, {
     props: {
-        MenuLeft: DemoMenuLeft
+        Footer,
+        MenuLeft: DemoMenuLeft,
     }
 });
