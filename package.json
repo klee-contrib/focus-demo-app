@@ -69,7 +69,7 @@
         "BABELIFIED_PATH": "./app",
         "ENTRY_FILE_PATH": "./app/index",
         "PAGE_TITLE": "Focus demonstration application",
-        "API_PORT": 8080,
+        "API_PORT": 9999,
         "OUTPUT_DIR": "./public",
         "LOCAL_FOCUS": false,
         "PACKAGE_JSON_PATH": "./"
@@ -80,6 +80,7 @@
   "dependencies": {
     "focus-components": "0.8.6-beta2",
     "focus-core": "0.12.4-beta4",
+    "i18next-client": "^1.11.0",
     "immutable": "^3.7.2",
     "jquery": "3.0.0-alpha1",
     "lodash": "^3.10.1",
