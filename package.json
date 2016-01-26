@@ -15,6 +15,7 @@
   "scripts": {
     "bundle": "better-npm-run bundle",
     "build": "npm run bundle",
+    "test": "npm run build",
     "start": "npm run start:npm",
     "start:local": "better-npm-run webpack-dev-server-local-focus",
     "start:npm": "better-npm-run webpack-dev-server-npm-focus",
