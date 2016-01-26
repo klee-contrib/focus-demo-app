@@ -9,14 +9,10 @@ import {cartridgeBehaviour} from 'focus-components/page/mixin';
 import CartridgePageSearch from 'focus-components/page/search/search-header/cartridge';
 import SummaryPageSearch from 'focus-components/page/search/search-header/summary';
 
+
 export default React.createClass({
     displayName: 'HomeView',
-    // mixins: [cartridgeBehaviour],
-    //
-    // /** @inheritDoc */
-    // componentWillMount() {
-    //     this._registerCartridge();
-    // },
+    mixins: [cartridgeBehaviour],
 
     /** @inheritDoc */
     _navigateAdvancedSearch() {

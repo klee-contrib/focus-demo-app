@@ -78,6 +78,12 @@ export default {
         unknown: 'Aucune  fiche'
     },
     persons: 'Personnes',
+    result: {
+        for: "résultat pour"
+    },
+    results: {
+        for: "résultats pour"
+    },
     search: {
         cartridge: {
             title: 'Vous recherchez ?'
