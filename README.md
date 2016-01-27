@@ -1,5 +1,5 @@
 # Focus demo application
-
+![Build Status](https://travis-ci.org/KleeGroup/focus-demo-app.svg)
 ## Purpose
 
 This application sets to music FOCUS libraries and components.
