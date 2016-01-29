@@ -14,6 +14,6 @@ export default router.extend({
     demoRouteHandler() {
         console.log('ROUTER: DEMO');
         //Page content vient du router
-        this._pageContent(props => <p><h2>Bienvenue à la formation du 29/11/2016</h2></p>);
+        this._pageContent(props => <h2>Bienvenue à la formation du 29/11/2016</h2>);
     }
 });
