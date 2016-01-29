@@ -6,7 +6,7 @@ import {difference, intersection, uniq} from 'lodash/array';
 export default () => {
     console.info('##################### ENTITIES DEFINITION #########################');
     entityContainer.setEntityConfiguration(entitytDefinitionConfig);
-    console.log(entitytDefinitionConfig);
+    console.log(Object.keys(entitytDefinitionConfig));
     console.info('########################### DOMAINS ###############################');
     //Display domaines utilisés
     const arr = [];
