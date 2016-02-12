@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 
 const sequelize = new Sequelize('focus-demo-app', '', '', {
     dialect: 'sqlite',
-    storage: 'lol.db',
+    storage: ':memory:',
     logging: false
 });
 
