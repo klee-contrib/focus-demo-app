@@ -90,6 +90,7 @@
   },
   "license": "MIT",
   "dependencies": {
+    "bluebird": "^3.3.0",
     "focus-components": "0.8.6-beta11",
     "focus-core": "0.12.4-beta7",
     "focus-notifications": "^0.2.0-rc3",
