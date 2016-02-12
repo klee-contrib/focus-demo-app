@@ -156,6 +156,11 @@ app.put('/movies/:id', (req, res) => {
     res.status(404).sent('Erreur : aucun id de film fourni...');
 });
 
+// GET all movies
+app.get('/persons/', (req, res) => {
+    res.json(personsDB);
+});
+
 // GET PERSON
 app.get('/persons/:id', (req, res) => {
     const id = +req.params.id;
