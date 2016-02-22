@@ -82,14 +82,16 @@ export default class DockDX extends Component {
       return res;
     }, {});
 
+    const routes = Backbone.history.handlers.map(function(r){return r.route.toString().split('(')[0]});
     return (
       <Dock position={'right'}
             isVisible={isVisible}
             fluid={fluid}
             dimMode='none'>
           <h3>Focus stores</h3>
-          
           <JSONTree data={JSONState} />
+          <h3>Routes</h3>
+          <JSONTree data={routes} />
       </Dock>
     );
   }
