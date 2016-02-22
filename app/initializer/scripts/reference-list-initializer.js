@@ -21,7 +21,15 @@ export default () => {
                 scopes.map(_applyAdditionalScopeProperties);
                 return scopes  ;
             });
-        }
+        },
+        regions:() => Promise.resolve([{code: 'NPP', label :'Nord Pas de Calais Picardie'}, {code: 'IDF', label: 'Ile de France'}]),
+        departements: () => Promise.resolve([
+          {rcode: 'NPP', code: 'N', label :'Nord'},
+          {rcode: 'NPP', code: 'PDC', label :'Pas de Calais'},
+          {rcode: 'NPP', code: 'PIC', label :'Picardie'},
+          {rcode: 'IDF', code: 'PA', label: 'Paris'},
+          {rcode: 'IDF', code: 'HS', label: 'HS'}
+        ])
     });
 }
 

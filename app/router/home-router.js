@@ -1,7 +1,7 @@
 import application from 'focus-core/application';
 import router from 'focus-core/router';
 import HomeView from '../views/home';
-
+import ExampleView from '../views/example';
 export default router.extend({
     log: true,
     beforeRoute() {
@@ -9,9 +9,13 @@ export default router.extend({
     },
     routes: {
         '': 'home',
-        home: 'home'
+        home: 'home',
+        example: 'example'
     },
     home() {
         this._pageContent(HomeView);
+    },
+    example(){
+      this._pageContent(ExampleView)
     }
 });
