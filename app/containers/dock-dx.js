@@ -2,7 +2,7 @@ import React, { cloneElement, Children, Component, PropTypes } from 'react';
 import Dock from 'react-dock';
 import parseKey from 'parse-key';
 import JSONTree from 'react-json-tree'
-
+import CoreStore from 'focus-core/store/CoreStore'
 export default class DockDX extends Component {
 
   static propTypes = {
@@ -77,8 +77,8 @@ export default class DockDX extends Component {
   render() {
     const { children, fluid, ...rest } = this.props;
     const {  isVisible} = this.state;
-    const JSONState = Object.keys(window._stores).reduce((res, current) => {
-      res[window._stores[current].constructor.name] =  window._stores[current].getValue();
+    const JSONState = Object.keys(CoreStore.prototype._instances).reduce((res, current) => {
+      res[CoreStore.prototype._instances[current].constructor.name] =  CoreStore.prototype._instances[current].getValue();
       return res;
     }, {});
 
