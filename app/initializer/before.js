@@ -5,7 +5,7 @@ import referenceListInitializer from './scripts/reference-list-initializer';
 import domainInitializer from './scripts/domain-initializer';
 import definitionInitializer from './scripts/definition-initializer';
 import translationInitializer from './scripts/translation-initializer';
-
+import DXLogger from '../stores/dx-logger';
 
 /**
  * Launch initializers that can to be executed before DOM content is loaded (asap)
