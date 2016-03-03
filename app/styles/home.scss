@@ -3,6 +3,10 @@
 $width: 250px;
 $height: 2.8 / 2 * $width;
 
+[data-role='validation'] {
+    margin-left: 50px ;
+}
+
 [data-role='homepage'] {
     [data-role='ranking'] {
         opacity: 0.99;
