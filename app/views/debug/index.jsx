@@ -28,7 +28,6 @@ class DebugView extends Component {
     }
 
     render() {
-        console.log("debug view");
         return (
             <div>
                 <Debug view={this}>
