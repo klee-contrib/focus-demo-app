@@ -15,24 +15,29 @@ function _logDebugInfos(view, inspect) {
         displayName = getDisplayName(view);
     }
 
-    console.log(`################ Debug ${displayName}  ###############`);
+    console.log(`################ Infos Debug ${displayName}  ###############`);
     if (view) {
-        console.log('displayName: ', displayName);
+        console.groupCollapsed('**** defs ****');
         console.log('definitionPath: ', view.definitionPath);
         console.log('definition: ', view.definition);
+        console.log('***************');
+        console.groupEnd();
 
         if (view.props) {
-            console.log('**** props ****');
+            console.groupCollapsed('**** props ****');
             console.log('props: ', view.props);
             console.log('data: ', view.props.data);
-            console.log('store: ', view.props.store);
+            console.log('***************');
+            console.groupEnd();
         } else {
             console.log('props: ', undefined);
         }
         if (view.state) {
-            console.log('**** state ****');
+            console.groupCollapsed('**** state *****');
             console.log('state: ', view.state);
             console.log('isEdit: ', view.state.isEdit);
+            console.log('***************');
+            console.groupEnd();
 
         } else {
             console.log('state: ', undefined);
@@ -44,7 +49,7 @@ function _logDebugInfos(view, inspect) {
     if (inspect) {
         console.log(getDisplayName(inspect), inspect);
     }
-    console.log('#######################################');
+    console.log('#######################################################');
 
 }
 
