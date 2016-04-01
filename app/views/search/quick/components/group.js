@@ -5,6 +5,7 @@ import formatter from  'focus-core/definition/formatter/number';
 import history from 'focus-core/history';
 import {quickSearchStore} from 'focus-core/search/built-in-store';
 import dispatcher from 'focus-core/dispatcher';
+import {translate} from 'focus-core/translation';
 
 //web components
 import {component as Button} from 'focus-components/common/button/action';
@@ -19,7 +20,6 @@ const defaultProps = {
     count: 0
 };
 
-@Translation
 class QuickSearchGroup extends Component {
 
     showAllClickHandler() {
@@ -48,6 +48,7 @@ class QuickSearchGroup extends Component {
 
     render() {
         const {children, count, groupKey, showAllHandler} = this.props
+        console.log('Group DEMP', this.props);
         return (
             <div data-focus="group-container">
                 <div data-focus='group-container-title'>
@@ -56,10 +57,10 @@ class QuickSearchGroup extends Component {
                             <span>{groupKey}</span>
                             <span>{formatter.format(count)}</span>
                         </h3>
-                        <p>{this.i18n('search.mostRelevant')}</p>
+                        <p>{translate('search.mostRelevant')}</p>
                     </div>
                     <div data-focus='group-container-actions__right'>
-                        <Button shape={null} color='accent' handleOnClick={this.showAllClickHandler} label={this.i18n('search.show.all')} />
+                        <Button shape={null} color='accent' handleOnClick={this.showAllClickHandler.bind(this)} label={translate('search.show.all')} />
                     </div>
                 </div>
                 <div data-focus="group-container-results">

@@ -2,6 +2,11 @@ import React, {PropTypes} from 'react';
 import {component as QuickSearch} from 'focus-components/page/search/quick-search';
 import {configuration} from './configuration';
 
+function hello() {
+    console.log('Hello');
+    return true;
+}
+
 function QuickSearchView({handleClosePopin}) {
 
     configuration.onLineClick = ((onLineClickFn, handleClosePopinFn) => {
@@ -14,13 +19,14 @@ function QuickSearchView({handleClosePopin}) {
     return (
         <div data-demo="quick-search-view">
             <h5>Recherche rapide</h5>
-            <QuickSearch {...configuration} showAllHandler={handleClosePopin} />
+            <QuickSearch {...configuration} showAllHandler={hello} />
         </div>
     );
 }
 
 QuickSearchView.displayName = 'QuickSearchView';
 QuickSearchView.propTypes = {
-    onLineClick: PropTypes.func
+    onLineClick: PropTypes.func,
+    handleClosePopin: PropTypes.func
 };
 export default QuickSearchView;
