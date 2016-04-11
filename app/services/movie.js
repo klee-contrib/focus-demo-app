@@ -15,14 +15,14 @@ export default {
     },
     updateMovieCaracteristics(data) {
         const movieId = data.id;
-        omit(data, ['id', 'actors', 'camera', 'directors', 'producers', 'writers']);
-        console.log(`[MOVIE] call updateMovieCaracteristics ${movieId} method. data=${JSON.stringify(data)}`);
-        return fetch(movieUrl.update({urlData: {id: movieId}, data}), {isCORS: true});
+        const newData = omit(data, ['id', 'actors', 'camera', 'directors', 'producers', 'writers']);
+        console.log(`[MOVIE] call updateMovieCaracteristics ${movieId} method. data=${JSON.stringify(newData)}`);
+        return fetch(movieUrl.update({urlData: {id: movieId}, data: newData}), {isCORS: true});
     },
     updateMovieSynopsis(data) {
         const movieId = data.id;
-        omit(data, ['id', 'actors', 'camera', 'directors', 'producers', 'writers']);
-        console.log(`[MOVIE] call updateMovieSynopsis method. data=${JSON.stringify(data)}`);
-        return fetch(movieUrl.update({urlData: {id: movieId}, data}), {isCORS: true});
+        const newData = omit(data, ['id', 'actors', 'camera', 'directors', 'producers', 'writers']);
+        console.log(`[MOVIE] call updateMovieSynopsis method. data=${JSON.stringify(newData)}`);
+        return fetch(movieUrl.update({urlData: {id: movieId}, data: newData}), {isCORS: true});
     }
 }

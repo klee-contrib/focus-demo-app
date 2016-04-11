@@ -16,13 +16,13 @@ export default {
     updatePersonBiography(data) {
         const personId = data.id;
         console.log(`[PERSON] call savePersonBiography method. data=${JSON.stringify(data)}`);
-        omit(data, ['movieLinks']);
-        return fetch(personUrl.update({urlData: {id: personId}, data}), {isCORS: true});
+        const newData = omit(data, ['movieLinks']);
+        return fetch(personUrl.update({urlData: {id: personId}, data: newData}), {isCORS: true});
     },
     updatePersonIdentity(data) {
         const personId = data.id;
         console.log(`[PERSON] call savePersonIdentity method. data=${JSON.stringify(data)}`);
-        omit(data, ['movieLinks']);
-        return fetch(personUrl.update({urlData: {id: personId}, data}), {isCORS: true});
+        const newData = omit(data, ['movieLinks']);
+        return fetch(personUrl.update({urlData: {id: personId}, data: newData}), {isCORS: true});
     }
 }
