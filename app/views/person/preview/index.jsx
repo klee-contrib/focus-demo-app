@@ -36,9 +36,11 @@ export default React.createClass({
         const {id} = this.props;
         identityActions.load(id);
     },
+    
     navigate() {
         this.props.onPopinClose(this.onPopinClose);
     },
+
     onPopinClose() {
         history.navigate(`persons/${this.props.id}`, true);
         window.scrollTo(0, 0);
