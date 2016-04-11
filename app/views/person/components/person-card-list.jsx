@@ -22,6 +22,11 @@ export default React.createClass({
             personCodePreview: null
         }
     },
+    _closePopin(cb){
+      this.setState({personCodePreview: null}, () => {
+            cb && cb();
+      });
+    },
     render() {
         const {persons} = this.props;
         const {personCodePreview} = this.state;
@@ -37,8 +42,8 @@ export default React.createClass({
                     })
                 }
                 {personCodePreview &&
-                    <Modal open={true} onPopinClose={() => this.setState({personCodePreview: null})} type='from-right'>
-                        <PersonPreview id={personCodePreview} />
+                    <Modal open={true} onPopinClose={this._closePopin} type='from-right'>
+                        <PersonPreview id={personCodePreview} onPopinClose={this._closePopin}/>
                     </Modal>
                 }
             </div>
