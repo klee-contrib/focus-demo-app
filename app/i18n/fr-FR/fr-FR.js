@@ -160,5 +160,10 @@ export default {
                 name: 'Personne'
             }
         },
+        masterdata: {
+            country: {
+                caracteristics: 'Caractéristiques'
+            }
+        },
     }
 };
