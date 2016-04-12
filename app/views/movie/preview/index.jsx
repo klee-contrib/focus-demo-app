@@ -37,12 +37,12 @@ export default React.createClass({
         caracteristicsActions.load(id);
     },
 
-    navigate() {
-        this.props.onPopinClose(this.onPopinClose);
+    onPopinClose() {
+        this.props.onPopinClose(this.navigate);
     },
 
-    onPopinClose() {
-        history.navigate(`persons/${this.props.id}`, true);
+    navigate() {
+        history.navigate(`movies/${this.props.id}`, true);
         window.scrollTo(0, 0);
     },
 
@@ -60,7 +60,7 @@ export default React.createClass({
                         <h5>{this.textFor('productionYear')}</h5>
                         <div>{this.textFor('synopsis')}</div>
                         <br/>
-                        <Button label='view.movie.action.consult.sheet' handleOnClick={this.navigate} />
+                        <Button label='view.movie.action.consult.sheet' handleOnClick={this.onPopinClose} />
                     </div>
                 </div>
                 <div data-demo='preview-content'>
