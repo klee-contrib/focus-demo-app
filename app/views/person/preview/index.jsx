@@ -37,6 +37,15 @@ export default React.createClass({
         identityActions.load(id);
     },
 
+    onPopinClose() {
+        this.props.onPopinClose(this.navigate);
+    },
+
+    navigate() {
+        history.navigate(`persons/${this.props.id}`, true);
+        window.scrollTo(0, 0);
+    },
+
     /** @inheritDoc */
     render() {
         const {id} = this.props;
@@ -50,7 +59,7 @@ export default React.createClass({
                         <h5>{this.textFor('activity')}</h5>
                         <div>{this.textFor('shortBiography')}</div>
                         <br/>
-                        <Button label='view.person.action.consult.sheet' handleOnClick={() => {history.navigate(`persons/${code}`, true); window.scrollTo(0, 0);}} />
+                        <Button label='view.person.action.consult.sheet' handleOnClick={this.onPopinClose}/>
                     </div>
                 </div>
                 <div data-demo='preview-content'>
