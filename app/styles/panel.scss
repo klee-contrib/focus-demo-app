@@ -12,6 +12,7 @@ $panel-padding-sides:20px;
     [data-focus='panel-title'] {
         h1,h2,h3,h4 {
             color:$primary-color;
+            font-size: 30px; //temporary, to remove with focus-component 0.15.0
         }
     }
     &[data-demo="overview"] {
