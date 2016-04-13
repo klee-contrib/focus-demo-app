@@ -10,7 +10,7 @@ function QuickSearchView({handleClosePopin}) {
             handleClosePopinFn();
         }
     })(configuration.onLineClick, handleClosePopin);
-
+    
     return (
         <div data-demo="quick-search-view">
             <h5>Recherche rapide</h5>
@@ -21,6 +21,7 @@ function QuickSearchView({handleClosePopin}) {
 
 QuickSearchView.displayName = 'QuickSearchView';
 QuickSearchView.propTypes = {
-    onLineClick: PropTypes.func
+    onLineClick: PropTypes.func,
+    handleClosePopin: PropTypes.func
 };
 export default QuickSearchView;

@@ -86,11 +86,12 @@
         "BABELIFIED_PATH": "./app",
         "ENTRY_FILE_PATH": "./app/index",
         "PAGE_TITLE": "Focus demonstration application",
-        "API_HOST": "localhost",
+        "API_HOST": "146.185.134.136",
         "API_PORT": 8080,
         "OUTPUT_DIR": "./public",
         "LOCAL_FOCUS": true,
-        "LEGACY_SEARCH_API": false
+        "LEGACY_SEARCH_API": false,
+        "SOURCE_MAPS": false
       }
     },
     "webpack-dev-server-npm-focus": {
@@ -100,11 +101,12 @@
         "BABELIFIED_PATH": "./app",
         "ENTRY_FILE_PATH": "./app/index",
         "PAGE_TITLE": "Focus demonstration application",
-        "API_HOST": "localhost",
+        "API_HOST": "146.185.134.136",
         "API_PORT": 8080,
         "OUTPUT_DIR": "./public",
         "LOCAL_FOCUS": false,
-        "LEGACY_SEARCH_API": false
+        "LEGACY_SEARCH_API": false,
+        "SOURCE_MAPS": false
       }
     }
   },
