@@ -10,7 +10,7 @@ function QuickSearchView({handleClosePopin}) {
             handleClosePopinFn();
         }
     })(configuration.onLineClick, handleClosePopin);
-
+    
     return (
         <div data-demo="quick-search-view">
             <h5>Recherche rapide</h5>

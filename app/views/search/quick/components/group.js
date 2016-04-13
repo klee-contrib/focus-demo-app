@@ -48,6 +48,7 @@ class QuickSearchGroup extends Component {
 
     render() {
         const {children, count, groupKey, showAllHandler} = this.props;
+        console.log('Group PROPS', this.props);
         return (
             <div data-focus="group-container">
                 <div data-focus='group-container-title'>
@@ -59,7 +60,7 @@ class QuickSearchGroup extends Component {
                         <p>{this.i18n('search.mostRelevant')}</p>
                     </div>
                     <div data-focus='group-container-actions__right'>
-                        <Button shape={null} color='accent' handleOnClick={this.showAllClickHandler} label={this.i18n('search.show.all')} />
+                        <Button shape={null} color='accent' handleOnClick={this.showAllClickHandler.bind(this)} label={this.i18n('search.show.all')} />
                     </div>
                 </div>
                 <div data-focus="group-container-results">
