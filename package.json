@@ -111,7 +111,7 @@
   "license": "MIT",
   "dependencies": {
     "focus-core": "^0.14.0",
-    "focus-components": "^0.14.0",
+    "focus-components": "^0.14.1",
     "focus-devtools": "^0.3.5",
     "focus-notifications": "^0.2.0-rc6",
     "immutable": "^3.7.2",
