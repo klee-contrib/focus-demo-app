@@ -48,7 +48,6 @@ class QuickSearchGroup extends Component {
 
     render() {
         const {children, count, groupKey, showAllHandler} = this.props;
-        console.log('Group PROPS', this.props);
         return (
             <div data-focus="group-container">
                 <div data-focus='group-container-title'>
