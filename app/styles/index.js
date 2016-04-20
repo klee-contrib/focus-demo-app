@@ -12,6 +12,7 @@ import './advanced-search.scss';
 import './back-to-top.scss';
 import './concept-card.scss';
 import './demo-title.scss';
+import './facet-box.scss';
 import './field.scss';
 import './footer.scss';
 import './header.scss';

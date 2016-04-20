@@ -1,0 +1,16 @@
+//to remove. Temporary fix. Waiting for focus-component 0.15.0
+
+@import "variables";
+
+[data-focus='facet-box'] {
+    [data-focus="facet-box-heading"] {
+        h2 {
+            font-size: 28px;
+            color:$primary-text-color;
+            text-transform: uppercase;
+            &:after {
+                top: auto;
+            }
+        }
+    }
+}
