@@ -9,8 +9,11 @@ export default {
     },
     loadPersonMovies(id) {
         console.log(`[PERSON] call loadPersonMovies(${id}) method`);
-        return fetch(personUrl.load({urlData: {id}}), {isCORS: true}).then(({movieLinks}) => {
-            return movieLinks;
+        return fetch(personUrl.load({urlData: {id}}), {isCORS: true}).then((data) => {
+            if(data && data.movieLinks) {
+              return data.movieLinks
+            }
+            return [];
         });
     },
     updatePersonBiography(data) {
