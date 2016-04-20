@@ -2,6 +2,8 @@ import React from 'react';
 import history from 'focus-core/history';
 import Menu from 'focus-components/components/menu';
 import {component as Modal} from 'focus-components/application/popin';
+import {quickSearchStore} from 'focus-core/search/built-in-store';
+import dispatcher from 'focus-core/dispatcher';
 
 //custom web component
 import QuickSearchView from '../search/quick';
@@ -39,6 +41,24 @@ export default React.createClass({
 
     _onQuickSearchModalToggle() {
         const {isQuickSearchModalOpen} = this.state;
+        console.log(isQuickSearchModalOpen);
+        if(!isQuickSearchModalOpen) {
+            const query = quickSearchStore.getQuery();
+            const scope = quickSearchStore.getScope();
+            console.log(query, scope);
+            //dispatch in quick search store
+            dispatcher.handleViewAction({
+                data: {
+                    query: '',
+                    scope: 'ALL',
+                    results: [],
+                    facets: [],
+                    totalCount: 0
+                },
+                type: 'update',
+                identifier: 'QUICK_SEARCH'
+            });
+        }
         this.setState({
             isQuickSearchModalOpen: !isQuickSearchModalOpen
         });
