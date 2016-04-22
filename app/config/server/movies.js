@@ -7,5 +7,5 @@ export default {
     create: builder(movieRoot, 'POST'),
     load: builder(movieRoot + '${id}', 'GET'),
     search: builder(movieRoot + 'search?listState.skip=${skip}&listState.sortDesc=${sortDesc}&listState.top=${top}', 'POST'),
-    update: builder(movieRoot + '${id}', 'PUT')
+    update: builder(movieRoot + '${id}', 'POST')
 };
