@@ -46,7 +46,9 @@ export default React.createClass({
 
     _getGlobalPrimaryActions() {
         const actions = [];
-        actions.push({label: 'Imprimer', icon: 'print', action: () => { alert('todo print') }});
+        actions.push({label: 'Imprimer', icon: 'print', action: () => {
+            window.print();
+        }});
         return actions;
     },
 
