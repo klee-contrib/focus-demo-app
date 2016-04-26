@@ -31,3 +31,6 @@ import './quick-search.scss';
 import './scrollspy-container.scss';
 import './selection-list.scss';
 import './trailer.scss';
+
+//Style for print
+import './print.scss'

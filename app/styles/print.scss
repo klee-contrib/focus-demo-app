@@ -1,0 +1,109 @@
+@media print {
+  * {
+     -webkit-print-color-adjust: exact;
+     print-color-adjust: exact;
+  }
+
+  [data-focus='layout'] {
+  	background-color: white;
+  }
+  .mdl-cell--12-col {
+      width: -webkit-calc(100% - 16px) !important;
+      margin: 8px;
+  }
+  .mdl-cell--11-col {
+      width: -webkit-calc(91.6667% - 16px) !important;
+      margin: 8px;
+  }
+
+  .mdl-cell--10-col {
+      width: -webkit-calc(83.3333% - 16px) !important;
+      margin: 8px;
+  }
+
+  .mdl-cell--9-col {
+      width: -webkit-calc(75% - 16px) !important;
+      margin: 8px;
+  }
+
+  .mdl-cell--8-col {
+      width: -webkit-calc(66.6667% - 16px) !important;
+      margin: 8px;
+  }
+
+  .mdl-cell--7-col {
+      width: -webkit-calc(58.33333% - 16px) !important;
+      margin: 8px;
+  }
+
+  .mdl-cell--6-col {
+      width: -webkit-calc(50% - 16px) !important;
+      margin: 8px;
+  }
+
+  .mdl-cell--5-col {
+      width: -webkit-calc(41.66667% - 16px) !important;
+      margin: 8px;
+  }
+
+  .mdl-cell--4-col {
+      width: -webkit-calc(33.3333% - 16px) !important;
+      margin: 8px;
+  }
+
+  .mdl-cell--3-col {
+      width: -webkit-calc(25% - 16px) !important;
+      margin: 8px;
+  }
+
+  .mdl-cell--2-col {
+      width: -webkit-calc(16.6667% - 16px) !important;
+      margin: 8px;
+  }
+
+  [data-focus="field"] [data-focus="field-label-container"] [data-focus="label"] {
+      font-size: 9px;
+  }
+
+  html, body {
+    font-size: 9px;
+    line-height: 15px;
+  	margin: 0 !important;
+  	padding: 0 !important;
+  }
+  .mdl-grid {
+      display: flex !important;
+      flex-flow: row wrap !important;
+      margin: 0 auto 0 auto !important;
+      align-items: stretch !important;
+  }
+
+
+  [data-focus='header-top-row'] > div [data-focus='header-top-row-left'], [data-focus="footer"],
+  [data-focus="menu-left"], [data-focus="message-center"] {
+    display: none;
+  }
+  [data-focus='header-scrolling'][data-deployed="false"] {
+     display: none;
+  }
+  [data-focus='layout'][data-menu='left'] header {
+    padding-left: 0px !important;
+  }
+  [data-focus='layout'] [data-focus='page-content']  {
+    padding-left: 0px !important;
+    margin-left: 0px;
+    padding: 10px 25px;
+    max-width: 21cm;
+    [data-focus="scrollspy-container"]{
+      [data-focus="sticky-menu"] {
+        display: none;
+      }
+      [data-focus="scrollspy-container-content"] {
+        margin-left: 10px;
+      }
+    }
+    [data-demo="trailer"] {
+      display: none;
+    }
+  }
+}
