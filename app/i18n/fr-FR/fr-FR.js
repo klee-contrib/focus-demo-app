@@ -106,7 +106,7 @@ export default {
                 filter: {
                     all: 'Tous',
                     actors: 'Acteurs',
-                    camera: 'Camera man',
+                    camera: 'Caméramans',
                     directors: 'Réalisateurs',
                     producers: 'Producteurs',
                     writers: 'Scénaristes'
@@ -116,7 +116,7 @@ export default {
             detail: {
                 actors: 'Acteurs',
                 casting: 'Casting',
-                cameramen: 'Camera men',
+                cameramen: 'Caméramans',
                 caracteristics: 'Caractéristiques',
                 directors: 'Réalisateurs',
                 overview: 'Résumé',
