@@ -23,7 +23,7 @@ export default React.createClass({
         }
     },
     _closePopin(cb){
-        this.setState({personCodePreview: null}, () => {
+        this.setState({movieCodePreview: null}, () => {
               cb && cb();
         });
     },
@@ -37,7 +37,11 @@ export default React.createClass({
                         const {code} = movie;
                         const key = `movie-card-${code}`;
                         return (
-                            <MovieCard key={key} movie={movie} onClickPreview={movieId => this.setState({movieCodePreview: movieId})} />
+                            <MovieCard key={key} movie={movie} onClickPreview={
+                                movieId =>
+                                  this.setState({movieCodePreview: movieId})
+                                }
+                            />
                         );
                     })
                 }
