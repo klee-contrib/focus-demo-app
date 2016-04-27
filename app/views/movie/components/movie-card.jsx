@@ -17,13 +17,14 @@ export default React.createClass({
 
     render() {
         const {movie, onClickPreview} = this.props;
-        const {code, linked, movieType, poster, productionYear, runtime, title, userRating} = movie;
+        const {code, linked, movieType, poster, productionYear, runtime, title, userRating, existsInBdd} = movie;
+        const showButtons = false !== existsInBdd;
         const duration = moment.utc(moment.duration(runtime, 'seconds').asMilliseconds()).format('h:mm');
         const hasUserRating = userRating > -1;
         const hasDuration = runtime !== undefined;
         const hasSecondaryInfos = hasDuration && hasUserRating;
         return (
-            <div className='mdl-card mdl-shadow--4dp' data-demo='material-card'>
+            <div className='mdl-card mdl-shadow--4dp movie-card' data-demo='material-card'>
                 <div className='visuel'>
                     <div>
                         {poster && <img src={poster} title='Picture' alt='Picture' />}
@@ -63,10 +64,12 @@ export default React.createClass({
                         <div className='card-info--level3'>{productionYear}</div>
                     </div>
                 </div>
-                <div className='mdl-card__actions mdl-card--border'>
-                    {onClickPreview && <Button shape={null} label='view.movie.action.preview' handleOnClick={() => onClickPreview(+code)} />}
-                    <Button shape={null} label='view.movie.action.consult.sheet' handleOnClick={() => history.navigate(`movies/${code}`, true)} />
-                </div>
+                { showButtons &&
+                  <div className='mdl-card__actions mdl-card--border'>
+                      {onClickPreview && <Button shape={null} label='view.movie.action.preview' handleOnClick={() => onClickPreview(+code)} />}
+                      <Button shape={null} label='view.movie.action.consult.sheet' handleOnClick={() => history.navigate(`movies/${code}`, true)} />
+                  </div>
+                }
             </div>
         );
     }

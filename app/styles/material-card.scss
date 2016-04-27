@@ -1,6 +1,10 @@
 @import "variables";
 @import "mixins";
 
-[data-demo="material-card"] {
+[data-demo="material-card"].movie-card {
+    @include card('../images/unknown-movie.png', $concept-card-height, $concept-card-width);
+}
+
+[data-demo="material-card"].person-card {
     @include card('../images/unknown-person.gif', $concept-card-height, $concept-card-width);
 }

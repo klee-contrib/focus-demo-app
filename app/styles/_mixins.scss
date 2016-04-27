@@ -82,7 +82,7 @@ $black-and-white-variant: 0.8;
     width: $width;
     .visuel {
         height: $height;
-        @include picture('../images/unknown-person.gif');
+        @include picture($defaultImgUrl);
         .visuel-infos {
             position: absolute;
             bottom: 0;

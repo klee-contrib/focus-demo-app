@@ -6,9 +6,10 @@ import history from 'focus-core/history';
 import {component as Button} from 'focus-components/common/button/action';
 
 function PersonCard({onClickPreview, person}) {
-    const {code, leadActor, linked, name, photoURL, role} = person;
+    const {code, leadActor, linked, name, photoURL, role, existsInBdd} = person;
+    const showButtons = false !== existsInBdd;
     return (
-        <div className='mdl-card mdl-shadow--4dp' data-demo='material-card'>
+        <div className='mdl-card mdl-shadow--4dp person-card' data-demo='material-card'>
             <div className='visuel'>
                 <div>
                     {photoURL && <img src={photoURL} title='Picture' alt='Picture' />}
@@ -25,10 +26,12 @@ function PersonCard({onClickPreview, person}) {
                     <div className='card-info--level2'>{role}</div>
                 </div>
             </div>
-            <div className='mdl-card__actions mdl-card--border'>
-                {onClickPreview && <Button shape={null} label='view.person.action.preview' handleOnClick={() => onClickPreview(+code)} />}
-                <Button shape={null} label='view.person.action.consult.sheet' handleOnClick={() => history.navigate(`persons/${code}`, true)} />
-            </div>
+            { showButtons &&
+              <div className='mdl-card__actions mdl-card--border'>
+                  {onClickPreview && <Button shape={null} label='view.person.action.preview' handleOnClick={() => onClickPreview(+code)} />}
+                  <Button shape={null} label='view.person.action.consult.sheet' handleOnClick={() => history.navigate(`persons/${code}`, true)} />
+              </div>
+            }
         </div>
     );
 };
