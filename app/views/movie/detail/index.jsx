@@ -53,7 +53,13 @@ export default React.createClass({
         const {id} = this.props;
         return (
             <ScrollspyContainer gridContentSize={10} gridMenuSize={2}>
-                <Overview hasLoad={false} hasForm={false} />
+                {/* Bloc header dupliqué juste pour print*/}
+                <div data-demo='print'>
+                    <HeaderExpanded hasLoad={false}/>
+                </div>
+                <div data-demo='detail-overview'>
+                  <Overview hasLoad={false} hasForm={false} />
+                </div>
                 <Caracteristics id={id} />
                 <Synopsis id={id} />
                 <Trailer id={id} />
