@@ -57,6 +57,7 @@ export default React.createClass({
         const {id} = this.props;
         return (
             <ScrollspyContainer gridContentSize={10} gridMenuSize={2}>
+                {/* Bloc header dupliqué juste pour print*/}
                 <div data-demo='print'>
                     <HeaderExpanded hasLoad={false}/>
                 </div>
