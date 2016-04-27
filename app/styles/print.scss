@@ -103,11 +103,6 @@
         border-bottom: 20px;
       }
   }
-
-  [data-focus="field"] [data-focus="field-label-container"] [data-focus="label"] {
-      font-size: 9px;
-  }
-
   html, body {
     font-size: 16px;
     line-height: 16px;
@@ -133,6 +128,9 @@
   }
   [data-focus='panel'] {
     border: 1px solid rgba(0, 0, 0, 0.1);
+    [data-focus='panel-title'] h3 {
+      font-size: 22px !important;
+    }
   }
   [data-focus='layout'] [data-focus='page-content']  {
     padding-left: 0px !important;
