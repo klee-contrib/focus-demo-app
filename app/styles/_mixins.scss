@@ -1,19 +1,19 @@
 $black-and-white-variant: 0.8;
 
-@define-mixin background-cover($url) {
+@mixin background-cover($url:'') {
     background-image: url($url);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 0%;
 }
 
-@define-mixin shadow($level:2, $transparence1:0.14, $transparence2:0.2, $transparence3:0.12) {
+@mixin shadow($level:2, $transparence1:0.14, $transparence2:0.2, $transparence3:0.12) {
     //box-shadow: rgba(0, 0, 0, 0.137255) 0px 2px 2px 0px, rgba(0, 0, 0, 0.2) 0px 3px 1px -2px, rgba(0, 0, 0, 0.117647) 0px 1px 5px 0px 0 2px 2px 0, rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
     //box-shadow: rgb(231, 231, 231) 1px 1px 4px 1px;
     box-shadow: 0 ($level)px ($level)px 0 rgba(0,0,0,$transparence1),0 3px 1px -2px rgba(0,0,0,$transparence2),0 1px 5px 0 rgba(0,0,0,$transparence3);
 }
 
-@define-mixin back-white-filter {
+@mixin back-white-filter {
     filter: grayscale($black-and-white-variant);
     -webkit-filter: grayscale($black-and-white-variant);
     -moz-filter: grayscale($black-and-white-variant);
@@ -21,14 +21,14 @@ $black-and-white-variant: 0.8;
     -ms-filter: grayscale($black-and-white-variant);
 }
 
-@define-mixin headings {
+@mixin headings {
     h1, h2, h3,
     h4, h5, h6 {
         @content;
     }
 }
 
-@define-mixin picture($defaultImgUrl) {
+@mixin picture($defaultImgUrl) {
     position: relative;
     width: 100%;
     & > div {
@@ -55,7 +55,7 @@ $black-and-white-variant: 0.8;
     }
 }
 
-@define-mixin card-info() {
+@mixin card-info() {
     .card-info {
         color: $primary-text-color;
         & > div {
@@ -76,7 +76,7 @@ $black-and-white-variant: 0.8;
 }
 
 /* a supprimer */
-@define-mixin card($defaultImgUrl, $height, $width) {
+@mixin card($defaultImgUrl, $height, $width) {
     position: relative;
     margin: 10px 10px;
     width: $width;
@@ -107,11 +107,11 @@ $black-and-white-variant: 0.8;
     }
 }
 
-@define-mixin hover-background() {
+@mixin hover-background() {
     background-color: rgba(0,0,0,0.5);
 }
 
-@define-mixin hover-actions() {
+@mixin hover-actions() {
     @include hover-background();
     position: absolute;
     top:0;
@@ -126,6 +126,6 @@ $black-and-white-variant: 0.8;
     }
 }
 
-@define-mixin linear-background() {
+@mixin linear-background() {
     background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,0.7), rgba(0,0,0,0.9));
 }
