@@ -2,7 +2,7 @@
 //styles from focus-components
 import 'focus-components/style';
 //import 'material-design-lite/material.css';
-import 'material-design-icons-iconfont/dist/material-design-icons.scss';
+import 'material-design-icons-iconfont/dist/material-design-icons.css';
 
 //--------------------------------------------------------------------------
 //styles from demo
@@ -33,4 +33,4 @@ import './selection-list.scss';
 import './trailer.scss';
 
 //Style for print
-import './print.scss'
+import './print.scss';
