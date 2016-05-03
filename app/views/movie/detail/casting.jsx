@@ -92,7 +92,19 @@ export default React.createClass({
         }, []);
         return tabs;
     },
-
+    renderPrintVersion(tabs) {
+        {/* Bloc juste pour print*/}
+        return (
+          <div data-demo='print'>
+            {tabs.map(peopleType =>
+                <div data-demo='section-title'>
+                  <div data>{this._getActionLabel(peopleType)}</div>
+                  <PersonCardList persons={this._getPeopleByName(peopleType)} />
+                </div>
+            )}
+          </div>
+        );
+    },
     /** @inheritDoc */
     render() {
         const {filter} = this.state;
@@ -100,12 +112,15 @@ export default React.createClass({
         const tabs = this._getTabs();
         return (
             <Panel title='view.movie.detail.casting'>
-                <div className='filters-bar'>
-                    {tabs.map(peopleType =>
-                        <Button key={`btn-filter-${peopleType}`} shape={null} label={this._getActionLabel(peopleType)} handleOnClick={() => this._setFilter(peopleType)} data-active={this._isActive(peopleType)} />
-                    )}
+                <div data-demo='detail-casting'>
+                  <div className='filters-bar'>
+                      {tabs.map(peopleType =>
+                          <Button key={`btn-filter-${peopleType}`} shape={null} label={this._getActionLabel(peopleType)} handleOnClick={() => this._setFilter(peopleType)} data-active={this._isActive(peopleType)} />
+                      )}
+                  </div>
+                  <PersonCardList persons={list} />
                 </div>
-                <PersonCardList persons={list} />
+                {this.renderPrintVersion(tabs)}
             </Panel>
         );
     }

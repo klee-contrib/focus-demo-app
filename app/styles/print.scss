@@ -1,9 +1,11 @@
+[data-demo='print'] {
+  display: none;
+}
 @media print {
   * {
      -webkit-print-color-adjust: exact;
      print-color-adjust: exact;
   }
-
   [data-focus='layout'] {
   	background-color: white;
   }
@@ -61,13 +63,49 @@
       margin: 8px;
   }
 
-  [data-focus="field"] [data-focus="field-label-container"] [data-focus="label"] {
-      font-size: 9px;
+  .demo-app h3 {
+    font-size: 26px !important;
   }
-
+  [data-demo="material-card"]{
+    .visuel {
+      width: calc(100% - 2px) !important;
+      & > div {
+          background-image: none;
+          background-color: #F1F1F1;
+          border: 1px solid #C0C0C0;
+      }
+    }
+  }
+  [data-demo='print'] {
+      display: block;
+      [data-demo="header-content-expanded"] {
+        width: 100%;
+        padding: 0px;
+        margin-bottom: 30px;
+        [data-demo="header-content-expanded__infos"] {
+          width: 100%;
+          padding-right: 0px;
+          h3 {
+            font-size: 32px;
+            margin-bottom: 12px;
+          }
+        }
+      }
+      .key-concept {
+        font-size: 20px;
+        margin-bottom: 12px;
+      }
+      [data-demo='section-title'] {
+        font-size: 20px;
+      }
+      [data-demo="concept-card-list"] {
+        margin-top: 10px;
+        border-bottom: 20px;
+      }
+  }
   html, body {
-    font-size: 9px;
-    line-height: 15px;
+    font-size: 16px;
+    line-height: 16px;
   	margin: 0 !important;
   	padding: 0 !important;
   }
@@ -80,19 +118,25 @@
 
 
   [data-focus='header-top-row'] > div [data-focus='header-top-row-left'], [data-focus="footer"],
-  [data-focus="menu-left"], [data-focus="message-center"] {
+  [data-focus="menu-left"], [data-focus="message-center"], [data-demo='detail-overview'],
+  [data-focus='header-scrolling'], [data-demo='material-card'] .mdl-card__actions.mdl-card--border,
+  [data-demo='detail-casting'] {
     display: none;
-  }
-  [data-focus='header-scrolling'][data-deployed="false"] {
-     display: none;
   }
   [data-focus='layout'][data-menu='left'] header {
     padding-left: 0px !important;
+  }
+  [data-focus='panel'] {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    [data-focus='panel-title'] h3 {
+      font-size: 22px !important;
+    }
   }
   [data-focus='layout'] [data-focus='page-content']  {
     padding-left: 0px !important;
     margin-left: 0px;
     padding: 10px 25px;
+    width: 21cm;
     max-width: 21cm;
     [data-focus="scrollspy-container"]{
       [data-focus="sticky-menu"] {

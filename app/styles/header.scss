@@ -3,7 +3,7 @@
 
 $header-content-summary-padding-top: 5px;
 
-[data-focus="header-scrolling"] {
+[data-focus="header-scrolling"], [data-demo='print'] {
     z-index: 1;
     .key-concept {
         font-size: 28px;
