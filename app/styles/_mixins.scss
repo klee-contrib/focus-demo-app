@@ -1,6 +1,6 @@
 $black-and-white-variant: 0.8;
 
-@mixin background-cover($url) {
+@mixin background-cover($url:'') {
     background-image: url($url);
     background-size: cover;
     background-repeat: no-repeat;
@@ -10,7 +10,7 @@ $black-and-white-variant: 0.8;
 @mixin shadow($level:2, $transparence1:0.14, $transparence2:0.2, $transparence3:0.12) {
     //box-shadow: rgba(0, 0, 0, 0.137255) 0px 2px 2px 0px, rgba(0, 0, 0, 0.2) 0px 3px 1px -2px, rgba(0, 0, 0, 0.117647) 0px 1px 5px 0px 0 2px 2px 0, rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
     //box-shadow: rgb(231, 231, 231) 1px 1px 4px 1px;
-    box-shadow: 0 #{$level}px #{$level}px 0 rgba(0,0,0,$transparence1),0 3px 1px -2px rgba(0,0,0,$transparence2),0 1px 5px 0 rgba(0,0,0,$transparence3);
+    box-shadow: 0 ($level)px ($level)px 0 rgba(0,0,0,$transparence1),0 3px 1px -2px rgba(0,0,0,$transparence2),0 1px 5px 0 rgba(0,0,0,$transparence3);
 }
 
 @mixin back-white-filter {
