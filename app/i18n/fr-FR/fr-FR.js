@@ -64,7 +64,7 @@ export default {
         cartridge: {
             title: 'Vous recherchez ?'
         },
-        empty: 'Aucun résultat',
+        empty: 'Désolé, aucun résultat n\'a été trouvé',
         loadingMore: 'Chargement des résultats suivants...',
         mostRelevant: 'Les plus pertinents',
         show: {
