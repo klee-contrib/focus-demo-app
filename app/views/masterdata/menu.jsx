@@ -1,5 +1,6 @@
 import React from 'react';
 import {translate} from 'focus-core/translation';
+import {Link} from 'react-router';
 
 const links = [
     { reference:'countries', href: '/admin/masterdata/countries', title: 'view.admin.masterdata.countries'},
@@ -10,6 +11,7 @@ const links = [
 function masterdataMenu({reference}) {
     return (
         <ul className="mdl-list">
+
         {
             links.map(link => {
                 const otherProps = { className: 'mdl-list__item' };
@@ -18,9 +20,7 @@ function masterdataMenu({reference}) {
                 }
                 return (
                     <li key={link.reference} {...otherProps}>
-                        <a href={link.href}>
-                            <span className="mdl-list__item-primary-content">{translate(link.title)}</span>
-                        </a>
+                        <Link to={link.href}>{translate(link.title)}</Link>
                     </li>
                 );
             })
