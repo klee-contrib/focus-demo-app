@@ -1,4 +1,8 @@
 import React from 'react';
+
+// Browser  History make react-router works with the router
+import {browserHistory} from 'react-router';
+
 import history from 'focus-core/history';
 import Menu from 'focus-components/components/menu';
 import {component as Modal} from 'focus-components/application/popin';
@@ -25,12 +29,14 @@ export default React.createClass({
 
     _onHomeClick() {
         this._onMenuItemClick();
-        history.navigate('#', true);
+        browserHistory.push('/');
+        // history.navigate('#', true);
     },
 
     _onAdminClick() {
         this._onMenuItemClick();
-        history.navigate('#admin/masterdata', true);
+        browserHistory.push('/admin/masterdata');
+        // history.navigate('#admin/masterdata', true);
     },
 
     _onMenuItemClick() {

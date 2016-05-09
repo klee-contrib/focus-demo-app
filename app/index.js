@@ -24,7 +24,7 @@ const onDOMContentLoaded = () => {
     const afterDomContentLoadedScript = require('./initializer/after');
     afterDomContentLoadedScript.initialize();
     console.log('#########################[START APP]############################');
-    require('./application')();
+    //require('./application')();
     console.log('#########################[APP STARTED]##########################');
 };
 
