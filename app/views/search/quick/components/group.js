@@ -5,6 +5,7 @@ import formatter from  'focus-core/definition/formatter/number';
 import history from 'focus-core/history';
 import {quickSearchStore} from 'focus-core/search/built-in-store';
 import dispatcher from 'focus-core/dispatcher';
+import {scopesConfig} from '../../../../config/scopes';
 
 //web components
 import {component as Button} from 'focus-components/common/button/action';
@@ -24,8 +25,12 @@ class QuickSearchGroup extends Component {
 
     showAllClickHandler() {
         const {groupKey, showAllHandler} = this.props;
+        let newKey = groupKey;
+        if (scopesConfig && groupKey && scopesConfig[groupKey]) {
+            newKey = scopesConfig[groupKey];
+        }
         const query = quickSearchStore.getQuery();
-        const scope = quickSearchStore.getScope();
+        const scope = newKey;
         //dispatch in advanced search store
         dispatcher.handleViewAction({
             data: {
