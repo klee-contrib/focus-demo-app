@@ -48,7 +48,8 @@
                 "LEGACY_SEARCH_API": false,
                 "DEV": false,
                 "node_env": "production",
-                "BABEL_ENV": "production"
+                "BABEL_ENV": "production",
+                "BASE_URL": "/"
             }
         },
         "profile": {
@@ -76,7 +77,8 @@
                 "API_PORT": 8080,
                 "OUTPUT_DIR": "./public",
                 "LOCAL_FOCUS": false,
-                "LEGACY_SEARCH_API": false
+                "LEGACY_SEARCH_API": false,
+                "BASE_URL": "/"
             }
         },
         "webpack-dev-server-local-focus": {
@@ -91,7 +93,8 @@
                 "OUTPUT_DIR": "./public",
                 "LOCAL_FOCUS": true,
                 "LEGACY_SEARCH_API": false,
-                "SOURCE_MAPS": false
+                "SOURCE_MAPS": false,
+                "BASE_URL": "/"
             }
         },
         "webpack-dev-server-npm-focus": {
@@ -106,7 +109,8 @@
                 "OUTPUT_DIR": "./public",
                 "LOCAL_FOCUS": false,
                 "LEGACY_SEARCH_API": false,
-                "SOURCE_MAPS": false
+                "SOURCE_MAPS": false,
+                "BASE_URL": "/"
             }
         }
     },

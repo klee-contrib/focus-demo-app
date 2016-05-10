@@ -15,6 +15,7 @@ function masterdataMenu({reference}) {
         {
             links.map(link => {
                 const otherProps = { className: 'mdl-list__item' };
+                console.log(link.reference);
                 if(link.reference === reference) {
                     otherProps['data-active'] = true;
                 }

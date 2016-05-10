@@ -40,7 +40,6 @@ export default React.createClass({
         };
     },
 
-
     /**
     * Related to the CartridgeBehaviour.
     * Define the cartridge configuration.
@@ -67,12 +66,14 @@ export default React.createClass({
     /** @inheritDoc */
     render() {
         const {reference, ReferenceComponent} = this.props;
+        const ref = this.props.routes[this.props.routes.length-1].path;
         return (
             <div data-demo='masterdata'>
                 <div data-demo='masterdata--nav'>
-                    <MasterdataMenu reference={reference} />
+                    <MasterdataMenu reference={ref} />
                 </div>
                 <div data-demo='masterdata--component'>
+                    {this.props.children}
                     <ReferenceComponent />
                 </div>
             </div>

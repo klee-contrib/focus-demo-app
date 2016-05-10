@@ -1,17 +1,14 @@
-import history from 'focus-core/history';
-import {registerRoutes} from './router';
+import React from 'react'
+import { render } from 'react-dom'
+import { Router, browserHistory } from 'react-router';
 import routes from './router2/routes';
 
 export default function startApp() {
-    //Start the application.
-    console.log('Loading all the routes...');
-
-    // Useless with react-router
-    //registerRoutes();
-
-
-    console.log('All the routes are loaded...');
-
-    //Start the router.
-    history.start();
+    console.log('Launching the app...');
+    render(
+        (
+            <Router history={browserHistory} routes={routes}/>
+        ),
+        document.getElementsByClassName(`${__ANCHOR_CLASS__}`)[0]
+    );
 }
