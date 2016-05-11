@@ -21,6 +21,11 @@ export default React.createClass({
     propTypes: {
         id: PropTypes.number.isRequired
     },
+    // propTypes: {
+    //     params: PropTypes.shape.isRequired({
+    //         id: PropTypes.number.isRequired
+    //     })
+    // }
     mixins: [cartridgeBehaviour],
     /**
     * Related to the CartridgeBehaviour.
