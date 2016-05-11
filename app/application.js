@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { Router, browserHistory } from 'react-router';
-import routes from './router2/routes';
+import routes from './router/routes';
 
 export default function startApp() {
     console.log('Launching the app...');

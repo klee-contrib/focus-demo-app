@@ -5,7 +5,7 @@ import DemoMenuLeft from '../../views/menu/menu-left';
 import DemoFooter from '../../views/footer';
 import DevTools from '../../components/dev-tools';
 import {Router, browserHistory} from 'react-router'
-import routes from '../../router2/routes';
+import routes from '../../router/routes';
 
 export default () => {
     console.info('|--- LAYOUT');
