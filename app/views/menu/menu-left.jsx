@@ -31,12 +31,14 @@ export default React.createClass({
         this._onMenuItemClick();
         browserHistory.push('/');
         // history.navigate('#', true);
+        window.scrollTo(0, 0);
     },
 
     _onAdminClick() {
         this._onMenuItemClick();
         browserHistory.push('/admin/masterdata');
         // history.navigate('#admin/masterdata', true);
+        window.scrollTo(0, 0);
     },
 
     _onMenuItemClick() {
