@@ -18,7 +18,7 @@
     "electron": "ENVIRONMENT=DEV electron ./electron.js",
     "start": "npm run start:npm",
     "start:local": "better-npm-run webpack-dev-server-local-focus",
-    "start:npm": "better-npm-run webpack-dev-server-npm-focus",
+    "start:npm": "better-npm-run webpack-dev-server-npm-focus-vertigo",
     "watch": "better-npm-run watch",
     "mocked-api": "node api/index.js",
     "profile": "better-npm-run profile",
@@ -94,6 +94,22 @@
         "SOURCE_MAPS": false
       }
     },
+    "webpack-dev-server-npm-focus-vertigo": {
+           "command": "node ./dev-server.js",
+           "env": {
+               "ANCHOR_CLASS": "demo-app",
+               "BABELIFIED_PATH": "./app",
+               "ENTRY_FILE_PATH": "./app/index",
+               "PAGE_TITLE": "Focus demonstration application",
+               "API_HOST": "172.20.86.52",
+               "API_PORT": 80,
+               "OUTPUT_DIR": "./public",
+               "LOCAL_FOCUS": false,
+               "LEGACY_SEARCH_API": true,
+               "SOURCE_MAPS": false,
+               "BASE_URL": "/"
+           }
+       },
     "webpack-dev-server-npm-focus": {
       "command": "node ./dev-server.js",
       "env": {
