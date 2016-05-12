@@ -5,7 +5,7 @@ const routes = [
     {
         path: 'admin/masterdata',
         component: MasterdataView,
-        //indexRoute: { onEnter: ({ params }, replace) => replace(`${__BASE_URL__}admin/masterdata/countries`) },
+        indexRoute: { onEnter: ({ params }, replace) => replace(`${__BASE_URL__}admin/masterdata/countries`) },
         childRoutes: [
             {
                 path: 'countries',
