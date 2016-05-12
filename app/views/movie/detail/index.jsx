@@ -32,6 +32,11 @@ export default React.createClass({
     * Define the cartridge configuration.
     * @return {[type]} [description]
     */
+
+    componentDidMount() {
+        window.scrollTo(0, 0);
+    },
+
     cartridgeConfiguration() {
         const props = { hasLoad: false, hasForm: false }; //{id: this.props.id};
         return {
