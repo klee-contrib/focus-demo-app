@@ -82,7 +82,7 @@ export default React.createClass({
                     <Casting id={id} />
                 </ScrollspyContainer>
                 <Popin ref='commentsModal' size='medium' type='from-right'>
-                    {'toto'}
+                    
                 </Popin>
             </div>
         );

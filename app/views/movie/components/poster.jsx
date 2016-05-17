@@ -7,7 +7,7 @@ import {component as Modal} from 'focus-components/application/popin';
 
 import FocusFile from 'focus-file';
 
-class ComposantAuDessusQuiAfficheLaListeDesFichiersTeleversesDepuisFocusFileSansS extends Component {
+class AddedFile extends Component {
     render() {
         return (
             <div>
@@ -75,9 +75,9 @@ export default React.createClass({
                             <img alt={title} src={poster} title={title} />
                         </Modal>
                         <Modal className='modal-upload-poster' ref='modal-upload-poster'>
-                            <ComposantAuDessusQuiAfficheLaListeDesFichiersTeleversesDepuisFocusFileSansS fichier={this.state.fichier}/>
+                            <AddedFile fichier={this.state.fichier}/>
                             <div className="FocusFile">
-                                <FocusFile ref="camembert" url="http://localhost:9998/upload" onFileSuccess={this.onFileSuccess} onFileComplete={this.onFileComplete}
+                                <FocusFile url="http://localhost:9998/upload" onFileSuccess={this.onFileSuccess} onFileComplete={this.onFileComplete}
                                     maxFiles={1} acceptedFiles={"image/jpeg,image/png,image/gif"} resize={this.resizeUploadedPoster}/>
                             </div>
                             <button onClick={this.validatePoster}>OK</button>
