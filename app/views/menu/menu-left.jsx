@@ -21,26 +21,18 @@ export default React.createClass({
     },
     _getMenuItems() {
         return [
-            { icon:'home', onClick:() => { this._onHomeClick(); } }, // route: 'home'
+            { icon:'home', route: '/' }, // route: 'home'
             { icon:'search', onClick:() => { this._onQuickSearchModalToggle() }},
-            { icon:'build', onClick:() => { this._onAdminClick(); } }
+            { icon:'build', route: '/admin/masterdata' }
         ];
     },
 
     _onHomeClick() {
         this._onMenuItemClick();
         browserHistory.push('/');
-        // history.navigate('#', true);
         window.scrollTo(0, 0);
     },
-
-    _onAdminClick() {
-        this._onMenuItemClick();
-        browserHistory.push('/admin/masterdata');
-        // history.navigate('#admin/masterdata', true);
-        window.scrollTo(0, 0);
-    },
-
+    
     _onMenuItemClick() {
         this.setState({
             isQuickSearchModalOpen: false
