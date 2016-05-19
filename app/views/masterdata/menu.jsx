@@ -1,6 +1,6 @@
 import React from 'react';
 import {translate} from 'focus-core/translation';
-import {Link} from 'react-router';
+import {Link} from 'focus-core/history';
 
 const links = [
     { reference:'countries', href: '/admin/masterdata/countries', title: 'view.admin.masterdata.countries'},
