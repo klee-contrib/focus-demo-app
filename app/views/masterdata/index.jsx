@@ -79,6 +79,7 @@ export default React.createClass({
     render() {
         const {reference, ReferenceComponent} = this.props;
         const ref = this.props.routes[this.props.routes.length-1].path;
+        window.scrollTo(0, 0);
         return (
             <div data-demo='masterdata'>
                 <div data-demo='masterdata--nav'>
