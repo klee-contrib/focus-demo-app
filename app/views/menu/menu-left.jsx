@@ -32,7 +32,7 @@ export default React.createClass({
         browserHistory.push('/');
         window.scrollTo(0, 0);
     },
-    
+
     _onMenuItemClick() {
         this.setState({
             isQuickSearchModalOpen: false
@@ -69,7 +69,7 @@ export default React.createClass({
         const {isQuickSearchModalOpen} = this.state;
         return (
             <div>
-                <Menu onPopinClose={this._onQuickSearchModalToggle} items={items} handleBrandClick={this._onHomeClick} />
+                <Menu onPopinClose={this._onQuickSearchModalToggle} items={items} handleBrandClick={this._onHomeClick} reactRouterNavigation={true}/>
                 {isQuickSearchModalOpen &&
                     <div data-demo='quick-search-area'>
                         <Modal open={true} type='from-menu'>
