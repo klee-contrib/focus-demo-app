@@ -2,12 +2,12 @@ import React from 'react';
 
 // Browser  History make react-router works with the router
 import {browserHistory} from 'react-router';
-
-import history from 'focus-core/history';
+import {navigate} from 'focus-core/history';
 import Menu from 'focus-components/components/menu';
 import {component as Modal} from 'focus-components/application/popin';
 import {quickSearchStore} from 'focus-core/search/built-in-store';
 import dispatcher from 'focus-core/dispatcher';
+import {Link} from 'react-router';
 
 //custom web component
 import QuickSearchView from '../search/quick';
@@ -29,7 +29,7 @@ export default React.createClass({
 
     _onHomeClick() {
         this._onMenuItemClick();
-        browserHistory.push('/');
+        navigate('/');
         window.scrollTo(0, 0);
     },
 
@@ -69,7 +69,7 @@ export default React.createClass({
         const {isQuickSearchModalOpen} = this.state;
         return (
             <div>
-                <Menu onPopinClose={this._onQuickSearchModalToggle} items={items} handleBrandClick={this._onHomeClick} reactRouterNavigation={true}/>
+                <Menu onPopinClose={this._onQuickSearchModalToggle} items={items} handleBrandClick={this._onHomeClick} navigate={navigate} LinkComponent={Link}/>
                 {isQuickSearchModalOpen &&
                     <div data-demo='quick-search-area'>
                         <Modal open={true} type='from-menu'>

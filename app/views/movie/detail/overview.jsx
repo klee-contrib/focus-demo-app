@@ -4,7 +4,7 @@ import React, {PropTypes} from 'react';
 // web components
 import Panel from 'focus-components/components/panel';
 import {mixin as formPreset} from 'focus-components/common/form';
-import {component as Button} from 'focus-components/common/button/action';
+import {Button} from 'focus-components/components';
 import {component as Modal} from 'focus-components/application/popin';
 import {translate} from 'focus-core/translation';
 
@@ -23,7 +23,8 @@ export default React.createClass({
     /**
      * Open the trailer popin.
      */
-    openTrailerPopin() {
+    openTrailerPopin(event) {
+        console.log(event);
         this.refs['modal-trailer'].toggleOpen();
     },
     // pourcentage de complétude<br/>

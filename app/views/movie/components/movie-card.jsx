@@ -1,10 +1,9 @@
 //libraries
 import React, {PropTypes} from 'react';
 import {translate} from 'focus-core/translation';
-import history from 'focus-core/history';
 import {component as Icon} from 'focus-components/common/icon';
 import moment from 'moment';
-import {Link} from 'focus-core/history';
+import {Link} from 'react-router';
 
 //web components
 import {component as Button} from 'focus-components/common/button/action';

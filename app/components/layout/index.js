@@ -9,7 +9,7 @@ const AppLayout = (props) => (
         <Layout MenuLeft={DemoMenuLeft} Footer={DemoFooter}>
             {props.children}
         </Layout>
-        <DevTools/>
+        {/*<DevTools/>*/}
     </div>
 )
 
