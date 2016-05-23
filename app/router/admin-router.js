@@ -1,9 +1,9 @@
 import application from 'focus-core/application';
-import router from 'focus-core/router';
+import {getRouterFunction} from 'focus-core/router/router';
 import MasterdataTemplate from '../views/masterdata';
 import MasterdataCountries from '../views/masterdata/country';
 
-export default router.extend({
+export default getRouterFunction().extend({
     log: true,
     beforeRoute() {
         application.changeRoute('admin');

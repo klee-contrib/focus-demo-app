@@ -1,4 +1,4 @@
-import history from 'focus-core/history';
+import history from 'focus-core/history/history';
 import {registerRoutes} from './router';
 
 export default function startApp() {

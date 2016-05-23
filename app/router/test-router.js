@@ -1,8 +1,8 @@
 import application from 'focus-core/application';
-import router from 'focus-core/router';
+import {getRouterFunction} from 'focus-core/router/router';
 import ErorView from '../views/test/error';
 
-export default router.extend({
+export default getRouterFunction().extend({
     log: true,
     beforeRoute() {
         application.changeRoute('test');
