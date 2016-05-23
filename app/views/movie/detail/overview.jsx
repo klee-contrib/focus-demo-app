@@ -23,8 +23,7 @@ export default React.createClass({
     /**
      * Open the trailer popin.
      */
-    openTrailerPopin(event) {
-        console.log(event);
+    openTrailerPopin() {
         this.refs['modal-trailer'].toggleOpen();
     },
     // pourcentage de complétude<br/>

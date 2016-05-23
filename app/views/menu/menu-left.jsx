@@ -28,7 +28,6 @@ export default React.createClass({
     },
 
     _onHomeClick() {
-        this._onMenuItemClick();
         navigate('/');
         window.scrollTo(0, 0);
     },
