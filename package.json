@@ -22,7 +22,7 @@
     "watch": "better-npm-run watch",
     "mocked-api": "node api/index.js",
     "profile": "better-npm-run profile",
-    "test": "return  0",
+    "test": "mocha --timeout 20000",
     "gh-pages": "git fetch && git reset --hard origin/develop && git clean -f ./** && git branch -D gh-pages && git checkout -b gh-pages && npm run bundle && git add . && git commit -m 'gh-pages release' && git push --set-upstream origin gh-pages -f && git checkout develop"
   },
   "main": "app/index.js",
