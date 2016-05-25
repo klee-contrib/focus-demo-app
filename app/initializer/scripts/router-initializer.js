@@ -4,6 +4,6 @@ import history from 'focus-core/history/history';
 import Backbone from 'backbone';
 
 export default () => {
-    setRouterFunction(Backbone.Router);
+    // setRouterFunction(Backbone.Router);
     setNavigationFunctions(history.navigate, history.history.back);
 }

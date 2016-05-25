@@ -1,8 +1,8 @@
 import application from 'focus-core/application';
-import {getRouterFunction} from 'focus-core/router/router';
+import router from 'focus-core/router';
 import PersonDetailView from '../views/person/detail';
 
-export default getRouterFunction().extend({
+export default router.extend({
     log: true,
     beforeRoute() {
         application.changeRoute('persons');
