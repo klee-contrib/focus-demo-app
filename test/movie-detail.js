@@ -35,6 +35,39 @@ const testGenerator = browsers => {
                     done();
                 });
             });
+            it('Check edit/consult mode', done => {
+                var _this = this;
+                //On attend que les elements se chargent avant de cliquer
+                this.browser.wait(function() {
+                    return _this.browser.isElementPresent(webdriver.By.css('form .actions button[alt="Modifier"]'));
+                }, 5000);
+                //On verifie qu'il n'y a aucun champ input en mode consult
+                var noInput;
+                try {
+                    this.browser.findElement(webdriver.By.css('form input'));
+                    noInput = false;
+                    console.info('je susisisi  iicicici');
+                }catch (e) {
+                    noInput = true;
+                    console.info('je susisisi  iicicici erreur');
+                 }
+                assert.equal(noInput, true);
+                const editButton = this.browser.findElement(webdriver.By.css('form .actions button[alt="Modifier"]'));
+                editButton.click();
+                //timeoutOn attend que le formulaire passe en mode edit
+                this.browser.wait(function() {
+                    return _this.browser.isElementPresent(webdriver.By.css('form .actions button[alt="Abandonner"]'));
+                }, 5000);
+                //On verifie qu'il y a au moins un champ input en mode edit
+                try {
+                    this.browser.findElement(webdriver.By.css('form input'));
+                    noInput = false;
+                } catch (e) {
+                    noInput = true;
+                }
+                assert.equal(noInput, false);
+                done();
+            });
         });
     });
 };
