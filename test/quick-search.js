@@ -18,13 +18,17 @@ const testGenerator = browsers => {
                 CreateAndQuitBrowser.quitBrowser(this);
             });
             it('Check quick search panel', done => {
+                var _this = this;
+                //On attend que la page d'accueil se charge avant de cliquer
+                this.browser.wait(function() {
+                    return _this.browser.isElementPresent(webdriver.By.css('[data-focus="menu-items"] li:nth-child(2)'));
+                }, 5000);
                 const quickSearchMenu = this.browser.findElement(webdriver.By.css('[data-focus="menu-items"] li:nth-child(2)'));
                 quickSearchMenu.click();
-                var _this = this;
                 //On met un timeout pour attendre que la page s'affiche
                 this.browser.wait(function() {
                     return _this.browser.isElementPresent(webdriver.By.css('[data-demo="quick-search-view"] h5'));
-                }, 1000);
+                }, 5000);
                 const qsTitle = this.browser.findElement(webdriver.By.css('[data-demo="quick-search-view"] h5'));
                 qsTitle.getText().then(txt => {
                     assert.equal(txt, 'Recherche rapide');

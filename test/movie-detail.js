@@ -18,16 +18,20 @@ const testGenerator = browsers => {
                 CreateAndQuitBrowser.quitBrowser(this);
             });
             it('Movie detail page', done => {
+                var _this = this;
+                //On attend que la page d'accueil se charge avant de cliquer
+                this.browser.wait(function() {
+                    return _this.browser.isElementPresent(webdriver.By.css('[data-demo="concept-card-list"] button:nth-child(2)'));
+                }, 5000);
                 const consultBtn = this.browser.findElement(webdriver.By.css('[data-demo="concept-card-list"] button:nth-child(2)'));
                 consultBtn.click();
-                var _this = this;
-                //On met un timeout pour attendre que la page s'affiche
+                //On met un timeout pour attendre que la page de detail s'affiche
                 this.browser.wait(function() {
                     return _this.browser.isElementPresent(webdriver.By.css('[data-focus="header-content"] .key-concept'));
                 }, 5000);
                 const qsTitle = this.browser.findElement(webdriver.By.css('[data-focus="header-content"] .key-concept'));
                 qsTitle.getText().then(txt => {
-                    assert.equal(txt, 'Film');
+                    assert.equal(txt, 'FILM');
                     done();
                 });
             });
