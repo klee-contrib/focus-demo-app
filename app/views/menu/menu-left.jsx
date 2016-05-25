@@ -1,5 +1,5 @@
 import React from 'react';
-import history from 'focus-core/history';
+import {navigate} from 'focus-core/history';
 import Menu from 'focus-components/components/menu';
 import {component as Modal} from 'focus-components/application/popin';
 import {quickSearchStore} from 'focus-core/search/built-in-store';
@@ -25,12 +25,12 @@ export default React.createClass({
 
     _onHomeClick() {
         this._onMenuItemClick();
-        history.navigate('#', true);
+        navigate('#', true);
     },
 
     _onAdminClick() {
         this._onMenuItemClick();
-        history.navigate('#admin/masterdata', true);
+        navigate('#admin/masterdata', true);
     },
 
     _onMenuItemClick() {
