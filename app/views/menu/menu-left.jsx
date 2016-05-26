@@ -4,7 +4,6 @@ import Menu from 'focus-components/components/menu';
 import {component as Modal} from 'focus-components/application/popin';
 import {quickSearchStore} from 'focus-core/search/built-in-store';
 import dispatcher from 'focus-core/dispatcher';
-import {history} from 'backbone';
 
 //custom web component
 import QuickSearchView from '../search/quick';
@@ -18,7 +17,7 @@ export default React.createClass({
     },
     _getMenuItems() {
         return [
-            { icon:'home', route: '#test' }, // route: 'home'
+            { icon:'home', route: '#' }, // route: 'home'
             { icon:'search', onClick:() => { this._onQuickSearchModalToggle() }},
             { icon:'build', onClick:() => { this._onAdminClick(); } }
         ];
@@ -26,12 +25,12 @@ export default React.createClass({
 
     _onHomeClick() {
         this._onMenuItemClick();
-        history.navigate('#', true);
+        navigate('#', true);
     },
 
     _onAdminClick() {
         this._onMenuItemClick();
-        history.navigate('#admin/masterdata', true);
+        navigate('#admin/masterdata', true);
     },
 
     _onMenuItemClick() {
