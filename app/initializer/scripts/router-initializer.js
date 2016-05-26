@@ -5,5 +5,4 @@ import Backbone, {history} from 'backbone';
 export default () => {
     setRouterFunction(Backbone.Router);
     setNavigationFunctions(history.navigate, history.history.back);
-
 }

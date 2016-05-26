@@ -1,5 +1,5 @@
 import React from 'react';
-import {history} from 'focus-core/history';
+import {navigate} from 'focus-core/history';
 import CoreStore from 'focus-core/store/CoreStore';
 
 // web components

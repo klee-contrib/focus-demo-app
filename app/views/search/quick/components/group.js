@@ -2,7 +2,7 @@
 import React, {PropTypes, Component} from 'react';
 import Translation from 'focus-components/behaviours/translation';
 import formatter from  'focus-core/definition/formatter/number';
-import history from 'focus-core/history';
+import {history} from 'focus-core/history';
 import {quickSearchStore} from 'focus-core/search/built-in-store';
 import dispatcher from 'focus-core/dispatcher';
 
@@ -42,7 +42,7 @@ class QuickSearchGroup extends Component {
         if(showAllHandler){
             showAllHandler();
         }
-        history.navigate('#search/advanced', true);
+        navigate('#search/advanced', true);
         window.scrollTo(0, 0);
     }
 
