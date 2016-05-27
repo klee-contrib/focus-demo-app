@@ -1,4 +1,4 @@
-import history from 'focus-core/history';
+import {navigate} from 'focus-core/history';
 
 //TODO : à revoir avec Pierre et Nicolas => comment je connais le type de ligne ???
 export default function onLineClick(data) {
@@ -13,6 +13,6 @@ export default function onLineClick(data) {
     if(isPerson) {
         url = `#persons/${code}`;
     }
-    history.navigate(url, true);
+    navigate(url, true);
     window.scrollTo(0, 0);
 }
