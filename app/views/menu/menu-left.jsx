@@ -17,7 +17,7 @@ export default React.createClass({
     },
     _getMenuItems() {
         return [
-            { icon:'home', route: '#', onClick: () => {console.log('Hello')} }, // route: 'home'
+            { icon:'home', route: '#'}, // route: 'home'
             { icon:'search', onClick:() => { this._onQuickSearchModalToggle() }},
             { icon:'build', onClick:() => { this._onAdminClick(); } }
         ];

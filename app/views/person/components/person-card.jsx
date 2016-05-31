@@ -3,7 +3,7 @@ import React, {PropTypes} from 'react';
 import {navigate} from 'focus-core/history';
 
 //web components
-import {component as Button} from 'focus-components/common/button/action';
+import {Button} from 'focus-components/components';
 
 function PersonCard({onClickPreview, person}) {
     const {code, leadActor, linked, name, photoURL, role, existsInBdd} = person;

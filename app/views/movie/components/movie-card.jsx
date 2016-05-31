@@ -2,11 +2,11 @@
 import React, {PropTypes} from 'react';
 import {translate} from 'focus-core/translation';
 import {navigate} from 'focus-core/history';
-import {component as Icon} from 'focus-components/common/icon';
+import {Icon} from 'focus-components/components';
 import moment from 'moment';
 
 //web components
-import {component as Button} from 'focus-components/common/button/action';
+import {Button} from 'focus-components/components';
 
 export default React.createClass({
     displayName: 'MovieCard',

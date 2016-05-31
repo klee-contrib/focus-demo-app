@@ -4,7 +4,7 @@ import React, {PropTypes} from 'react';
 // web components
 import Panel from 'focus-components/components/panel';
 import {mixin as formPreset} from 'focus-components/common/form';
-import {component as Button} from 'focus-components/common/button/action';
+import {Button} from 'focus-components/components';
 import {translate} from 'focus-core/translation';
 
 //stores & actions
