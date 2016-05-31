@@ -1,8 +1,8 @@
 import {registerRoutes} from './router';
-import {start} from 'focus-core/router/router'
+import {start} from 'focus-core/history'
 
 export default function startApp() {
-
+    
     //Start the application.
     console.log('Loading all the routes...');
     registerRoutes();
