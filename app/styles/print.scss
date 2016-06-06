@@ -75,6 +75,9 @@
           border: 1px solid #C0C0C0;
       }
     }
+    &:nth-child(4n) {
+      page-break-after: always;
+    }
   }
   [data-demo='print'] {
       display: block;
@@ -148,6 +151,12 @@
     }
     [data-demo="trailer"] {
       display: none;
+    }
+    [data-demo='print-page-breaker'] {
+      page-break-after: always;
+      &:last-child {
+        page-break-after: auto;
+      }
     }
   }
 }

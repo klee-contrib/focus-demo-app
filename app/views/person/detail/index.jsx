@@ -57,15 +57,19 @@ export default React.createClass({
         const {id} = this.props;
         return (
             <ScrollspyContainer gridContentSize={10} gridMenuSize={2}>
-                {/* Bloc header dupliqué juste pour print*/}
-                <div data-demo='print'>
-                    <HeaderExpanded hasLoad={false}/>
+                <div data-demo='print-page-breaker'>
+                    {/* Bloc header dupliqué juste pour print*/}
+                    <div data-demo='print'>
+                        <HeaderExpanded hasLoad={false}/>
+                    </div>
+                    <div data-demo='detail-overview'>
+                      <Overview hasLoad={false} hasForm={false} />
+                    </div>
+                    <Identity id={id} />
                 </div>
-                <div data-demo='detail-overview'>
-                  <Overview hasLoad={false} hasForm={false} />
+                <div data-demo='print-page-breaker'>
+                    <Biography id={id} />
                 </div>
-                <Identity id={id} />
-                <Biography id={id} />
                 <Movies id={id} />
             </ScrollspyContainer>
         );

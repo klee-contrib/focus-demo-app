@@ -54,17 +54,23 @@ export default React.createClass({
         return (
             <ScrollspyContainer gridContentSize={10} gridMenuSize={2}>
                 {/* Bloc header dupliqué juste pour print*/}
-                <div data-demo='print'>
-                    <HeaderExpanded hasLoad={false}/>
+                <div data-demo='print-page-breaker'>
+                  <div data-demo='print'>
+                      <HeaderExpanded hasLoad={false}/>
+                  </div>
+                  <div data-demo='detail-overview'>
+                    <Overview hasLoad={false} hasForm={false} />
+                  </div>
+                  <Caracteristics id={id} />
+                  <Synopsis id={id} />
                 </div>
-                <div data-demo='detail-overview'>
-                  <Overview hasLoad={false} hasForm={false} />
+                <div data-demo='print-page-breaker'>
+                  <Trailer id={id} />
+                  <Posters id={id} />
                 </div>
-                <Caracteristics id={id} />
-                <Synopsis id={id} />
-                <Trailer id={id} />
-                <Posters id={id} />
-                <Casting id={id} />
+                <div data-demo='print-page-breaker'>
+                  <Casting id={id} />
+                </div>
             </ScrollspyContainer>
         );
     }
