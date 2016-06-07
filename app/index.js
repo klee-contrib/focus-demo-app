@@ -4,6 +4,28 @@ import focusDemoConf from '../package.json';
 import focusCoreConf from 'focus-core/package.json';
 import focusComponentsConf from 'focus-components/package.json';
 
+require.ensure(['./sw'], require => {
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('http://localhost:3000/1.focus-demo-app.js'/*, { scope: '/sw-test/' }*/).then(reg => {
+
+          if(reg.installing) {
+              console.log('Service worker installing');
+          } else if(reg.waiting) {
+              console.log('Service worker installed');
+          } else if(reg.active) {
+              console.log('Service worker active');
+          }
+
+      }).catch(error => {
+          // registration failed
+          console.log('Registration failed with ' + error);
+      });
+    }
+
+  }, 'sw');
+
+
+
 console.info(
     `
         FOCUS DEMO
