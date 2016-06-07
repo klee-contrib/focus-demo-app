@@ -7,6 +7,7 @@ import storesInitializer from './scripts/stores-initializer';
 import userInitializer from './scripts/user-initializer';
 import layoutInitializer from './scripts/layout-initializer';
 import headerInitializer from './scripts/header-initializer'
+import routerInitializer from './scripts/router-initializer'
 
 
 /**
@@ -19,4 +20,5 @@ export const initialize = () => {
     userInitializer();
     layoutInitializer();
     headerInitializer();
+    routerInitializer();
 };

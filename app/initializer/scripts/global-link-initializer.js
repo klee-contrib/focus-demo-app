@@ -1,6 +1,6 @@
 // TODO rewrite : remove jquery
 import $ from 'jquery';
-import history from 'focus-core/history';
+import {navigate} from 'focus-core/history';
 
 export default () => {
     console.info('|--- GLOBAL LINKS');
@@ -11,7 +11,7 @@ export default () => {
 
         if (href.prop && href.prop.slice(0, root.length) === root) {
             evt.preventDefault();
-            history.navigate(href.attr, true);
+            navigate(href.attr, true);
         }
     });
 }

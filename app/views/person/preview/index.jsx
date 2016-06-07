@@ -1,10 +1,10 @@
 //libraries
 import React, {PropTypes} from 'react';
 import {translate} from 'focus-core/translation';
-import history from 'focus-core/history';
+import {navigate} from 'focus-core/history';
 
 // web components
-import {component as Button} from 'focus-components/common/button/action';
+import {Button} from 'focus-components/components';
 import builtInComponents from 'focus-components/common/mixin/built-in-components';
 import definitionMixin from 'focus-components/common/mixin/definition';
 import storeBehaviour from 'focus-components/common/mixin/store-behaviour';
@@ -42,7 +42,7 @@ export default React.createClass({
     },
 
     navigate() {
-        history.navigate(`persons/${this.props.id}`, true);
+        navigate(`persons/${this.props.id}`, true);
         window.scrollTo(0, 0);
     },
 

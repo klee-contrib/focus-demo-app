@@ -1,12 +1,12 @@
 //libraries
 import React, {PropTypes} from 'react';
 import {translate} from 'focus-core/translation';
-import history from 'focus-core/history';
-import {component as Icon} from 'focus-components/common/icon';
+import {navigate} from 'focus-core/history';
+import {Icon} from 'focus-components/components';
 import moment from 'moment';
 
 //web components
-import {component as Button} from 'focus-components/common/button/action';
+import {Button} from 'focus-components/components';
 
 export default React.createClass({
     displayName: 'MovieCard',
@@ -67,7 +67,7 @@ export default React.createClass({
                 { showButtons &&
                   <div className='mdl-card__actions mdl-card--border'>
                       {onClickPreview && <Button shape={null} label='view.movie.action.preview' handleOnClick={() => onClickPreview(+code)} />}
-                      <Button shape={null} label='view.movie.action.consult.sheet' handleOnClick={() => history.navigate(`movies/${code}`, true)} />
+                      <Button shape={null} label='view.movie.action.consult.sheet' handleOnClick={() => navigate(`movies/${code}`, true)} />
                   </div>
                 }
             </div>

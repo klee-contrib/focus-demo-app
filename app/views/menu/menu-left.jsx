@@ -1,5 +1,5 @@
 import React from 'react';
-import history from 'focus-core/history';
+import {navigate} from 'focus-core/history';
 import Menu from 'focus-components/components/menu';
 import {component as Modal} from 'focus-components/application/popin';
 import {quickSearchStore} from 'focus-core/search/built-in-store';
@@ -17,7 +17,7 @@ export default React.createClass({
     },
     _getMenuItems() {
         return [
-            { icon:'home', onClick:() => { this._onHomeClick(); } }, // route: 'home'
+            { icon:'home', route: '#'}, // route: 'home'
             { icon:'search', onClick:() => { this._onQuickSearchModalToggle() }},
             { icon:'build', onClick:() => { this._onAdminClick(); } }
         ];
@@ -25,12 +25,13 @@ export default React.createClass({
 
     _onHomeClick() {
         this._onMenuItemClick();
-        history.navigate('#', true);
+        navigate('#', true);
     },
 
     _onAdminClick() {
         this._onMenuItemClick();
-        history.navigate('#admin/masterdata', true);
+        navigate('#admin/masterdata', true);
+        console.log('HEY THERE');
     },
 
     _onMenuItemClick() {
@@ -69,7 +70,7 @@ export default React.createClass({
         const {isQuickSearchModalOpen} = this.state;
         return (
             <div>
-                <Menu onPopinClose={this._onQuickSearchModalToggle} items={items} handleBrandClick={this._onHomeClick} />
+                <Menu onPopinClose={this._onQuickSearchModalToggle} items={items} handleBrandClick={this._onHomeClick} navigate={navigate}/>
                 {isQuickSearchModalOpen &&
                     <div data-demo='quick-search-area'>
                         <Modal open={true} type='from-menu'>

@@ -1,5 +1,5 @@
 import application from 'focus-core/application';
-import router from 'focus-core/router';
+import router from './demo-default-router';
 import ErorView from '../views/test/error';
 
 export default router.extend({

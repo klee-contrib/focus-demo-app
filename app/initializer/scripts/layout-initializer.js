@@ -8,7 +8,7 @@ export default () => {
     console.info('|--- LAYOUT');
 
     const CustomLayout = (props) => {
-      return <div><Layout MenuLeft={DemoMenuLeft} Footer={DemoFooter} /> <DevTools/></div>
+      return <div><Layout MenuLeft={DemoMenuLeft} Footer={DemoFooter} /></div>
     }
 
     render(CustomLayout, `.${__ANCHOR_CLASS__}`);

@@ -1,5 +1,5 @@
 import application from 'focus-core/application';
-import router from 'focus-core/router';
+import router from './demo-default-router';
 import AdvancedSearchView from '../views/search/advanced';
 import dispatcher from 'focus-core/dispatcher';
 
