@@ -1,5 +1,6 @@
 import React from 'react';
 import history from 'focus-core/history';
+import {browserHistory} from 'react-router';
 import CoreStore from 'focus-core/store/CoreStore';
 
 // web components
@@ -17,7 +18,8 @@ export default React.createClass({
     mixins: [cartridgeBehaviour],
     /** @inheritDoc */
     _navigateAdvancedSearch() {
-        history.navigate('#search/advanced', true);
+        browserHistory.push('/search/advanced');
+        //history.navigate('#search/advanced', true);
     },
 
     /**

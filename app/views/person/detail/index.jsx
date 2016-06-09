@@ -3,8 +3,9 @@ import React, {PropTypes} from 'react';
 
 // web components
 import ScrollspyContainer from 'focus-components/components/scrollspy-container';
-import {component as BackButton} from 'focus-components/common/button/back';
+import {ButtonBack} from 'focus-components/components';
 import {cartridgeBehaviour} from 'focus-components/page/mixin';
+import {back} from 'focus-core/history';
 
 //views
 import HeaderExpanded from './header-content-expanded';
@@ -34,7 +35,7 @@ export default React.createClass({
     cartridgeConfiguration() {
         const props = { hasLoad: false }; //{id: this.props.id};
         return {
-            barLeft: { component: BackButton },
+            barLeft: {component: ButtonBack, props: {back: back} },
             cartridge: { component: HeaderExpanded, props },
             summary: { component: HeaderSummary, props },
             actions: {

@@ -6,8 +6,19 @@ import {cartridgeBehaviour} from 'focus-components/page/mixin';
 import MasterdataMenu from './menu';
 import MasterdataHome from './home';
 
-function TitleCartridge({reference}) {
-    const title = `view.admin.masterdata.${reference ? reference : 'title'}`;
+function getReference() {
+    const path = window.location.pathname;
+    const pathParams = path.split('/');
+    const pageRef = pathParams[pathParams.length-1];
+    return pageRef;
+}
+
+function TitleCartridge() {
+    let reference = getReference();
+    const title = `view.admin.masterdata.${reference !== 'masterdata' ? reference : 'title'}`;
+    if(reference === 'masterdata') {
+        reference = null;
+    }
     return (
         <div data-demo='masterdata-title'>
             {reference && <h6>{translate('view.admin.masterdata.title')}</h6>}
@@ -16,8 +27,9 @@ function TitleCartridge({reference}) {
     );
 }
 
-function TitleSummary({reference}) {
-    const title = `view.admin.masterdata.${reference ? reference : 'title'}`;
+function TitleSummary() {
+    let reference = getReference();
+    const title = `view.admin.masterdata.${reference !== 'masterdata' ? reference : 'title'}`;
     return (
         <div data-demo='masterdata-title'>
             <h4>{translate(title)}</h4>
@@ -39,7 +51,6 @@ export default React.createClass({
             ReferenceComponent: MasterdataHome
         };
     },
-
 
     /**
     * Related to the CartridgeBehaviour.
@@ -67,13 +78,15 @@ export default React.createClass({
     /** @inheritDoc */
     render() {
         const {reference, ReferenceComponent} = this.props;
+        const ref = this.props.routes[this.props.routes.length-1].path;
+        window.scrollTo(0, 0);
         return (
             <div data-demo='masterdata'>
                 <div data-demo='masterdata--nav'>
-                    <MasterdataMenu reference={reference} />
+                    <MasterdataMenu reference={ref} />
                 </div>
                 <div data-demo='masterdata--component'>
-                    <ReferenceComponent />
+                    {this.props.children || <ReferenceComponent />}
                 </div>
             </div>
         );

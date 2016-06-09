@@ -1,9 +1,13 @@
 import React from 'react';
-import history from 'focus-core/history';
+
+// Browser  History make react-router works with the router
+import {browserHistory} from 'react-router';
+import {navigate} from 'focus-core/history';
 import Menu from 'focus-components/components/menu';
 import {component as Modal} from 'focus-components/application/popin';
 import {quickSearchStore} from 'focus-core/search/built-in-store';
 import dispatcher from 'focus-core/dispatcher';
+import {Link} from 'react-router';
 
 //custom web component
 import QuickSearchView from '../search/quick';
@@ -17,20 +21,15 @@ export default React.createClass({
     },
     _getMenuItems() {
         return [
-            { icon:'home', onClick:() => { this._onHomeClick(); } }, // route: 'home'
+            { icon:'home', route: '/' }, // route: 'home'
             { icon:'search', onClick:() => { this._onQuickSearchModalToggle() }},
-            { icon:'build', onClick:() => { this._onAdminClick(); } }
+            { icon:'build', route: '/admin/masterdata' }
         ];
     },
 
     _onHomeClick() {
-        this._onMenuItemClick();
-        history.navigate('#', true);
-    },
-
-    _onAdminClick() {
-        this._onMenuItemClick();
-        history.navigate('#admin/masterdata', true);
+        navigate('/');
+        window.scrollTo(0, 0);
     },
 
     _onMenuItemClick() {
@@ -69,7 +68,7 @@ export default React.createClass({
         const {isQuickSearchModalOpen} = this.state;
         return (
             <div>
-                <Menu onPopinClose={this._onQuickSearchModalToggle} items={items} handleBrandClick={this._onHomeClick} />
+                <Menu onPopinClose={this._onQuickSearchModalToggle} items={items} handleBrandClick={this._onHomeClick} navigate={navigate} LinkComponent={Link}/>
                 {isQuickSearchModalOpen &&
                     <div data-demo='quick-search-area'>
                         <Modal open={true} type='from-menu'>

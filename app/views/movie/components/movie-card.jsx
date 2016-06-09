@@ -1,9 +1,9 @@
 //libraries
 import React, {PropTypes} from 'react';
 import {translate} from 'focus-core/translation';
-import history from 'focus-core/history';
 import {component as Icon} from 'focus-components/common/icon';
 import moment from 'moment';
+import {Link} from 'react-router';
 
 //web components
 import {component as Button} from 'focus-components/common/button/action';
@@ -65,10 +65,12 @@ export default React.createClass({
                     </div>
                 </div>
                 { showButtons &&
-                  <div className='mdl-card__actions mdl-card--border'>
-                      {onClickPreview && <Button shape={null} label='view.movie.action.preview' handleOnClick={() => onClickPreview(+code)} />}
-                      <Button shape={null} label='view.movie.action.consult.sheet' handleOnClick={() => history.navigate(`movies/${code}`, true)} />
-                  </div>
+                    <div className='mdl-card__actions mdl-card--border'>
+                        {onClickPreview && <Button shape={null} label='view.movie.action.preview' handleOnClick={() => onClickPreview(+code)} />}
+                        <Link to={`movies/${code}`}>
+                            <Button shape={null} label='view.movie.action.consult.sheet' />
+                        </Link>
+                    </div>
                 }
             </div>
         );
