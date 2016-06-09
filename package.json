@@ -92,7 +92,7 @@
                 "API_PORT": 8080,
                 "OUTPUT_DIR": "./public",
                 "LOCAL_FOCUS": false,
-                "LEGACY_SEARCH_API": true,
+                "LEGACY_SEARCH_API": false,
                 "SOURCE_MAPS": false,
                 "BASE_URL": "/"
             }
