@@ -1,6 +1,6 @@
 //libraries
 import React, {PropTypes} from 'react';
-import history from 'focus-core/history';
+import {navigate} from 'focus-core/history';
 import {Link} from 'react-router';
 
 //web components
@@ -8,6 +8,7 @@ import {component as Button} from 'focus-components/common/button/action';
 
 function PersonCard({onClickPreview, person}) {
     const {code, leadActor, linked, name, photoURL, role, existsInBdd} = person;
+    console.log('PERSON CODE', code);
     const showButtons = false !== existsInBdd;
     return (
         <div className='mdl-card mdl-shadow--4dp person-card' data-demo='material-card'>
@@ -30,9 +31,7 @@ function PersonCard({onClickPreview, person}) {
             { showButtons &&
               <div className='mdl-card__actions mdl-card--border'>
                   {onClickPreview && <Button shape={null} label='view.person.action.preview' handleOnClick={() => onClickPreview(+code)} />}
-                  <Link to={`persons/${code}`}>
-                      <Button shape={null} label='view.person.action.consult.sheet' />
-                  </Link>
+                      <Button shape={null} label='view.person.action.consult.sheet' onClick={() => {navigate(`/persons/${code}`)}} />
               </div>
             }
         </div>

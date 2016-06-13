@@ -1,7 +1,7 @@
 //libraries
 import React, {PropTypes} from 'react';
 import {translate} from 'focus-core/translation';
-import history from 'focus-core/history';
+import {navigate} from 'focus-core/history';
 
 // web components
 import {component as Button} from 'focus-components/common/button/action';
@@ -38,12 +38,7 @@ export default React.createClass({
     },
 
     onPopinClose() {
-        this.props.onPopinClose(this.navigate);
-    },
-
-    navigate() {
-        history.navigate(`persons/${this.props.id}`, true);
-        window.scrollTo(0, 0);
+        this.props.onPopinClose(navigate(`/persons/${this.props.id}`));
     },
 
     /** @inheritDoc */

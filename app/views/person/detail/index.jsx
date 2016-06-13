@@ -26,6 +26,10 @@ export default React.createClass({
     componentWillMount() {
         this._registerCartridge();
     },
+    
+    componentDidMount() {
+        window.scrollTo(0, 0);
+    },
 
     /**
     * Related to the CartridgeBehaviour.
