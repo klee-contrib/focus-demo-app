@@ -38,12 +38,7 @@ export default React.createClass({
     },
 
     onPopinClose() {
-        this.props.onPopinClose(this.navigate);
-    },
-
-    navigate() {
-        navigate(`/movies/${this.props.id}`);
-        window.scrollTo(0, 0);
+        this.props.onPopinClose(navigate(`/movies/${this.props.id}`));
     },
 
     /** @inheritDoc */
