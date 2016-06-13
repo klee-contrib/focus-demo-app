@@ -4,7 +4,7 @@ import {navigate} from 'focus-core/history';
 import {Link} from 'react-router';
 
 //web components
-import {component as Button} from 'focus-components/common/button/action';
+import Button from 'focus-components/common/button';
 
 function PersonCard({onClickPreview, person}) {
     const {code, leadActor, linked, name, photoURL, role, existsInBdd} = person;
