@@ -22,7 +22,7 @@ const customConfig = localFocus ? {
 } : {};
 
 const globals = {
-    __API_ROOT__: JSON.stringify(`http://${API_HOST}:${API_PORT}/api/`),
+    __API_ROOT__: JSON.stringify(`http://${API_HOST}:${API_PORT}/`),
     __LEGACY_SEARCH_API__: JSON.stringify(LEGACY_SEARCH_API),
     __BASE_URL__: `'${BASE_URL}'`
 }

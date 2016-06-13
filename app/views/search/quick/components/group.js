@@ -8,7 +8,7 @@ import dispatcher from 'focus-core/dispatcher';
 import {scopesConfig} from '../../../../config/scopes';
 
 //web components
-import {component as Button} from 'focus-components/common/button/action';
+import Button from 'focus-components/common/button';
 
 const propTypes = {
     count: PropTypes.number.isRequired,

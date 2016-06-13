@@ -4,8 +4,6 @@
 ////////////////////////////////////////////////////
 
 export const scopesConfig = {
-    Film: 'movie',
-    Personne: 'person',
-    movie: 'movie',
-    person: 'person'
+    movie: 'Films',
+    person: 'Acteurs'
 };
