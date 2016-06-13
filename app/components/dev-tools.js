@@ -1,4 +1,8 @@
 import React from 'react';
+/**
+ * Here, this was imported for the history.handlers on backbone.
+ * Gotta find what can replace it on React-Router
+ */
 import history from 'focus-core/history';
 import CoreStore from 'focus-core/store/CoreStore';
 import FocusDevTools from 'focus-devtools';

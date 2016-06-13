@@ -1,6 +1,5 @@
 import React from 'react';
-import history from 'focus-core/history';
-import {browserHistory} from 'react-router';
+import {navigate} from 'focus-core/history';
 import CoreStore from 'focus-core/store/CoreStore';
 
 // web components
@@ -17,10 +16,6 @@ export default React.createClass({
     displayName: 'HomeView',
     mixins: [cartridgeBehaviour],
     /** @inheritDoc */
-    _navigateAdvancedSearch() {
-        browserHistory.push('/search/advanced');
-        //history.navigate('#search/advanced', true);
-    },
 
     /**
     * Related to the CartridgeBehaviour.
@@ -31,14 +26,14 @@ export default React.createClass({
         return {
             summary: {
                 component: SummaryPageSearch,
-                props: { onSearchCriteriaChangeByUser: this._navigateAdvancedSearch, service: searchService }
+                props: { onSearchCriteriaChangeByUser: () => {navigate('/search/advanced')}, service: searchService }
             },
             barLeft: {
                 component: DemoTitle
             },
             cartridge: {
                 component: CartridgePageSearch,
-                props: { onSearchCriteriaChangeByUser: this._navigateAdvancedSearch, service: searchService }
+                props: { onSearchCriteriaChangeByUser: () => {navigate('/search/advanced')}, service: searchService }
             },
             actions: {
                 primary: [],

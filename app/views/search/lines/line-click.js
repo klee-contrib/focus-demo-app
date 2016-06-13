@@ -1,5 +1,4 @@
-import history from 'focus-core/history';
-import {browserHistory} from 'react-router';
+import {navigate} from 'focus-core/history';
 
 //TODO : à revoir avec Pierre et Nicolas => comment je connais le type de ligne ???
 export default function onLineClick(data) {
@@ -14,6 +13,6 @@ export default function onLineClick(data) {
     if(isPerson) {
         url = `/persons/${code}`;
     }
-    browserHistory.push(url);
+    navigate(url);
     window.scrollTo(0, 0);
 }

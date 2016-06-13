@@ -67,7 +67,7 @@ export default React.createClass({
                 { showButtons &&
                     <div className='mdl-card__actions mdl-card--border'>
                         {onClickPreview && <Button shape={null} label='view.movie.action.preview' handleOnClick={() => onClickPreview(+code)} />}
-                        <Link to={`movies/${code}`}>
+                        <Link to={`/movies/${code}`}>
                             <Button shape={null} label='view.movie.action.consult.sheet' />
                         </Link>
                     </div>
