@@ -1,7 +1,5 @@
 import React from 'react';
 
-// Browser  History make react-router works with the router
-import {browserHistory} from 'react-router';
 import {navigate} from 'focus-core/history';
 import Menu from 'focus-components/components/menu';
 import {component as Modal} from 'focus-components/application/popin';
@@ -21,9 +19,9 @@ export default React.createClass({
     },
     _getMenuItems() {
         return [
-            { icon:'home', route: '/' }, // route: 'home'
-            { icon:'search', onClick:() => { this._onQuickSearchModalToggle() }},
-            { icon:'build', route: '/admin/masterdata' }
+            { icon: 'home', route: '/' }, // route: 'home'
+            { icon: 'search', onClick: () => { this._onQuickSearchModalToggle() }},
+            { icon: 'build', route: '/admin/masterdata' }
         ];
     },
 
