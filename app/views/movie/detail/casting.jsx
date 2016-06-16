@@ -7,7 +7,7 @@ import reduce from 'lodash/collection/reduce';
 import Panel from 'focus-components/components/panel';
 import {storeBehaviour} from 'focus-components/common/mixin';
 import PersonCardList from '../../person/components/person-card-list';
-import {component as Button} from 'focus-components/common/button/action';
+import Button from 'focus-components/components/button';
 
 //stores & actions
 import movieStore from '../../../stores/movie';
@@ -97,7 +97,7 @@ export default React.createClass({
         return (
           <div data-demo='print'>
             {tabs.map(peopleType =>
-                <div data-demo='section-title'>
+                <div key={`print-section-${peopleType}`} data-demo='section-title'>
                   <div data>{this._getActionLabel(peopleType)}</div>
                   <PersonCardList persons={this._getPeopleByName(peopleType)} />
                 </div>
