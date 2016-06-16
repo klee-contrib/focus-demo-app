@@ -17,6 +17,7 @@ import './field.scss';
 import './footer.scss';
 import './header.scss';
 import './home.scss';
+import './help-center.scss';
 import './list-action-bar.scss';
 import './list-summary.scss';
 import './masterdata.scss';
