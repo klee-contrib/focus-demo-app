@@ -11,10 +11,15 @@ import DemoTitle from '../components/demo-title';
 import CartridgePageSearch from 'focus-components/page/search/search-header/cartridge';
 import SummaryPageSearch from 'focus-components/page/search/search-header/summary';
 import searchService from '../../services/search';
+import HelpCenter from '../help-center/';
 
 export default React.createClass({
     displayName: 'HomeView',
     mixins: [cartridgeBehaviour],
+
+    showHelpcenter() {
+        this.refs.helpCenter.refs.helpFrame.style.display = 'inline'
+    },
     /** @inheritDoc */
 
     /**
@@ -36,7 +41,7 @@ export default React.createClass({
                 props: { onSearchCriteriaChangeByUser: () => {navigate('/search/advanced')}, service: searchService }
             },
             actions: {
-                primary: [],
+                primary: [{label: 'Help Center', icon: 'help_outline', action: () => {this.showHelpcenter()}} ],
                 secondary: []
             }
         };
@@ -46,6 +51,7 @@ export default React.createClass({
     render() {
         return (
             <div data-demo='homepage'>
+                <HelpCenter ref='helpCenter' />
                 <Rankings/>
             </div>
         );
