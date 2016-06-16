@@ -10,13 +10,10 @@ const routes = [
             {
                 path: 'countries',
                 component: CountriesView
-            },
-
-            {
+            }, {
                 path: 'movietype'
                 // component:
-            },
-            {
+            }, {
                 path: 'gender'
                 // component:
             }

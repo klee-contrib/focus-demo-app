@@ -55,7 +55,10 @@ export default {
         }
     },
     result: {
-        for: 'résultat(s) pour'
+        for: 'résultat pour'
+    },
+    results: {
+        for: 'résultats pour'
     },
     search: {
         bar: {

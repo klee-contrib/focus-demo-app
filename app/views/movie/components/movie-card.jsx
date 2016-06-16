@@ -1,12 +1,12 @@
 //libraries
 import React, {PropTypes} from 'react';
 import {translate} from 'focus-core/translation';
-import {component as Icon} from 'focus-components/common/icon';
+import Icon from 'focus-components/components/icon';
 import moment from 'moment';
 import {Link} from 'react-router';
 
 //web components
-import {component as Button} from 'focus-components/common/button/action';
+import Button from 'focus-components/components/button';
 
 export default React.createClass({
     displayName: 'MovieCard',

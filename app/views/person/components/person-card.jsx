@@ -4,11 +4,10 @@ import {navigate} from 'focus-core/history';
 import {Link} from 'react-router';
 
 //web components
-import {component as Button} from 'focus-components/common/button/action';
+import Button from 'focus-components/components/button';
 
 function PersonCard({onClickPreview, person}) {
     const {code, leadActor, linked, name, photoURL, role, existsInBdd} = person;
-    console.log('PERSON CODE', code);
     const showButtons = false !== existsInBdd;
     return (
         <div className='mdl-card mdl-shadow--4dp person-card' data-demo='material-card'>

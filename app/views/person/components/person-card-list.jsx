@@ -33,13 +33,9 @@ export default React.createClass({
         return (
             <div data-demo='concept-card-list'>
                 {persons &&
-                    persons.map(person => {
-                        const {code} = person;
-                        const key = `person-card-${code}`;
-                        return (
-                            <PersonCard key={key} person={person} onClickPreview={personId => this.setState({personCodePreview: personId})} />
-                        );
-                    })
+                    persons.map(person =>
+                        <PersonCard key={`person-card-${person.code}`} person={person} onClickPreview={personId => this.setState({personCodePreview: personId})} />
+                    )
                 }
                 {personCodePreview &&
                     <Modal open={true} onPopinClose={this._closePopin} type='from-right'>
