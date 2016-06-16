@@ -29,7 +29,7 @@ export default class HelpeCenter extends Component {
     render() {
         return (
             <div data-focus='help-center'>
-                <iframe ref='helpFrame' height='40%' width='13%' src='http://localhost:1234/extension.html' onMouseDown={this.mouseDown.bind(this)} onMouseUp={this.mouseUp.bind(this)} style={{cursor: 'move', paddingTop: '20px', zIndex: '999', display: 'none', position: 'absolute', right: '100px', backgroundColor: '#757575'}} >
+                <iframe ref='helpFrame' height='450' width='250' src='http://localhost:1234/extension.html' onMouseDown={this.mouseDown.bind(this)} onMouseUp={this.mouseUp.bind(this)} style={{cursor: 'move', paddingTop: '20px', zIndex: '999', display: 'none', position: 'absolute', right: '100px', backgroundColor: '#757575'}} >
                 </iframe>
             </div>
         );

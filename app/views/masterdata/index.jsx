@@ -5,6 +5,7 @@ import {translate} from 'focus-core/translation';
 import {cartridgeBehaviour} from 'focus-components/page/mixin';
 import MasterdataMenu from './menu';
 import MasterdataHome from './home';
+import HelpCenter from '../help-center/';
 
 function getReference() {
     const path = window.location.pathname;
@@ -51,7 +52,9 @@ export default React.createClass({
             ReferenceComponent: MasterdataHome
         };
     },
-
+    showHelpcenter() {
+        this.refs.helpCenter.refs.helpFrame.style.display = 'inline'
+    },
     /**
     * Related to the CartridgeBehaviour.
     * Define the cartridge configuration.
@@ -69,7 +72,7 @@ export default React.createClass({
                 props: { reference }
             },
             actions: {
-                primary: [],
+                primary: [{label: 'Help Center', icon: 'help_outline', action: () => {this.showHelpcenter()}} ],
                 secondary: []
             }
         };
@@ -83,6 +86,7 @@ export default React.createClass({
         return (
             <div data-demo='masterdata'>
                 <div data-demo='masterdata--nav'>
+                    <HelpCenter ref='helpCenter' />
                     <MasterdataMenu reference={ref} />
                 </div>
                 <div data-demo='masterdata--component'>

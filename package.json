@@ -88,11 +88,11 @@
                 "BABELIFIED_PATH": "./app",
                 "ENTRY_FILE_PATH": "./app/index",
                 "PAGE_TITLE": "Focus demonstration application",
-                "API_HOST": "localhost",
+                "API_HOST": "172.20.86.52",
                 "API_PORT": 8080,
                 "OUTPUT_DIR": "./public",
                 "LOCAL_FOCUS": false,
-                "LEGACY_SEARCH_API": false,
+                "LEGACY_SEARCH_API": true,
                 "SOURCE_MAPS": false,
                 "BASE_URL": "/"
             }

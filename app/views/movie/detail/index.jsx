@@ -16,6 +16,7 @@ import Overview from './overview';
 import Posters from './posters';
 import Synopsis from './synospis';
 import Trailer from './trailer';
+import HelpCenter from '../../help-center/';
 
 export default React.createClass({
     displayName: 'MovieDetailView',
@@ -38,6 +39,10 @@ export default React.createClass({
         window.scrollTo(0, 0);
     },
 
+    showHelpcenter() {
+        this.refs.helpCenter.refs.helpFrame.style.display = 'inline'
+    },
+
     cartridgeConfiguration() {
         const props = { hasLoad: false, hasForm: false }; //{id: this.props.id};
         return {
@@ -56,6 +61,7 @@ export default React.createClass({
         actions.push({label: 'Imprimer', icon: 'print', action: () => {
           window.print();
         }});
+        actions.push({label: 'Help Center', icon: 'help_outline', action: () => {this.showHelpcenter()}});
         return actions;
     },
 
@@ -64,6 +70,7 @@ export default React.createClass({
         const {id} = this.props;
         return (
             <ScrollspyContainer gridContentSize={10} gridMenuSize={2}>
+                <HelpCenter ref='helpCenter' />
                 {/* Bloc header dupliqué juste pour print*/}
                 <div data-demo='print-page-breaker'>
                   <div data-demo='print'>

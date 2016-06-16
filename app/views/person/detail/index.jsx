@@ -14,6 +14,7 @@ import Biography from './biography';
 import Identity from './identity';
 import Movies from './movies';
 import Overview from './overview';
+import HelpCenter from '../../help-center/';
 
 export default React.createClass({
     displayName: 'PersonDetailView',
@@ -29,6 +30,10 @@ export default React.createClass({
     
     componentDidMount() {
         window.scrollTo(0, 0);
+    },
+
+    showHelpcenter() {
+        this.refs.helpCenter.refs.helpFrame.style.display = 'inline'
     },
 
     /**
@@ -54,6 +59,7 @@ export default React.createClass({
         actions.push({label: 'Imprimer', icon: 'print', action: () => {
             window.print();
         }});
+        actions.push({label: 'Help Center', icon: 'help_outline', action: () => {this.showHelpcenter()}});
         return actions;
     },
 
@@ -62,6 +68,7 @@ export default React.createClass({
         const {id} = this.props;
         return (
             <ScrollspyContainer gridContentSize={10} gridMenuSize={2}>
+                <HelpCenter ref='helpCenter' />
                 <div data-demo='print-page-breaker'>
                     {/* Bloc header dupliqué juste pour print*/}
                     <div data-demo='print'>

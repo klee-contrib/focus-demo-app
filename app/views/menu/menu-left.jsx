@@ -21,8 +21,7 @@ export default React.createClass({
         return [
             { icon: 'home', route: '/' }, // route: 'home'
             { icon: 'search', onClick: () => { this._onQuickSearchModalToggle() }},
-            { icon: 'build', route: '/admin/masterdata' },
-            { icon: 'help_outline', route: '/help-center' }
+            { icon: 'build', route: '/admin/masterdata' }
         ];
     },
 
