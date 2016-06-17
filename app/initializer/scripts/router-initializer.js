@@ -1,4 +1,3 @@
-import {setRouterFunction} from 'focus-core/router/router';
 import {setNavigationFunctions} from 'focus-core/history';
 import Backbone from 'backbone';
 
