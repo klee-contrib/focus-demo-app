@@ -2,7 +2,7 @@
 import React, {PropTypes} from 'react';
 
 //web components
-import Button from 'focus-components/components/button';
+import {Button} from 'focus-components/components';
 import {component as Modal} from 'focus-components/application/popin';
 
 

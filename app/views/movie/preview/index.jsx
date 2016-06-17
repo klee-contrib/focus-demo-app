@@ -4,7 +4,7 @@ import {translate} from 'focus-core/translation';
 import {navigate} from 'focus-core/history';
 
 //web components
-import Button from 'focus-components/components/button';
+import {Button} from 'focus-components/components';
 import {storeBehaviour} from 'focus-components/common/mixin';
 import builtInComponents from 'focus-components/common/mixin/built-in-components';
 

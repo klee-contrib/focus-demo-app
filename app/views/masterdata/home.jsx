@@ -1,6 +1,6 @@
 import React from 'react';
 import {translate} from 'focus-core/translation';
-import Icon from 'focus-components/components/icon';
+import {Icon} from 'focus-components/components';
 
 function masterdataHome() {
     return (
