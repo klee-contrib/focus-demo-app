@@ -52,8 +52,14 @@ export default React.createClass({
             ReferenceComponent: MasterdataHome
         };
     },
+    
     showHelpcenter() {
-        this.refs.helpCenter.refs.helpFrame.style.display = 'inline'
+        const {helpFrame} = this.refs.helpCenter.refs;
+        if (helpFrame.style.display === 'none') {
+            helpFrame.style.display = 'inline';
+        } else {
+            helpFrame.style.display = 'none';
+        }
     },
     /**
     * Related to the CartridgeBehaviour.

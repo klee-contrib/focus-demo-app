@@ -5,7 +5,7 @@ import {identity} from 'lodash/utility';
 import ComponentBaseBehaviour from 'focus-components/behaviours/component-base';
 import MDBehaviour from 'focus-components/behaviours/material';
 import {translate} from 'focus-core/translation';
-import {Icon} from 'focus-components/components';
+import Icon from 'focus-components/components/icon';
 const MODE = {isEdit: true};
 
 const propTypes = {

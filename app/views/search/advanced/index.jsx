@@ -8,7 +8,7 @@ import {configuration} from './configuration';
 
 function AdvancedSearchView() {
     return <AdvancedSearch {...configuration} />;
-};
+}
 
 AdvancedSearchView.displayName = 'AdvancedSearch';
 export default AdvancedSearchView;

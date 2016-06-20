@@ -18,7 +18,12 @@ export default React.createClass({
     mixins: [cartridgeBehaviour],
 
     showHelpcenter() {
-        this.refs.helpCenter.refs.helpFrame.style.display = 'inline'
+        const {helpFrame} = this.refs.helpCenter.refs;
+        if (helpFrame.style.display === 'none') {
+            helpFrame.style.display = 'inline';
+        } else {
+            helpFrame.style.display = 'none';
+        }
     },
     /** @inheritDoc */
 
@@ -31,17 +36,17 @@ export default React.createClass({
         return {
             summary: {
                 component: SummaryPageSearch,
-                props: { onSearchCriteriaChangeByUser: () => {navigate('/search/advanced')}, service: searchService }
+                props: { onSearchCriteriaChangeByUser: () => { navigate('/search/advanced') }, service: searchService }
             },
             barLeft: {
                 component: DemoTitle
             },
             cartridge: {
                 component: CartridgePageSearch,
-                props: { onSearchCriteriaChangeByUser: () => {navigate('/search/advanced')}, service: searchService }
+                props: { onSearchCriteriaChangeByUser: () => { navigate('/search/advanced') }, service: searchService }
             },
             actions: {
-                primary: [{label: 'Help Center', icon: 'help_outline', action: () => {this.showHelpcenter()}} ],
+                primary: [{ label: 'Help Center', icon: 'help_outline', action: () => { this.showHelpcenter() } }],
                 secondary: []
             }
         };

@@ -40,7 +40,12 @@ export default React.createClass({
     },
 
     showHelpcenter() {
-        this.refs.helpCenter.refs.helpFrame.style.display = 'inline'
+        const {helpFrame} = this.refs.helpCenter.refs;
+        if (helpFrame.style.display === 'none') {
+            helpFrame.style.display = 'inline';
+        } else {
+            helpFrame.style.display = 'none';
+        }
     },
 
     cartridgeConfiguration() {

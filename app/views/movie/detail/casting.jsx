@@ -7,7 +7,7 @@ import reduce from 'lodash/collection/reduce';
 import Panel from 'focus-components/components/panel';
 import {storeBehaviour} from 'focus-components/common/mixin';
 import PersonCardList from '../../person/components/person-card-list';
-import {Button} from 'focus-components/components';
+import Button from 'focus-components/components/button';
 
 //stores & actions
 import movieStore from '../../../stores/movie';
