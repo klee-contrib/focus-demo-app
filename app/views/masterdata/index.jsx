@@ -45,7 +45,7 @@ export default React.createClass({
     propTypes: {
         reference: PropTypes.string,
         ReferenceComponent: PropTypes.func,
-        helpCenterShowed: PropTypes.boolean
+        helpCenterShowed: PropTypes.bool
     },
     getDefaultProps() {
         return {
@@ -97,7 +97,7 @@ export default React.createClass({
         return (
             <div data-demo='masterdata'>
                 <div data-demo='masterdata--nav'>
-                    {helpCenterShowed ? <HelpCenter /> : <div />}
+                    {helpCenterShowed ? <HelpCenter onCloseClick={this.showHelpcenter}/> : <div />}
                     <MasterdataMenu reference={ref} />
                 </div>
                 <div data-demo='masterdata--component'>

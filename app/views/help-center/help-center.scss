@@ -1,16 +1,24 @@
 #helpFrame {
     cursor: move;
     padding-top: 20px;
-    z-index: 999;
+    z-index: 800;
     position: absolute;
-    right: 100px;
     background-color: #EEE;
-    padding-left: 10px;
-    padding-right: 10px;
     box-shadow: 0 6px 6px rgba(0,0,0,0.23);
     top: 300px;
+    right: 100px;
     
     &:active {
-        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        box-shadow: 0 24px 28px rgba(0,0,0,0.25), 0 15px 15px rgba(0,0,0,0.22);
+    }
+
+    #newTabIcon {
+        z-index: 999;
+        margin-left: 5px;
+    }
+
+    #closeIcon {
+        float: right;
+        margin-right: 5px;
     }
 }

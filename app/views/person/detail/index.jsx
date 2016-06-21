@@ -80,7 +80,7 @@ export default React.createClass({
         const {helpCenterShowed} = this.state;
         return (
             <ScrollspyContainer gridContentSize={10} gridMenuSize={2}>
-                {helpCenterShowed ? <HelpCenter /> : <div />}
+                {helpCenterShowed ? <HelpCenter onCloseClick={this.showHelpcenter}/> : <div />}
                 <div data-demo='print-page-breaker'>
                     {/* Bloc header dupliqué juste pour print*/}
                     <div data-demo='print'>

@@ -9,7 +9,12 @@ export default class HelpeCenter extends Component {
         xElem: 0,
         yElem: 0,
         selected: null
-    }
+    };
+
+    static propTypes = {
+        onCloseClick: PropTypes.func.isRequired,
+        onNewTabClick: PropTypes.func
+    };
 
     dragInit(e) {
         e.preventDefault();
@@ -38,8 +43,11 @@ export default class HelpeCenter extends Component {
         )
 
         if (selected !== null) {
-            selected.style.left = (xPos/* - xElem*/) + 'px';
-            selected.style.top = (yPos/* - yElem*/) + 'px';
+            selected.style.left = (xPos - xElem) + 'px';
+            selected.style.top = (yPos - yElem) + 'px';
+            const diff = window.innerWidth - 310;
+            const left = xPos - xElem;
+            selected.style.right = (diff - left) + 'px';
         }
     }
 
@@ -50,13 +58,35 @@ export default class HelpeCenter extends Component {
         this.setState({ selected: null });
     }
 
+    newTabIconClickHandler() {
+        window.open('http://localhost:9999');
+    }
+
     render() {
         const {xPos, yPos, xElem, yElem, selected} = this.state;
+        const {onNewTabClick, onCloseClick} = this.props;
         return (
-            <div id='helpCenter'>
-                <iframe ref='helpFrame' frameBorder={0} id='helpFrame' height='500' width='300' src='http://localhost:1234/extension.html' onMouseDown={this.dragInit.bind(this)} >
+            <div  
+                id='helpFrame' 
+                onMouseDown={this.dragInit.bind(this)}
+                ref='helpFrame'
+            >
+                <div className='mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect' id='newTabIcon' onClick={!onNewTabClick ? this.newTabIconClickHandler : onNewTabClick}>
+                    <i className='material-icons'>open_in_new</i>
+                </div>
+                <div className='mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect' id='closeIcon' onClick={onCloseClick}>
+                    <i className='material-icons'>close</i>
+                </div><br/>
+                <iframe  
+                    frameBorder={0} 
+                    height='500'
+                    src='http://localhost:1234/extension.html'
+                    width='300'
+                >
                 </iframe>
             </div>
         );
     }
 }
+
+HelpeCenter.displayName = 'HelpCenter';

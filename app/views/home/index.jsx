@@ -64,7 +64,7 @@ export default React.createClass({
         return (
             <div data-demo='homepage'>
                 <Rankings/>
-                {helpCenterShowed ? <HelpCenter /> : <div />}
+                {helpCenterShowed ? <HelpCenter onCloseClick={this.showHelpcenter}/> : <div />}
             </div>
         );
     }
