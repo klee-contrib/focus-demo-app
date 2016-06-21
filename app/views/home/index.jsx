@@ -17,13 +17,19 @@ export default React.createClass({
     displayName: 'HomeView',
     mixins: [cartridgeBehaviour],
 
-    showHelpcenter() {
-        const {helpFrame} = this.refs.helpCenter.refs;
-        if (helpFrame.style.display === 'none') {
-            helpFrame.style.display = 'inline';
-        } else {
-            helpFrame.style.display = 'none';
+    defaultProps: {
+        helpCenterShowed: false
+    },
+
+    getInitialState() {
+        return {
+            helpCenterShowed: false
         }
+    },
+
+    showHelpcenter() {
+        const {helpCenterShowed} = this.state;
+        this.setState({helpCenterShowed: !helpCenterShowed});
     },
     /** @inheritDoc */
 
@@ -54,10 +60,11 @@ export default React.createClass({
 
     /** @inheritDoc */
     render() {
+        const {helpCenterShowed} = this.state;
         return (
             <div data-demo='homepage'>
-                <HelpCenter ref='helpCenter' />
                 <Rankings/>
+                {helpCenterShowed ? <HelpCenter /> : <div />}
             </div>
         );
     }

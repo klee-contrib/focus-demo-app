@@ -1,22 +1,28 @@
 import React, {Component, PropTypes} from 'react';
+import './help-center.scss';
 
 export default class HelpeCenter extends Component {
 
     state = {
         xPos: 0,
         yPos: 0,
+        xElem: 0,
+        yElem: 0,
         selected: null
     }
-
 
     dragInit(e) {
         e.preventDefault();
         document.onmousemove = this.moveElem.bind(this);
         document.onmouseup = this.destroy.bind(this);
-        const {selected} = this.state;
+        const {selected, xPos, yPos, xElem, yElem} = this.state;
         this.setState(
             {
-                selected: this.refs.helpFrame
+                xPos: e.pageX,
+                yPos: e.pageY,
+                selected: this.refs.helpFrame,
+                xElem: e.pageX - this.refs.helpFrame.offsetLeft,
+                yElem: e.pageY - this.refs.helpFrame.offsetTop
             }
         );
         return false;
@@ -26,14 +32,14 @@ export default class HelpeCenter extends Component {
         const {xPos, yPos, xElem, yElem, selected} = this.state;
         this.setState(
             {
-                xPos: document.all ? window.event.clientX : e.pageX,
-                yPos: document.all ? window.event.clientY : e.pageY
+                xPos: document.all ? window.e.clientX : e.pageX,
+                yPos: document.all ? window.e.clientY : e.pageY
             }
         )
 
         if (selected !== null) {
-            selected.style.left = (xPos) + 'px';
-            selected.style.top = (yPos) + 'px';
+            selected.style.left = (xPos/* - xElem*/) + 'px';
+            selected.style.top = (yPos/* - yElem*/) + 'px';
         }
     }
 
@@ -45,9 +51,10 @@ export default class HelpeCenter extends Component {
     }
 
     render() {
+        const {xPos, yPos, xElem, yElem, selected} = this.state;
         return (
-            <div data-focus='help-center'>
-                <iframe ref='helpFrame' height='450' width='250' src='http://localhost:1234/extension.html' onMouseDown={this.dragInit.bind(this)}  style={{ cursor: 'move', paddingTop: '20px', zIndex: '999', display: 'none', position: 'absolute', right: '100px', backgroundColor: '#757575' }} >
+            <div id='helpCenter'>
+                <iframe ref='helpFrame' frameBorder={0} id='helpFrame' height='500' width='300' src='http://localhost:1234/extension.html' onMouseDown={this.dragInit.bind(this)} >
                 </iframe>
             </div>
         );

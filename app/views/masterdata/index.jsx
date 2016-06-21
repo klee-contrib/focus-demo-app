@@ -10,20 +10,20 @@ import HelpCenter from '../help-center/';
 function getReference() {
     const path = window.location.pathname;
     const pathParams = path.split('/');
-    const pageRef = pathParams[pathParams.length-1];
+    const pageRef = pathParams[pathParams.length - 1];
     return pageRef;
 }
 
 function TitleCartridge() {
     let reference = getReference();
     const title = `view.admin.masterdata.${reference !== 'masterdata' ? reference : 'title'}`;
-    if(reference === 'masterdata') {
+    if (reference === 'masterdata') {
         reference = null;
     }
     return (
         <div data-demo='masterdata-title'>
-            {reference && <h6>{translate('view.admin.masterdata.title')}</h6>}
-            <h3>{translate(title)}</h3>
+            {reference && <h6>{translate('view.admin.masterdata.title') }</h6>}
+            <h3>{translate(title) }</h3>
         </div>
     );
 }
@@ -33,7 +33,7 @@ function TitleSummary() {
     const title = `view.admin.masterdata.${reference !== 'masterdata' ? reference : 'title'}`;
     return (
         <div data-demo='masterdata-title'>
-            <h4>{translate(title)}</h4>
+            <h4>{translate(title) }</h4>
         </div>
     );
 }
@@ -44,22 +44,26 @@ export default React.createClass({
     mixins: [cartridgeBehaviour],
     propTypes: {
         reference: PropTypes.string,
-        ReferenceComponent: PropTypes.func
+        ReferenceComponent: PropTypes.func,
+        helpCenterShowed: PropTypes.boolean
     },
     getDefaultProps() {
         return {
             reference: null,
-            ReferenceComponent: MasterdataHome
+            ReferenceComponent: MasterdataHome,
+            helpCenterShowed: false
         };
     },
-    
-    showHelpcenter() {
-        const {helpFrame} = this.refs.helpCenter.refs;
-        if (helpFrame.style.display === 'none') {
-            helpFrame.style.display = 'inline';
-        } else {
-            helpFrame.style.display = 'none';
+
+    getInitialState() {
+        return {
+            helpCenterShowed: false
         }
+    },
+
+    showHelpcenter() {
+        const {helpCenterShowed} = this.state;
+        this.setState({ helpCenterShowed: !helpCenterShowed });
     },
     /**
     * Related to the CartridgeBehaviour.
@@ -78,7 +82,7 @@ export default React.createClass({
                 props: { reference }
             },
             actions: {
-                primary: [{label: 'Help Center', icon: 'help_outline', action: () => {this.showHelpcenter()}} ],
+                primary: [{ label: 'Help Center', icon: 'help_outline', action: () => { this.showHelpcenter() } }],
                 secondary: []
             }
         };
@@ -87,12 +91,13 @@ export default React.createClass({
     /** @inheritDoc */
     render() {
         const {reference, ReferenceComponent} = this.props;
-        const ref = this.props.routes[this.props.routes.length-1].path;
+        const ref = this.props.routes[this.props.routes.length - 1].path;
+        const {helpCenterShowed} = this.state;
         window.scrollTo(0, 0);
         return (
             <div data-demo='masterdata'>
                 <div data-demo='masterdata--nav'>
-                    <HelpCenter ref='helpCenter' />
+                    {helpCenterShowed ? <HelpCenter /> : <div />}
                     <MasterdataMenu reference={ref} />
                 </div>
                 <div data-demo='masterdata--component'>

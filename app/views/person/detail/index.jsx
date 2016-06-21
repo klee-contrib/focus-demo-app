@@ -23,6 +23,16 @@ export default React.createClass({
     },
     mixins: [cartridgeBehaviour],
 
+    defaultProps: {
+        helpCenterShowed: false
+    },
+
+    getInitialState() {
+        return {
+            helpCenterShowed: false
+        }
+    },
+
     /** @inheritDoc */
     componentWillMount() {
         this._registerCartridge();
@@ -33,12 +43,8 @@ export default React.createClass({
     },
 
     showHelpcenter() {
-        const {helpFrame} = this.refs.helpCenter.refs;
-        if (helpFrame.style.display === 'none') {
-            helpFrame.style.display = 'inline';
-        } else {
-            helpFrame.style.display = 'none';
-        }
+        const {helpCenterShowed} = this.state;
+        this.setState({helpCenterShowed: !helpCenterShowed});
     },
 
     /**
@@ -71,9 +77,10 @@ export default React.createClass({
     /** @inheritDoc */
     render() {
         const {id} = this.props;
+        const {helpCenterShowed} = this.state;
         return (
             <ScrollspyContainer gridContentSize={10} gridMenuSize={2}>
-                <HelpCenter ref='helpCenter' />
+                {helpCenterShowed ? <HelpCenter /> : <div />}
                 <div data-demo='print-page-breaker'>
                     {/* Bloc header dupliqué juste pour print*/}
                     <div data-demo='print'>
