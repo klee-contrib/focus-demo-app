@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import './help-center.scss';
 
-export default class HelpeCenter extends Component {
+export default class HelpCenter extends Component {
 
     state = {
         xPos: 0,
@@ -89,4 +89,4 @@ export default class HelpeCenter extends Component {
     }
 }
 
-HelpeCenter.displayName = 'HelpCenter';
+HelpCenter.displayName = 'HelpCenter';
