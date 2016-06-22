@@ -45,7 +45,7 @@ export default class HelpCenter extends Component {
         if (selected !== null) {
             selected.style.left = (xPos - xElem) + 'px';
             selected.style.top = (yPos - yElem) + 'px';
-            const diff = window.innerWidth - 310;
+            const diff = window.innerWidth - 340;
             const left = xPos - xElem;
             selected.style.right = (diff - left) + 'px';
         }
@@ -71,17 +71,15 @@ export default class HelpCenter extends Component {
                 onMouseDown={this.dragInit.bind(this)}
                 ref='helpFrame'
             >
-                <div className='mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect' id='newTabIcon' onClick={!onNewTabClick ? this.newTabIconClickHandler : onNewTabClick}>
-                    <i className='material-icons'>open_in_new</i>
-                </div>
+                <span className='help-center-title'>CENTRE D'AIDE</span>
                 <div className='mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect' id='closeIcon' onClick={onCloseClick}>
                     <i className='material-icons'>close</i>
                 </div><br/>
                 <iframe  
                     frameBorder={0} 
-                    height='500'
+                    height='530'
                     src='http://localhost:1234/extension.html'
-                    width='300'
+                    width='330'
                 >
                 </iframe>
             </div>

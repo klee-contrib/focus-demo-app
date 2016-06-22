@@ -3,7 +3,7 @@
     padding-top: 20px;
     z-index: 800;
     position: absolute;
-    background-color: #EEE;
+    background-color: #757575;
     box-shadow: 0 6px 6px rgba(0,0,0,0.23);
     top: 300px;
     right: 100px;
@@ -12,13 +12,17 @@
         box-shadow: 0 24px 28px rgba(0,0,0,0.25), 0 15px 15px rgba(0,0,0,0.22);
     }
 
-    #newTabIcon {
-        z-index: 999;
+    .help-center-title {
+        line-height: 2.3;
+        font-size: 125%;
+        font-weight: bold;
+        color: white;
         margin-left: 5px;
     }
 
     #closeIcon {
         float: right;
         margin-right: 5px;
+        color: white;
     }
 }
