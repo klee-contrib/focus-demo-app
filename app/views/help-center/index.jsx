@@ -18,6 +18,7 @@ export default class HelpCenter extends Component {
     };
 
     dragInit(e) {
+        this.refs.helpFrame.style.boxShadow = '0 24px 28px rgba(0,0,0,0.25), 0 15px 15px rgba(0,0,0,0.22)';
         e.preventDefault();
         document.onmousemove = this.moveElem.bind(this);
         document.onmouseup = this.destroy.bind(this);
@@ -53,6 +54,7 @@ export default class HelpCenter extends Component {
     }
 
     destroy(e) {
+        this.refs.helpFrame.style.boxShadow = '0 6px 6px rgba(0,0,0,0.23)';
         e.preventDefault();
         document.onmousemove = null;
         document.onmouseup = null;
@@ -68,7 +70,7 @@ export default class HelpCenter extends Component {
         const {onNewTabClick, onCloseClick} = this.props;
         return (
             <div  
-                id='helpFrame' 
+                id='helpFrame'
                 onMouseDown={this.dragInit.bind(this)}
                 ref='helpFrame'
             >
