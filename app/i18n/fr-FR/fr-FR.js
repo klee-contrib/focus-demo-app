@@ -97,6 +97,9 @@ export default {
                 gender: 'Sexes'
             }
         },
+        'help-center': {
+            title: 'centre d\'aide'
+        },
         movie: {
             action: {
                 addphoto: 'Ajouter un poster',
@@ -167,6 +170,6 @@ export default {
             country: {
                 caracteristics: 'Caractéristiques'
             }
-        },
+        }
     }
 };

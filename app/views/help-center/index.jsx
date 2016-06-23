@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import './help-center.scss';
+import {translate} from 'focus-core/translation';
 
 export default class HelpCenter extends Component {
 
@@ -71,7 +72,7 @@ export default class HelpCenter extends Component {
                 onMouseDown={this.dragInit.bind(this)}
                 ref='helpFrame'
             >
-                <span className='help-center-title'>CENTRE D'AIDE</span>
+                <span className='help-center-title'>{translate('view.help-center.title')}</span>
                 <div className='mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect' id='closeIcon' onClick={onCloseClick}>
                     <i className='material-icons'>close</i>
                 </div><br/>
