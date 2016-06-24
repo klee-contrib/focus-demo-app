@@ -11,7 +11,7 @@ import DemoTitle from '../components/demo-title';
 import CartridgePageSearch from 'focus-components/page/search/search-header/cartridge';
 import SummaryPageSearch from 'focus-components/page/search/search-header/summary';
 import searchService from '../../services/search';
-import HelpCenter from '../help-center/';
+import {DraggableIframe} from 'focus-components/components';
 
 export default React.createClass({
     displayName: 'HomeView',
@@ -64,7 +64,15 @@ export default React.createClass({
         return (
             <div data-demo='homepage'>
                 <Rankings/>
-                {helpCenterShowed ? <HelpCenter onCloseClick={this.showHelpcenter}/> : <div />}
+                {helpCenterShowed ? 
+                    <DraggableIframe
+                        width={350}
+                        height={550}
+                        iframeUrl='http://localhost:1234/extension.html'
+                        title='view.help-center.title'
+                        requestClose={this.showHelpcenter}
+                    /> 
+                : null}
             </div>
         );
     }

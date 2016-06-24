@@ -3,7 +3,7 @@ import React, {PropTypes} from 'react';
 
 // web components
 import ScrollspyContainer from 'focus-components/components/scrollspy-container';
-import {ButtonBack} from 'focus-components/components';
+import {ButtonBack, DraggableIframe} from 'focus-components/components';
 import {cartridgeBehaviour} from 'focus-components/page/mixin';
 import {back} from 'focus-core/history';
 
@@ -14,7 +14,6 @@ import Biography from './biography';
 import Identity from './identity';
 import Movies from './movies';
 import Overview from './overview';
-import HelpCenter from '../../help-center/';
 
 export default React.createClass({
     displayName: 'PersonDetailView',
@@ -80,7 +79,14 @@ export default React.createClass({
         const {helpCenterShowed} = this.state;
         return (
             <ScrollspyContainer gridContentSize={10} gridMenuSize={2}>
-                {helpCenterShowed ? <HelpCenter onCloseClick={this.showHelpcenter}/> : <div />}
+                {helpCenterShowed ?
+                    <DraggableIframe
+                        width={350}
+                        height={550}
+                        iframeUrl='http://localhost:1234/extension.html'
+                        title='view.help-center.title'
+                        requestClose={this.showHelpcenter}
+                    /> : <div />}
                 <div data-demo='print-page-breaker'>
                     {/* Bloc header dupliqué juste pour print*/}
                     <div data-demo='print'>

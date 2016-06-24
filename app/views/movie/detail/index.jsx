@@ -3,7 +3,7 @@ import React, {PropTypes} from 'react';
 
 // web components
 import ScrollspyContainer from 'focus-components/components/scrollspy-container';
-import {ButtonBack} from 'focus-components/components';
+import {ButtonBack, DraggableIframe} from 'focus-components/components';
 import {back} from 'focus-core/history';
 import {cartridgeBehaviour} from 'focus-components/page/mixin';
 
@@ -16,7 +16,6 @@ import Overview from './overview';
 import Posters from './posters';
 import Synopsis from './synospis';
 import Trailer from './trailer';
-import HelpCenter from '../../help-center/';
 
 export default React.createClass({
     displayName: 'MovieDetailView',
@@ -82,7 +81,14 @@ export default React.createClass({
         const {helpCenterShowed} = this.state;
         return (
             <ScrollspyContainer gridContentSize={10} gridMenuSize={2}>
-                {helpCenterShowed ? <HelpCenter onCloseClick={this.showHelpcenter}/> : <div />}
+                {helpCenterShowed ? 
+                    <DraggableIframe
+                        width={350}
+                        height={550}
+                        iframeUrl='http://localhost:1234/extension.html'
+                        title='view.help-center.title'
+                        requestClose={this.showHelpcenter}
+                    /> : <div />}
                 {/* Bloc header dupliqué juste pour print*/}
                 <div data-demo='print-page-breaker'>
                   <div data-demo='print'>

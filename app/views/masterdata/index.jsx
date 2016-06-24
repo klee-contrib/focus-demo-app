@@ -5,7 +5,7 @@ import {translate} from 'focus-core/translation';
 import {cartridgeBehaviour} from 'focus-components/page/mixin';
 import MasterdataMenu from './menu';
 import MasterdataHome from './home';
-import HelpCenter from '../help-center/';
+import {DraggableIframe} from 'focus-components/components';
 
 function getReference() {
     const path = window.location.pathname;
@@ -97,7 +97,15 @@ export default React.createClass({
         return (
             <div data-demo='masterdata'>
                 <div data-demo='masterdata--nav'>
-                    {helpCenterShowed ? <HelpCenter onCloseClick={this.showHelpcenter}/> : <div />}
+                    {helpCenterShowed ? 
+                        <DraggableIframe
+                            width={350}
+                            height={550}
+                            iframeUrl='http://localhost:1234/extension.html'
+                            title='view.help-center.title'
+                            requestClose={this.showHelpcenter}
+                        /> 
+                    : <div />}
                     <MasterdataMenu reference={ref} />
                 </div>
                 <div data-demo='masterdata--component'>
