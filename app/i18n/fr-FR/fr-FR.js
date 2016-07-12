@@ -87,6 +87,58 @@ export default {
     select: {
         unSelected: ''
     },
+    planning: {
+        months: {
+            january: {
+                short: 'Jan.',
+                long: 'Janvier'
+            },
+            february: {
+                short: 'Fev.',
+                long: 'Février'
+            },
+            march: {
+                short: 'Mar.',
+                long: 'Mars'
+            },
+            april: {
+                short: 'Avr.',
+                long: 'Avril'
+            },
+            may: {
+                short: 'Mai',
+                long: 'Mai'
+            },
+            june: {
+                short: 'Juin',
+                long: 'Juin'
+            },
+            july: {
+                short: 'Juil.',
+                long: 'Juillet'
+            },
+            august: {
+                short: 'Aou.',
+                long: 'Août'
+            },
+            september: {
+                short: 'Sep.',
+                long: 'Septembre'
+            },
+            october: {
+                short: 'Oct.',
+                long: 'October'
+            },
+            november: {
+                short: 'Nov.',
+                long: 'Novembre'
+            },
+            december: {
+                short: 'Dec.',
+                long: 'Décembre'
+            },
+        }
+    },
     view: {
         admin: {
             masterdata: {

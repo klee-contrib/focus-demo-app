@@ -29,6 +29,8 @@ import './poster.scss';
 import './preview.scss';
 import './quick-search.scss';
 import './scrollspy-container.scss';
+import './schedule-days-picker.scss';
+import './schedule-months-picker.scss';
 import './selection-list.scss';
 import './trailer.scss';
 
