@@ -32,7 +32,7 @@ const ScheduleDaysPicker = ({onClickDay, selectedDays}) => (
                     {
                         week.map((day) => {
                             const isSelected = indexOf(selectedDays, day) >= 0;
-                            return <button key={day} onClick={(evt) => onClickDay(evt.target.value)} type='button' value={day} data-selected={isSelected}>{day}</button>
+                            return <button key={`day-${day}`} onClick={(evt) => onClickDay(evt.target.value)} type='button' value={day} data-selected={isSelected}>{day}</button>
                         })
                     }
                 </div>

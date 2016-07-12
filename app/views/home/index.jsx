@@ -50,7 +50,7 @@ export default React.createClass({
         return (
             <div data-demo='homepage'>
                 <ScheduleDaysPicker onClickDay={(day) => alert('You clicked ' + day + ' !')} selectedDays={[9, 12]} />
-                <ScheduleMonthsPicker onClickDay={(month) => alert('You clicked ' + month + ' !')} selectedMonths={[2]} />
+                <ScheduleMonthsPicker onClickMonth={(month) => alert('You clicked ' + month + ' !')} selectedMonths={[2]} />
             </div>
         );
     }
