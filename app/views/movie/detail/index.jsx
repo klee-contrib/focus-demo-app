@@ -63,7 +63,7 @@ export default React.createClass({
     render() {
         const {id} = this.props;
         return (
-            <ScrollspyContainer gridContentSize={10} gridMenuSize={2}>
+            <ScrollspyContainer>
                 {/* Bloc header dupliqué juste pour print*/}
                 <div data-demo='print-page-breaker'>
                   <div data-demo='print'>

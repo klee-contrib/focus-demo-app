@@ -33,11 +33,9 @@ export default React.createClass({
 
     _onQuickSearchModalToggle() {
         const {isQuickSearchModalOpen} = this.state;
-        console.log(isQuickSearchModalOpen);
         if(!isQuickSearchModalOpen) {
             const query = quickSearchStore.getQuery();
             const scope = quickSearchStore.getScope();
-            console.log(query, scope);
             //dispatch in quick search store
             dispatcher.handleViewAction({
                 data: {
@@ -61,7 +59,7 @@ export default React.createClass({
         const {isQuickSearchModalOpen} = this.state;
         return (
             <div>
-                <Menu onPopinClose={this._onQuickSearchModalToggle} items={items} handleBrandClick={() => {navigate('/');}} navigate={navigate} LinkComponent={Link}/>
+                <Menu items={items} handleBrandClick={() => {navigate('/');}} navigate={navigate} LinkComponent={Link}/>
                 {isQuickSearchModalOpen &&
                     <div data-demo='quick-search-area'>
                         <Modal open={true} type='from-menu'>

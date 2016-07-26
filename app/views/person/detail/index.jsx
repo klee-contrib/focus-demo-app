@@ -26,7 +26,7 @@ export default React.createClass({
     componentWillMount() {
         this._registerCartridge();
     },
-    
+
     componentDidMount() {
         window.scrollTo(0, 0);
     },
@@ -61,7 +61,7 @@ export default React.createClass({
     render() {
         const {id} = this.props;
         return (
-            <ScrollspyContainer gridContentSize={10} gridMenuSize={2}>
+            <ScrollspyContainer>
                 <div data-demo='print-page-breaker'>
                     {/* Bloc header dupliqué juste pour print*/}
                     <div data-demo='print'>
