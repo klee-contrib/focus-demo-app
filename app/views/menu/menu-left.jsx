@@ -20,7 +20,7 @@ export default React.createClass({
     _getMenuItems() {
         return [
             { icon: 'home', route: '/' }, // route: 'home'
-            { icon: 'search', onClick: () => { this._onQuickSearchModalToggle() }},
+            { icon: 'search', handleOnClick: () => { this._onQuickSearchModalToggle() }},
             { icon: 'build', route: '/admin/masterdata' }
         ];
     },
