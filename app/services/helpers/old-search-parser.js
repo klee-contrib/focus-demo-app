@@ -1,5 +1,5 @@
-import keys from 'lodash/object/keys';
-import trim from 'lodash/string/trim';
+import keys from 'lodash/keys';
+import trim from 'lodash/trim';
 
 export default {
 

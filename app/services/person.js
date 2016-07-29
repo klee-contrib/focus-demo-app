@@ -1,6 +1,6 @@
 import fetch from 'focus-core/network/fetch';
 import personUrl from '../config/server/persons';
-import omit from 'lodash/object/omit';
+import omit from 'lodash/omit';
 
 export default {
     loadPerson(id) {

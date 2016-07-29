@@ -1,4 +1,4 @@
-import merge from 'lodash/object/merge';
+import merge from 'lodash/merge';
 import frTraductionGenerated from '../generated/fr-FR.generated';
 import frTraduction from './fr-FR';
 

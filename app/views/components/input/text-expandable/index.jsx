@@ -1,7 +1,7 @@
 //dependencies
 import React, {Component, PropTypes} from 'react';
 import ReactDOM from 'react-dom';
-import {identity} from 'lodash/utility';
+import identity from 'lodash/identity';
 import ComponentBaseBehaviour from 'focus-components/behaviours/component-base';
 import MDBehaviour from 'focus-components/behaviours/material';
 import {translate} from 'focus-core/translation';
