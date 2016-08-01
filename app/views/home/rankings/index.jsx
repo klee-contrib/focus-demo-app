@@ -16,8 +16,7 @@ class Rankings extends Component {
 
     render() {
         console.log('props', this.props);
-        const { rankings } = this.props;
-        const { date, mark } = rankings;
+        const { date, mark } = this.props;
         return (
             <div>
                 <DateRanking dateRanking={date || []}/>
