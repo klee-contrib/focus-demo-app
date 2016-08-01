@@ -6,7 +6,6 @@ import { Provider as StoreProvider } from 'react-redux';
 import applicationStore from './stores';
 import routes from './router/routes';
 
-
 const Application = ({history, routes, store}) =>
     <StoreProvider store={store}>
         <Router history={history} routes={routes} />
