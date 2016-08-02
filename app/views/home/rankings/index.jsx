@@ -15,12 +15,11 @@ class Rankings extends Component {
     }
 
     render() {
-        console.log('props', this.props);
         const { date, mark } = this.props;
         return (
             <div>
-                <DateRanking dateRanking={date || []}/>
-                <MarkRanking markRanking={date || []}/>
+                <DateRanking dateRanking={date} />
+                <MarkRanking markRanking={mark} />
             </div>
         );
     }

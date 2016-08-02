@@ -1,8 +1,11 @@
 import {combineReducers} from 'redux';
-import rankings from './rankings-reducer';
+import ranking from './ranking';
+import person from './person'
 
-export const rankingSelector = state => state.dataset.rankings;
+export const personSelector = state => state.dataset.person;
+export const rankingSelector = state => state.dataset.ranking;
 
 export default combineReducers({
-    rankings
+    person,
+    ranking
 });

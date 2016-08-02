@@ -1,27 +1,25 @@
 //librairies
-import React, {PropTypes} from 'react';
+import React, {PropTypes, Component} from 'react';
+import {connect as connectToForm } from 'focus-redux/behaviours/form';
+import {connect as connectToMetadata} from 'focus-redux/behaviours/metadata';
+import {connect as connectToFieldHelpers} from 'focus-redux/behaviours/field';
+import {loadIdentityAction, saveIdentityAction} from '../../../action/person';
 
 // web components
 import Panel from 'focus-components/components/panel';
-import {mixin as formPreset} from 'focus-components/common/form';
+import {compose} from 'redux';
 
-//stores & actions
-import personStore from '../../../stores/person';
-import {identityActions} from '../../../action/person';
+const propTypes = {
+    id: PropTypes.number.isRequired
+};
 
-export default React.createClass({
-    displayName: 'PersonIdentity',
-    propTypes: {
-        id: PropTypes.number.isRequired
-    },
-    mixins: [formPreset],
-    definitionPath: 'person',
-    stores: [{store: personStore, properties: ['personIdentity']}],
-    action: identityActions,
-    referenceNames: ['genders'],
+class PersonIdentity extends Component {
+    componentWillMount() {
+        const {id, load} = this.props;
+        load(id);
+    }
 
-    /** @inheritDoc */
-    renderContent() {
+    render() {
         return (
             <Panel actions={this._renderActions} title='view.person.detail.identity'>
                 {this.fieldFor('fullName')}
@@ -33,4 +31,22 @@ export default React.createClass({
             </Panel>
         );
     }
-});
+};
+
+PersonIdentity.displayName = 'PersonIdentity';
+PersonIdentity.propTypes = propTypes;
+
+const formConfig = {
+    formKey: 'personIdentityForm',
+    entityPathArray: ['person'],
+    loadAction: loadIdentityAction,
+    saveAction: saveIdentityAction
+};
+
+const ConnectedPersonnIdentityForm = compose(
+    connectToMetadata(['person']),
+    connectToForm(formConfig),
+    connectToFieldHelpers()
+)(PersonIdentity);
+
+export default ConnectedPersonnIdentityForm;

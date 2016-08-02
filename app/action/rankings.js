@@ -1,23 +1,20 @@
 import rankingsService from '../services/rankings';
 import {actionBuilder} from 'focus-redux/actions/entity-actions-builder';
 
+// DATE rankings
 const _loadDateRanking = actionBuilder({
-    names: ['movie_rankings_date'],
+    names: ['ranking_date'],
     type: 'load',
     service: rankingsService.loadDateRanking
 });
+export const loadDateRankingTypes = _loadDateRanking.types;
+export const loadDateRankingAction = _loadDateRanking.action;
 
-
+// MARK rankings
 const _loadMarkRanking = actionBuilder({
-    names: ['movie_rankings_mark'],
+    names: ['ranking_mark'],
     type: 'load',
     service: rankingsService.loadMarkRanking
 });
-
-//types
-export const LOAD_DATE_RANKING_TYPE = _loadDateRanking.types.RESPONSE_LOAD_MOVIE_RANKINGS_DATE;
-export const LOAD_MARK_RANKING_TYPE = _loadMarkRanking.types.RESPONSE_LOAD_MOVIE_RANKINGS_MARK;
-
-//actions
-export const loadDateRankingAction = _loadDateRanking.action;
+export const loadMarkRankingTypes = _loadMarkRanking.types;
 export const loadMarkRankingAction = _loadMarkRanking.action;
