@@ -1,8 +1,15 @@
-import React, {PropTypes, Component} from 'react'
-import { render } from 'react-dom'
+import React, {PropTypes, Component} from 'react';
+import { render } from 'react-dom';
 import { Router } from 'react-router';
 import { Provider as StoreProvider } from 'react-redux';
+import { Provider as MetadataProvider } from 'focus-redux/behaviours/metadata';
+import { Provider as FieldHelpersProvider } from 'focus-redux/behaviours/field';
+import { Provider as MasterdataProvider } from 'focus-redux/behaviours/master-data';
+
 import routes from './router/routes';
+import definitions from './config/entity-definitions';
+import domains from './config/domains';
+import masterdatas from './config/master-datas'
 
 const propTypes = {
     history: PropTypes.func,
@@ -15,7 +22,13 @@ class Application extends Component {
         const {history, store} = this.props;
         return (
             <StoreProvider store={store}>
-                <Router history={history} routes={routes} />
+                <MetadataProvider definitions={definitions} domains={domains}>
+                    <FieldHelpersProvider>
+                        <MasterdataProvider configuration={masterdatas}>
+                            <Router history={history} routes={routes} />
+                        </MasterdataProvider>
+                    </FieldHelpersProvider>
+                </MetadataProvider>
             </StoreProvider>
         );
     }

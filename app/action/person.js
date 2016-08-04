@@ -11,22 +11,14 @@ const _saveIdentityAction = actionBuilder2({names: ['person'], type:'save', serv
 export const saveIdentityTypes = _saveIdentityAction.types;
 export const saveIdentityAction = _saveIdentityAction.action;
 
+const _loadBiographyAction = actionBuilder2({names: ['person'], type:'load', service: personSerivces.loadPerson});
+export const loadBiographyTypes = _loadBiographyAction.types;
+export const loadBiographyAction = _loadBiographyAction.action;
 
+const _saveBiographyAction = actionBuilder2({names: ['person'], type:'save', service: personSerivces.updatePersonBiography});
+export const saveBiographyTypes = _saveBiographyAction.types;
+export const saveBiographyAction = _saveBiographyAction.action;
 
-export const biographyActions = {
-    load: actionBuilder({
-        node: 'personBiography',
-        service: personSerivces.loadPerson,
-        shouldDumpStoreOnActionCall: true,
-        status: 'loaded'
-    }),
-    save: actionBuilder({
-        node: 'personBiography',
-        service: personSerivces.updatePersonBiography,
-        shouldDumpStoreOnActionCall: false,
-        status: 'saved'
-    })
-}
 
 export const moviesLinksActions = {
     load: actionBuilder({

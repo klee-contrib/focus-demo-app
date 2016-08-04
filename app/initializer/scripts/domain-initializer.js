@@ -1,6 +1,6 @@
 import {container as domainContainer} from 'focus-core/definition/domain';
-import domainsConfig from '../../config/domain';
-import entitytDefinitionConfig from '../../config/entity-definition';
+import domainsConfig from '../../config/domains';
+import entitytDefinitionConfig from '../../config/entity-definitions';
 import {difference, intersection, uniq} from 'lodash/array';
 
 export default () => {
