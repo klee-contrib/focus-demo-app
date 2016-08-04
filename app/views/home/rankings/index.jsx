@@ -6,8 +6,9 @@ import {compose} from 'redux';
 import {connect as connectToStore} from 'react-redux';
 import { rankingSelector } from '../../../reducer';
 
-class Rankings extends Component {
 
+
+class Rankings extends Component {
     componentWillMount() {
         const { loadDateRanking, loadMarkRanking } = this.props;
         loadDateRanking();
@@ -24,8 +25,9 @@ class Rankings extends Component {
         );
     }
 }
-
 Rankings.displayName = 'Rankings';
+
+
 
 export default connectToStore(
     rankingSelector,
