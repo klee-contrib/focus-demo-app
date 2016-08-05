@@ -1,5 +1,5 @@
 import rankingsService from '../services/rankings';
-import {actionBuilder} from 'focus-redux/actions/entity-actions-builder';
+import {actionBuilder} from 'focus-graph/actions/entity-actions-builder';
 
 // DATE rankings
 const _loadDateRanking = actionBuilder({

@@ -4,20 +4,20 @@ export default {
         domain: 'DO_ID',
         isRequired: true
     },
-    name: {
+    title: {
         domain: 'DO_LAST_NAME',
         isRequired: true
     },
-    role: {
-        domain: 'DO_LAST_NAME',
-        isRequired: true
-    },
-    photoURL: {
+    poster: {
         domain: 'DO_URL',
         isRequired: false
     },
-    leadActor: {
-        domain: 'DO_YES_NO',
+    movieType: {
+        domain: 'DO_LABEL_SHORT',
+        isRequired: true
+    },
+    productionYear: {
+        domain: 'DO_YEAR',
         isRequired: true
     },
     existsInBdd: {

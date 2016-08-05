@@ -10,9 +10,6 @@ import {translate} from 'focus-core/translation';
 //stores & actions
 import personStore from '../../../stores/person';
 
-//custom components
-import Trailer from '../../movie/components/trailer';
-
 export default React.createClass({
     displayName: 'Overview',
     mixins: [formPreset],

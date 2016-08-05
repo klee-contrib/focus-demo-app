@@ -1,8 +1,8 @@
 //librairies
 import React, {PropTypes, PureComponent} from 'react';
-import {connect as connectToForm } from 'focus-redux/behaviours/form';
-import {connect as connectToMetadata} from 'focus-redux/behaviours/metadata';
-import {connect as connectToFieldHelpers} from 'focus-redux/behaviours/field';
+import {connect as connectToForm } from 'focus-graph/behaviours/form';
+import {connect as connectToMetadata} from 'focus-graph/behaviours/metadata';
+import {connect as connectToFieldHelpers} from 'focus-graph/behaviours/field';
 import {compose} from 'redux';
 
 //actions
@@ -25,7 +25,6 @@ class PersonBiography extends PureComponent {
 
     render() {
         const {editing, fieldFor, toggleEdit, save, getUserInput, loading, saving, selectFor, renderActions} = this.props;
-        console.log(this.props);
         return (
             <Form editing={editing}>
                 <Panel Buttons={PanelDefaultButtons({editing, toggleEdit, getUserInput, save})}  title='view.person.detail.biography'>
@@ -38,18 +37,14 @@ class PersonBiography extends PureComponent {
 };
 PersonBiography.displayName = 'PersonBiography';
 PersonBiography.propTypes = propTypes;
-
-const formConfig = {
-    formKey: 'personBiographyForm',
-    entityPathArray: ['person'],
-    loadAction: loadBiographyAction,
-    saveAction: saveBiographyAction
-};
-
-const ConnectedPersonnBiographyForm = compose(
+export default compose(
     connectToMetadata(['person']),
-    connectToForm(formConfig),
+    connectToForm({
+        formKey: 'personBiographyForm',
+        entityPathArray: ['person'],
+        loadAction: loadBiographyAction,
+        saveAction: saveBiographyAction,
+        nonValidatedFields: []
+    }),
     connectToFieldHelpers()
 )(PersonBiography);
-
-export default ConnectedPersonnBiographyForm;

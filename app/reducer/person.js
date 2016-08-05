@@ -1,4 +1,4 @@
-import {reducerBuilder} from 'focus-redux/reducers/reducer-builder';
+import {reducerBuilder} from 'focus-graph/reducers/reducer-builder';
 import {
     loadBiographyTypes,
     saveBiographyTypes,
@@ -10,14 +10,14 @@ import {
 const DEFAULT_DATA = {};
 
 const identityReducer = reducerBuilder({
-    name: 'person',
+    name: 'person', //put here the name of the action
     loadTypes: loadIdentityTypes,
     saveTypes: saveIdentityTypes,
     defaultData: DEFAULT_DATA
 });
 
 const biographyReducer = reducerBuilder({
-    name: 'person',
+    name: 'person', //put here the name of the action
     loadTypes: loadBiographyTypes,
     saveTypes: saveBiographyTypes,
     defaultData: DEFAULT_DATA

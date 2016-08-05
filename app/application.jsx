@@ -2,9 +2,9 @@ import React, {PropTypes, Component} from 'react';
 import { render } from 'react-dom';
 import { Router } from 'react-router';
 import { Provider as StoreProvider } from 'react-redux';
-import { Provider as MetadataProvider } from 'focus-redux/behaviours/metadata';
-import { Provider as FieldHelpersProvider } from 'focus-redux/behaviours/field';
-import { Provider as MasterdataProvider } from 'focus-redux/behaviours/master-data';
+import { Provider as MetadataProvider } from 'focus-graph/behaviours/metadata';
+import { Provider as FieldHelpersProvider } from 'focus-graph/behaviours/field';
+import { Provider as MasterdataProvider } from 'focus-graph/behaviours/master-data';
 
 import routes from './router/routes';
 import definitions from './config/entity-definitions';

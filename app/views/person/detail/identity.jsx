@@ -1,8 +1,9 @@
 //librairies
 import React, {PropTypes, PureComponent} from 'react';
-import {connect as connectToForm } from 'focus-redux/behaviours/form';
-import {connect as connectToMetadata} from 'focus-redux/behaviours/metadata';
-import {connect as connectToFieldHelpers} from 'focus-redux/behaviours/field';
+import {connect as connectToForm } from 'focus-graph/behaviours/form';
+import {connect as connectToMetadata} from 'focus-graph/behaviours/metadata';
+import {connect as connectToFieldHelpers} from 'focus-graph/behaviours/field';
+import {connect as connectToMasterData} from 'focus-graph/behaviours/master-data';
 import {compose} from 'redux';
 
 //actions
@@ -19,8 +20,9 @@ const propTypes = {
 
 class PersonIdentity extends PureComponent {
     componentWillMount() {
-        const {id, load} = this.props;
+        const {id, load, loadMasterData} = this.props;
         load(id);
+        loadMasterData();
     }
 
     render() {
@@ -30,7 +32,7 @@ class PersonIdentity extends PureComponent {
                 <Panel Buttons={PanelDefaultButtons({editing, toggleEdit, getUserInput, save})} title='view.person.detail.identity'>
                     {fieldFor('fullName')}
                     {fieldFor('firstName')}
-                    {selectFor('sex', {entityPath: 'person', masterDatum: 'genders'})}
+                    {selectFor('sex', {masterDatum: 'genders'})}
                     {fieldFor('birthDate')}
                     {fieldFor('birthPlace')}
                     {fieldFor('activity')}
@@ -41,18 +43,15 @@ class PersonIdentity extends PureComponent {
 };
 PersonIdentity.displayName = 'PersonIdentity';
 PersonIdentity.propTypes = propTypes;
-
-const formConfig = {
-    formKey: 'personIdentityForm',
-    entityPathArray: ['person'],
-    loadAction: loadIdentityAction,
-    saveAction: saveIdentityAction
-};
-
-const ConnectedPersonnIdentityForm = compose(
+export default compose(
     connectToMetadata(['person']),
-    connectToForm(formConfig),
+    connectToMasterData(['genders']),
+    connectToForm({
+        formKey: 'personIdentityForm',
+        entityPathArray: ['person'],
+        loadAction: loadIdentityAction,
+        saveAction: saveIdentityAction,
+        nonValidatedFields: ['person.movieLinks']
+    }),
     connectToFieldHelpers()
 )(PersonIdentity);
-
-export default ConnectedPersonnIdentityForm;

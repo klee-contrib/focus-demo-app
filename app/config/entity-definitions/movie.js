@@ -2,46 +2,66 @@
 export default {
     code: {
         domain: 'DO_ID',
-        required: true
+        isRequired: true
     },
     title: {
         domain: 'DO_LABEL_LONG',
-        required: true
+        isRequired: true
     },
     originalTitle: {
         domain: 'DO_LABEL_LONG',
-        required: false
+        isRequired: false
     },
     poster: {
         domain: 'DO_URL',
-        required: false
+        isRequired: false
     },
     synopsis: {
         domain: 'DO_COMMENT',
-        required: true
+        isRequired: true
     },
     trailerName: {
         domain: 'DO_LABEL_MEDIUM',
-        required: false
+        isRequired: false
     },
     trailerHRef: {
         domain: 'DO_URL',
-        required: false
+        isRequired: false
     },
     shortSynopsis: {
         domain: 'DO_COMMENT',
-        required: true
+        isRequired: true
     },
     runtime: {
         domain: 'DO_RUNTIME', //to change to runtime
-        required: true
+        isRequired: true
     },
     movieType: {
         domain: 'DO_LABEL_SHORT',
-        required: true
+        isRequired: true
     },
     productionYear: {
         domain: 'DO_YEAR',
-        required: true
+        isRequired: true
+    },
+    actors: {
+        domain: 'DO_COMMENT',
+        redirect: ['moviePeople']
+    },
+    writers: {
+        domain: 'DO_COMMENT',
+        redirect: ['moviePeople']
+    },
+    camera: {
+        domain: 'DO_COMMENT',
+        redirect: ['moviePeople']
+    },
+    producers: {
+        domain: 'DO_COMMENT',
+        redirect: ['moviePeople']
+    },
+    directors: {
+        domain: 'DO_COMMENT',
+        redirect: ['moviePeople']
     }
 };
