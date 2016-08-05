@@ -43,8 +43,7 @@ export default compose(
         formKey: 'personBiographyForm',
         entityPathArray: ['person'],
         loadAction: loadBiographyAction,
-        saveAction: saveBiographyAction,
-        nonValidatedFields: []
+        saveAction: saveBiographyAction
     }),
     connectToFieldHelpers()
 )(PersonBiography);

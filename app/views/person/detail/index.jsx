@@ -75,7 +75,6 @@ export default React.createClass({
                 <div data-demo='print-page-breaker'>
                     <Biography id={id} />
                 </div>
-                <Movies id={id} />
             </ScrollspyContainer>
         );
     }

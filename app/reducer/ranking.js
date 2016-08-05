@@ -7,7 +7,7 @@ const DEFAULT_STATE = {
 
 //TODO : Ajouter les cas de chargement et d'erreur.
 
-const rankingsReducer = (state = DEFAULT_STATE, action) => {
+export default (state = DEFAULT_STATE, action) => {
     switch(action.type) {
         case loadDateRankingTypes.RESPONSE_LOAD_RANKING_DATE:
             return { ...state, date: action.payload };
@@ -17,5 +17,3 @@ const rankingsReducer = (state = DEFAULT_STATE, action) => {
             return state;
     }
 };
-
-export default rankingsReducer;
