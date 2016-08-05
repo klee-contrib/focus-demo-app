@@ -4,7 +4,7 @@ import MarkRanking from './mark';
 import {loadDateRankingAction, loadMarkRankingAction} from '../../../action/rankings';
 import {compose} from 'redux';
 import {connect as connectToStore} from 'react-redux';
-import { rankingSelector } from '../../../reducer';
+import {rankingSelector} from '../../../reducer';
 
 
 
