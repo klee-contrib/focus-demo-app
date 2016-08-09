@@ -2,10 +2,8 @@ import React, {Component} from 'react';
 import DateRanking from './date';
 import MarkRanking from './mark';
 import {loadDateRankingAction, loadMarkRankingAction} from '../../../action/rankings';
-import {compose} from 'redux';
 import {connect as connectToStore} from 'react-redux';
 import {rankingSelector} from '../../../reducer';
-
 
 
 class Rankings extends Component {

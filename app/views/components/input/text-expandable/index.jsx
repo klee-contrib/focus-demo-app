@@ -1,5 +1,5 @@
 //dependencies
-import React, {Component, PropTypes} from 'react';
+import React, {PureComponent, PropTypes} from 'react';
 import ReactDOM from 'react-dom';
 import identity from 'lodash/identity';
 import ComponentBaseBehaviour from 'focus-components/behaviours/component-base';
@@ -37,7 +37,7 @@ const defaultProps = {
 */
 @MDBehaviour('inputText')
 @ComponentBaseBehaviour
-class InputExpandableText extends Component {
+class InputExpandableText extends PureComponent {
 
     /**
     * Get the dom value of the component.

@@ -1,43 +1,43 @@
 //librairies
-import React, {PropTypes} from 'react';
+import React, {PropTypes, PureComponent} from 'react';
+import {connect as connectToStore} from 'react-redux';
 
 // web components
 import Panel from 'focus-components/components/panel';
-import {storeBehaviour} from 'focus-components/common/mixin';
 import MovieCardList from '../../movie/components/movie-card-list';
 
-//stores & actions
-import personStore from '../../../stores/person';
-import {moviesLinksActions} from '../../../action/person';
+import {loadMovieLinksAction} from '../../../action/person';
+import {personMovieLinksSelector} from '../../../reducer';
 
-export default React.createClass({
-    displayName: 'PersonMovie',
-    propTypes: {
-        id: PropTypes.number.isRequired
-    },
-    mixins: [storeBehaviour],
+const propTypes = {
+    id: PropTypes.number.isRequired
+};
 
-    /** @inheritDoc */
-    getInitialState() {
-        return {
-            personMovieLinks: personStore.getPersonMovieLinks() || []
-        }
-    },
-
+class PersonMovies extends PureComponent {
     /** @inheritDoc */
     componentWillMount() {
-        const {id} = this.props;
-        moviesLinksActions.load(id);
-    },
-    stores: [{store: personStore, properties: ['personMovieLinks']}],
+        const {id, loadMovieLinks} = this.props;
+        console.log(this.props);
+        loadMovieLinks(id);
+    };
 
     /** @inheritDoc */
     render() {
-        const {personMovieLinks} = this.state;
+        const {movieLink} = this.props;
+        console.log(this.props);
         return (
             <Panel title='view.person.detail.movies'>
-                <MovieCardList movies={personMovieLinks} />
+                <MovieCardList movies={movieLink} />
             </Panel>
         );
     }
-});
+};
+
+PersonMovies.displayName = 'PersonMovies';
+PersonMovies.propTypes = propTypes;
+export default connectToStore(
+    personMovieLinksSelector,
+    dispatch => ({
+        loadMovieLinks: (id) => dispatch(loadMovieLinksAction(id))
+    })
+)(PersonMovies);
