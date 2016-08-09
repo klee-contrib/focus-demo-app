@@ -4,8 +4,12 @@ export default {
         domain: 'DO_ID',
         isRequired: true
     },
-    title: {
+    keywords: {
         domain: 'DO_LABEL_LONG',
+        isRequired: false
+    },
+    movieType: {
+        domain: 'DO_LABEL_SHORT',
         isRequired: true
     },
     originalTitle: {
@@ -16,8 +20,20 @@ export default {
         domain: 'DO_URL',
         isRequired: false
     },
-    synopsis: {
-        domain: 'DO_COMMENT',
+    pressRating: {
+        domain: 'DO_QUANTITY',
+        isRequired: false,
+    },
+    productionYear: {
+        domain: 'DO_YEAR',
+        isRequired: true
+    },
+    runtime: {
+        domain: 'DO_RUNTIME', //to change to runtime
+        isRequired: true
+    },
+    title: {
+        domain: 'DO_LABEL_LONG',
         isRequired: true
     },
     trailerName: {
@@ -32,18 +48,15 @@ export default {
         domain: 'DO_COMMENT',
         isRequired: true
     },
-    runtime: {
-        domain: 'DO_RUNTIME', //to change to runtime
+    synopsis: {
+        domain: 'DO_COMMENT',
         isRequired: true
     },
-    movieType: {
-        domain: 'DO_LABEL_SHORT',
-        isRequired: true
+    userRating: {
+        domain: 'DO_QUANTITY',
+        isRequired: false,
     },
-    productionYear: {
-        domain: 'DO_YEAR',
-        isRequired: true
-    },
+    /** lists */
     actors: {
         domain: 'DO_COMMENT',
         redirect: ['moviePeople']
