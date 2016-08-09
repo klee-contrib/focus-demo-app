@@ -49,6 +49,7 @@ export default compose(
     connectToForm({
         formKey: 'personIdentityForm',
         entityPathArray: ['person'],
+        pathsInState: ['person.identity'],
         loadAction: loadIdentityAction,
         saveAction: saveIdentityAction,
         nonValidatedFields: ['person.movieLinks']

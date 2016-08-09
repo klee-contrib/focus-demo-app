@@ -11,17 +11,21 @@ import {
 const DEFAULT_DATA = {};
 
 const identity = reducerBuilder({
-    name: 'person', //put here the name of the action
+    name: 'identity', //put here the name of the action
     loadTypes: loadIdentityTypes,
     saveTypes: saveIdentityTypes,
     defaultData: DEFAULT_DATA
 });
 
 const biography = reducerBuilder({
-    name: 'person', //put here the name of the action
+    name: 'biography', //put here the name of the action
     loadTypes: loadBiographyTypes,
     saveTypes: saveBiographyTypes,
     defaultData: DEFAULT_DATA
 });
 
-export default biography;
+
+export default combineReducers({
+    biography,
+    identity
+});
