@@ -1,33 +1,38 @@
 import React, {Component} from 'react';
 import DateRanking from './date';
 import MarkRanking from './mark';
-import {loadDateRanking, loadMarkRanking} from '../../../action/rankings';
-import rankingsStore from '../../../stores/rankings';
-import connect from 'focus-components/behaviours/store/connect';
+import {loadDateRankingAction, loadMarkRankingAction} from '../../../action/rankings';
+import {compose} from 'redux';
+import {connect as connectToStore} from 'react-redux';
+import {rankingSelector} from '../../../reducer';
 
-const TABS = {
-    DATE: 'DATE',
-    MARK: 'MARK'
-};
 
-@connect([{store: rankingsStore, properties: ['dateRanking', 'markRanking']}], props => rankingsStore.getValue())
+
 class Rankings extends Component {
-    state = {activeTab: TABS.DATE};
-
     componentWillMount() {
-        loadDateRanking.call(this);
-        loadMarkRanking.call(this);
+        const { loadDateRanking, loadMarkRanking } = this.props;
+        loadDateRanking();
+        loadMarkRanking();
     }
 
     render() {
-        const {dateRanking, markRanking} = this.props;
+        const { date, mark } = this.props;
         return (
             <div>
-                <DateRanking dateRanking={dateRanking || []}/>
-                <MarkRanking markRanking={markRanking || []}/>
+                <DateRanking dateRanking={date} />
+                <MarkRanking markRanking={mark} />
             </div>
         );
     }
 }
+Rankings.displayName = 'Rankings';
 
-export default Rankings;
+
+
+export default connectToStore(
+    rankingSelector,
+    dispatch => ({
+        loadDateRanking: () => dispatch(loadDateRankingAction()),
+        loadMarkRanking: () => dispatch(loadMarkRankingAction())
+    })
+)(Rankings);

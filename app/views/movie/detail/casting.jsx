@@ -1,7 +1,7 @@
 //librairies
 import React, {PropTypes} from 'react';
 import {translate} from 'focus-core/translation';
-import reduce from 'lodash/collection/reduce';
+import reduce from 'lodash/reduce';
 
 // web components
 import Panel from 'focus-components/components/panel';

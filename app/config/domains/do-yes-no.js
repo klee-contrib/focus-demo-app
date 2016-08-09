@@ -5,5 +5,5 @@ export default {
     SelectComponent: SelectRadio,
     refContainer: {yesNoList: [{code: true, label: 'select.oui'}, {code: false, label: 'select.non'}]},
     listName: 'yesNoList',
-    formatter: translate
+    formatter: d => 'true'
 };

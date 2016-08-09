@@ -1,6 +1,6 @@
 import fetch from 'focus-core/network/fetch';
 import personUrl from '../config/server/persons';
-import omit from 'lodash/object/omit';
+import omit from 'lodash/omit';
 
 export default {
     loadPerson(id) {
@@ -16,16 +16,14 @@ export default {
             return [];
         });
     },
-    updatePersonBiography(data) {
-        const personId = data.id;
-        console.log(`[PERSON] call savePersonBiography method. data=${JSON.stringify(data)}`);
-        const newData = omit(data, ['movieLinks']);
-        return fetch(personUrl.update({urlData: {id: personId}, data: newData}), {isCORS: true});
+    updatePersonBiography({person}) {
+        const personId = person.code;
+        console.log(`[PERSON] call updatePersonBiography method. data=${JSON.stringify(person)}`);
+        return fetch(personUrl.update({urlData: {id: personId}, data: omit(person, ['movieLinks'])}), {isCORS: true});
     },
-    updatePersonIdentity(data) {
-        const personId = data.id;
-        console.log(`[PERSON] call savePersonIdentity method. data=${JSON.stringify(data)}`);
-        const newData = omit(data, ['movieLinks']);
-        return fetch(personUrl.update({urlData: {id: personId}, data: newData}), {isCORS: true});
+    updatePersonIdentity({person}) {
+        const personId = person.code;
+        console.log(`[PERSON] call updatePersonIdentity method. data=${JSON.stringify(person)}`);
+        return fetch(personUrl.update({urlData: {id: personId}, data: omit(person, ['movieLinks'])}), {isCORS: true});
     }
 }

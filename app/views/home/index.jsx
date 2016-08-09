@@ -1,6 +1,5 @@
 import React from 'react';
 import {navigate} from 'focus-core/history';
-import CoreStore from 'focus-core/store/CoreStore';
 
 // web components
 import {cartridgeBehaviour} from 'focus-components/page/mixin';
@@ -46,7 +45,7 @@ export default React.createClass({
     render() {
         return (
             <div data-demo='homepage'>
-                <Rankings/>
+                <Rankings />
             </div>
         );
     }

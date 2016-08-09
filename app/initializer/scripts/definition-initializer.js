@@ -1,5 +1,5 @@
 import {container as entityContainer} from 'focus-core/definition/entity';
-import entitytDefinitionConfig from '../../config/entity-definition';
+import entitytDefinitionConfig from '../../config/entity-definitions';
 
 export default () => {
     console.info('|--- ENTITIES DEFINITION');

@@ -2,22 +2,26 @@
 export default {
     code: {
         domain: 'DO_ID',
-        required: true
+        isRequired: true
     },
     name: {
         domain: 'DO_LAST_NAME',
-        required: true
+        isRequired: true
     },
     role: {
         domain: 'DO_LAST_NAME',
-        required: true
+        isRequired: true
     },
     photoURL: {
         domain: 'DO_URL',
-        required: false
+        isRequired: false
     },
     leadActor: {
         domain: 'DO_YES_NO',
-        required: true
+        isRequired: true
+    },
+    existsInBdd: {
+        domain: 'DO_YES_NO',
+        isRequired: true
     }
 };

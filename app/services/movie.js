@@ -1,6 +1,6 @@
 import fetch from 'focus-core/network/fetch';
 import movieUrl from '../config/server/movies';
-import omit from 'lodash/object/omit';
+import omit from 'lodash/omit';
 
 export default {
     loadMovie(id) {

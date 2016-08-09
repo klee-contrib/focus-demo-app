@@ -1,31 +1,30 @@
-//librairies
-import React from 'react';
+import React, {PropTypes} from 'react';
+import {connect as connectToStore} from 'react-redux';
+import {connect as connectToFieldHelpers} from 'focus-graph/behaviours/field';
+import {connect as connectToMetadata} from 'focus-graph/behaviours/metadata';
+import {compose} from 'redux';
+import {selectData} from 'focus-graph/store/create-store';
 import {translate} from 'focus-core/translation';
-
-//web components
-import {mixin as formPreset} from 'focus-components/common/form';
-
-//stores
-import personStore from '../../../stores/person';
 
 //custom components
 import Picture from '../components/picture';
 
-export default React.createClass({
-    displayName: 'PersonDetailHeaderSummary',
-    mixins: [formPreset],
-    definitionPath: 'person',
-    stores: [{store: personStore, properties: ['personIdentity']}],
+const PersonHeaderSummary = ({data}) => {
+    const {fullName, photoURL} = data;
+    return (
+        <div data-demo='header-content-summary'>
+            <div className="key-concept">{translate('view.person.keyConcept.name')}</div>
+            <Picture url={photoURL} title={fullName} />
+            <h4>textFor('fullName')</h4>
+        </div>
+    );
+};
 
-    /** @inheritDoc */
-    renderContent() {
-        const {fullName, photoURL} = this.state;
-        return (
-            <div data-demo='header-content-summary'>
-                <div className="key-concept">{translate('view.person.keyConcept.name')}</div>
-                <Picture url={photoURL} title={fullName} />
-                <h4>{this.textFor('fullName')}</h4>
-            </div>
-        );
-    }
-})
+
+export default compose(
+    connectToStore(
+        selectData('person'), // same thing : (state) => state.dataset.person
+    ),
+    connectToMetadata(['person']),
+    connectToFieldHelpers()
+)(PersonHeaderSummary);

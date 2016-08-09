@@ -9,6 +9,20 @@ const BASE_URL = process.env.BASE_URL ? process.env.BASE_URL : '';
 // Check if focus libraries should be held locally or read from NPM
 const localFocus = process.env.LOCAL_FOCUS ? JSON.parse(process.env.LOCAL_FOCUS) : false;
 
+const configuration = {
+    proxy: null,
+    externals: {
+        'react': 'React',
+        'react-dom': 'ReactDOM',
+        'redux-devtools': 'redux-devtools',
+        'react-addons-css-transition-group': {
+            root: ['React', 'addons', 'CSSTransitionGroup']
+        },
+        moment: 'moment',
+        lodash: 'lodash'
+    }
+};
+
 const customConfig = localFocus ? {
     resolve: {
         alias: {
@@ -21,10 +35,12 @@ const customConfig = localFocus ? {
     }
 } : {};
 
+Object.assign(configuration, customConfig);
+
 const globals = {
     __API_ROOT__: JSON.stringify(`http://${API_HOST}:${API_PORT}/`),
     __LEGACY_SEARCH_API__: JSON.stringify(LEGACY_SEARCH_API),
     __BASE_URL__: `'${BASE_URL}'`
 }
 
-module.exports = configBuilder(customConfig, globals);
+module.exports = configBuilder(configuration, globals);

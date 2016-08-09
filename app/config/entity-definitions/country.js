@@ -2,18 +2,18 @@
 export default {
     id: {
         domain: 'DO_ID',
-        required: true
+        isRequired: true
     },
     code: {
         domain: 'DO_CODE',
-        required: true
+        isRequired: true
     },
     name: {
         domain: 'DO_LAST_NAME',
-        required: true
+        isRequired: true
     },
     maps: {
         domain: 'DO_URL',
-        required: false
+        isRequired: false
     }
 };
