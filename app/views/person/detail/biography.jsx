@@ -13,10 +13,6 @@ import Panel from '../../components/panel';
 import Form from '../../components/form';
 import PanelDefaultButtons from '../../components/panel/panel-default-buttons';
 
-const propTypes = {
-    id: PropTypes.number.isRequired
-};
-
 class PersonBiography extends PureComponent {
     componentWillMount() {
         const {id, load} = this.props;
@@ -36,7 +32,9 @@ class PersonBiography extends PureComponent {
     }
 };
 PersonBiography.displayName = 'PersonBiography';
-PersonBiography.propTypes = propTypes;
+PersonBiography.propTypes = {
+    id: PropTypes.number.isRequired
+};
 export default compose(
     connectToMetadata(['person']),
     connectToForm({

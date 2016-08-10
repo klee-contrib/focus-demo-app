@@ -18,7 +18,7 @@ render(
 if (module.hot) {
     console.log('hot accepted.')
     module.hot.accept('./application', () => {
-        console.log('--> HOT RELOAD');
+        console.log('--> HOT RELOAD ACCEPTED');
 
         // If you use Webpack 2 in ES modules mode, you can
         // use <App /> here rather than require() a <NextApp />.

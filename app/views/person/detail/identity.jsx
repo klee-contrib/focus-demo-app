@@ -14,9 +14,6 @@ import Panel from '../../components/panel';
 import Form from '../../components/form';
 import PanelDefaultButtons from '../../components/panel/panel-default-buttons';
 
-const propTypes = {
-    id: PropTypes.number.isRequired
-};
 
 class PersonIdentity extends PureComponent {
     componentWillMount() {
@@ -41,8 +38,11 @@ class PersonIdentity extends PureComponent {
         );
     }
 };
+
 PersonIdentity.displayName = 'PersonIdentity';
-PersonIdentity.propTypes = propTypes;
+PersonIdentity.propTypes = {
+    id: PropTypes.number.isRequired
+};
 export default compose(
     connectToMetadata(['person']),
     connectToMasterData(['genders']),

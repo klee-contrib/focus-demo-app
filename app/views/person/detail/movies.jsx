@@ -9,15 +9,10 @@ import MovieCardList from '../../movie/components/movie-card-list';
 import {loadMovieLinksAction} from '../../../action/person';
 import {personMovieLinksSelector} from '../../../reducer';
 
-const propTypes = {
-    id: PropTypes.number.isRequired
-};
-
 class PersonMovies extends PureComponent {
     /** @inheritDoc */
     componentWillMount() {
         const {id, loadMovieLinks} = this.props;
-        console.log(this.props);
         loadMovieLinks(id);
     };
 
@@ -34,7 +29,9 @@ class PersonMovies extends PureComponent {
 };
 
 PersonMovies.displayName = 'PersonMovies';
-PersonMovies.propTypes = propTypes;
+PersonMovies.propTypes = {
+    id: PropTypes.number.isRequired
+};
 export default connectToStore(
     personMovieLinksSelector,
     dispatch => ({

@@ -1,11 +1,11 @@
 // libraries
-import React, {PropTypes} from 'react';
+import React, {PropTypes, PureComponent} from 'react';
 
 // web components
 import ScrollspyContainer from 'focus-components/components/scrollspy-container';
+import {setHeader} from 'focus-core/application';
 import {ButtonBack} from 'focus-components/components';
 import {back} from 'focus-core/history';
-import {cartridgeBehaviour} from 'focus-components/page/mixin';
 
 //views
 import Caracteristics from './caracteristics';
@@ -17,47 +17,27 @@ import Posters from './posters';
 import Synopsis from './synospis';
 import Trailer from './trailer';
 
-export default React.createClass({
-    displayName: 'MovieDetailView',
-    propTypes: {
-        id: PropTypes.number.isRequired
-    },
-    // propTypes: {
-    //     params: PropTypes.shape.isRequired({
-    //         id: PropTypes.number.isRequired
-    //     })
-    // }
-    mixins: [cartridgeBehaviour],
-    /**
-    * Related to the CartridgeBehaviour.
-    * Define the cartridge configuration.
-    * @return {[type]} [description]
-    */
 
+const cartridgeConf = {
+    barLeft: {component: ButtonBack, props: {back: back} },
+    cartridge: { component: HeaderExpanded },
+    summary: { component: HeaderSummary },
+    actions: {
+        primary: [{label: 'Imprimer', icon: 'print', action: () => { window.print(); }}],
+        secondary: []
+    }
+};
+
+
+class MovieDetailView extends PureComponent {
+    /** @inheritDoc */
+    componentWillMount() {
+        setHeader(cartridgeConf);
+    };
+    /** @inheritDoc */
     componentDidMount() {
         window.scrollTo(0, 0);
-    },
-
-    cartridgeConfiguration() {
-        const props = { hasLoad: false, hasForm: false }; //{id: this.props.id};
-        return {
-            barLeft: {component: ButtonBack, props: {back: back} },
-            cartridge: { component: HeaderExpanded, props },
-            summary: { component: HeaderSummary, props },
-            actions: {
-                primary: this._getGlobalPrimaryActions() || [],
-                secondary: []
-            }
-        };
-    },
-
-    _getGlobalPrimaryActions() {
-        const actions = [];
-        actions.push({label: 'Imprimer', icon: 'print', action: () => {
-          window.print();
-        }});
-        return actions;
-    },
+    };
 
     /** @inheritDoc */
     render() {
@@ -85,4 +65,10 @@ export default React.createClass({
             </ScrollspyContainer>
         );
     }
-});
+};
+
+MovieDetailView.displayName = 'MovieDetailView';
+MovieDetailView.propTypes = {
+    id: PropTypes.number.isRequired
+};
+export default MovieDetailView;

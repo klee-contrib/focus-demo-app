@@ -58,23 +58,18 @@ export default {
     },
     /** lists */
     actors: {
-        domain: 'DO_COMMENT',
         redirect: ['moviePeople']
     },
     writers: {
-        domain: 'DO_COMMENT',
         redirect: ['moviePeople']
     },
     camera: {
-        domain: 'DO_COMMENT',
         redirect: ['moviePeople']
     },
     producers: {
-        domain: 'DO_COMMENT',
         redirect: ['moviePeople']
     },
     directors: {
-        domain: 'DO_COMMENT',
         redirect: ['moviePeople']
     }
 };

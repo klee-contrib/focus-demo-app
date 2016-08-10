@@ -10,7 +10,7 @@ import Button from 'focus-components/components/button';
 //pourcentage de completude<br/>
 // nombre de films<br/>
 // nombre de réalisations<br/>
-const Overview = ({data}) => {
+const PersonOverview = ({data}) => {
     const {code} = data;
     const url = `http://www.allocine.fr/personne/fichepersonne_gen_cpersonne=${code}.html`;
     return (
@@ -20,7 +20,7 @@ const Overview = ({data}) => {
     );
 };
 
-
+PersonOverview.displayName = 'PersonOverview';
 export default connectToStore(
     selectData('person') // same thing : (state) => state.dataset.person
-)(Overview);
+)(PersonOverview);

@@ -31,7 +31,6 @@ console.info(
     `
 );
 
-console.log('---------------------------[INIT]---------------------------');
 // initializers before DOM CONTENT LOADED
 const beforeDomContentLoadedScript = require('./initializer/before');
 beforeDomContentLoadedScript.initialize();
@@ -40,9 +39,7 @@ beforeDomContentLoadedScript.initialize();
 const onDOMContentLoaded = () => {
     const afterDomContentLoadedScript = require('./initializer/after');
     afterDomContentLoadedScript.initialize();
-    console.log('---------------------------[START APP]---------------------------');
     require('./start-app');
-    console.log('---------------------------[APP STARTED]---------------------------');
 };
 
 window.onDOMContentLoaded = onDOMContentLoaded;

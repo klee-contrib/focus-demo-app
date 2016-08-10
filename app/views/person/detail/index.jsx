@@ -29,14 +29,10 @@ const cartridgeConf = {
     }
 };
 
-const propTypes = {
-    id: PropTypes.number.isRequired
-};
-
 class PersonDetailView extends PureComponent {
     /** @inheritDoc */
     componentWillMount() {
-        //setHeader(cartridgeConf);
+        setHeader(cartridgeConf);
     };
     /** @inheritDoc */
     componentDidMount() {
@@ -68,5 +64,7 @@ class PersonDetailView extends PureComponent {
 };
 
 PersonDetailView.displayName = 'PersonDetailView';
-PersonDetailView.propTypes = propTypes;
+PersonDetailView.propTypes = {
+    id: PropTypes.number.isRequired
+};
 export default PersonDetailView;

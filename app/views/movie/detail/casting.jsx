@@ -1,5 +1,7 @@
 //librairies
-import React, {PropTypes} from 'react';
+import React, {PropTypes, Component} from 'react';
+import {connect as connectToStore} from 'react-redux';
+import {selectData} from 'focus-graph/store/create-store';
 import {translate} from 'focus-core/translation';
 import reduce from 'lodash/reduce';
 
@@ -9,30 +11,23 @@ import {storeBehaviour} from 'focus-components/common/mixin';
 import PersonCardList from '../../person/components/person-card-list';
 import Button from 'focus-components/components/button';
 
-//stores & actions
-import movieStore from '../../../stores/movie';
-import {castingActions} from '../../../action/movie';
+import {loadCastingAction} from '../../../action/movie';
 
 
-export default React.createClass({
-    displayName: 'MovieCasting',
-    propTypes: {
-        id: PropTypes.number.isRequired
-    },
-    mixins: [storeBehaviour],
-    stores: [{store: movieStore, properties: ['movieCasting']}],
-
-    getInitialState() {
-        return {
+//TODO : corriger supprimer les warning de check
+class MovieCasting extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
             filter: null
         }
-    },
+    }
 
     /** @inheritDoc */
     componentWillMount() {
-        const {id} = this.props;
-        castingActions.loadPeople(id);
-    },
+        const {id, loadCasting} = this.props;
+        loadCasting(id);
+    };
 
     _getCurrentFilter() {
         const {filter} = this.state;
@@ -41,16 +36,16 @@ export default React.createClass({
             return tabs.length > 0 ? tabs[0] : 'actors';
         }
         return filter;
-    },
+    };
 
     _getPeople() {
         const filter = this._getCurrentFilter();
         const people = this._getPeopleByName(filter);
         return people ? people : [];
-    },
+    };
 
     _getPeopleByName(filter) {
-        const {actors, camera, directors, producers, writers} = this.state;
+        const {actors, camera, directors, producers, writers} = this.props.data;
         switch (filter) {
             case 'actors':
                 return actors;
@@ -65,24 +60,24 @@ export default React.createClass({
             default:
                 return [];
         }
-    },
+    };
 
     _setFilter(value) {
         this.setState({
             filter: value
         });
-    },
+    };
 
     _getActionLabel(filter) {
         const people = this._getPeopleByName(filter);
         const size = people ? people.length : 0;
         return`${translate(`view.movie.action.filter.${filter}`)} (${size})`;
-    },
+    };
 
     _isActive(value) {
         const filter = this._getCurrentFilter();
         return filter === value;
-    },
+    };
 
     _getTabs() {
         const tabs = reduce(['actors','camera','directors','producers','writers'], (tabs, peopleType) => {
@@ -91,20 +86,8 @@ export default React.createClass({
             return tabs;
         }, []);
         return tabs;
-    },
-    renderPrintVersion(tabs) {
-        {/* Bloc juste pour print*/}
-        return (
-          <div data-demo='print'>
-            {tabs.map(peopleType =>
-                <div key={`print-section-${peopleType}`} data-demo='section-title'>
-                  <div data>{this._getActionLabel(peopleType)}</div>
-                  <PersonCardList persons={this._getPeopleByName(peopleType)} />
-                </div>
-            )}
-          </div>
-        );
-    },
+    };
+
     /** @inheritDoc */
     render() {
         const {filter} = this.state;
@@ -120,8 +103,17 @@ export default React.createClass({
                   </div>
                   <PersonCardList persons={list} />
                 </div>
-                {this.renderPrintVersion(tabs)}
             </Panel>
         );
-    }
-});
+    };
+};
+MovieCasting.displayName = 'MovieCasting';
+MovieCasting.propTypes = {
+    id: PropTypes.number.isRequired
+};
+export default connectToStore(
+    selectData('moviePeople'),
+    dispatch => ({
+        loadCasting: (id) => dispatch(loadCastingAction(id))
+    })
+)(MovieCasting);
