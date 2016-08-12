@@ -1,7 +1,10 @@
 import {container as domainContainer} from 'focus-core/definition/domain';
 import domainsConfig from '../../config/domains';
 import entitytDefinitionConfig from '../../config/entity-definitions';
-import {difference, intersection, uniq} from 'lodash/array';
+import difference from 'lodash/difference';
+import intersection from 'lodash/intersection';
+import uniq from 'lodash/uniq';
+
 
 export default () => {
     console.info('|--- DOMAINS');
@@ -10,7 +13,10 @@ export default () => {
     const arr = [];
     for (const node in entitytDefinitionConfig) {
         for (const sub in entitytDefinitionConfig[node]) {
-            arr.push(entitytDefinitionConfig[node][sub].domain);
+            const nodeDomain = entitytDefinitionConfig[node][sub].domain;
+            if(nodeDomain){
+                arr.push(nodeDomain);
+            }
         }
     }
     const appDomains = uniq(arr);
@@ -19,8 +25,9 @@ export default () => {
     console.info('   |--- Declared domains :', domains);
     console.info('   |--- Declared domains in entity defintions :', appDomains);
 
-    const diffAppDomains = difference(appDomains, intersection(appDomains, domains))
-    const diffDomains = difference(domains, intersection(appDomains, domains))
+    const intersect = intersection(appDomains, domains);
+    const diffAppDomains = difference(appDomains, intersect);
+    const diffDomains = difference(domains, intersect);
     if(diffAppDomains.length > 0) {
         console.warn('   |--- Missing domain\'s definition :', diffAppDomains);
     }

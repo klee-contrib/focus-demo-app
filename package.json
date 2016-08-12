@@ -103,7 +103,6 @@
         "redux-devtools-inspector": "^0.8.0",
         "redux-logger": "^2.5.0",
         "redux-slider-monitor": "^1.0.2",
-        "redux-thunk": "^1.0.3",
         "remarkable": "^1.6.2",
         "sass-loader": "^3.1.2",
         "sinon": "^1.17.3",
@@ -119,14 +118,15 @@
         "focus-core": "0.17.0-beta0",
         "focus-components": "0.17.0-beta2",
         "focus-notifications": "0.2.0-rc6",
-        "focus-graph": "0.2.2-beta.2",
+        "focus-graph": "0.2.3-beta1",
         "lodash": "^4.6.1",
         "moment": "^2.12.0",
         "numeral": "^1.5.3",
         "react": "^15.3.0",
         "react-dom": "^15.3.0",
-        "react-redux": "^4.3.0",
+        "react-redux": "^4.4.5",
         "react-router": "^2.6.0",
-        "redux": "^3.5.2"
+        "redux": "^3.5.2",
+        "redux-thunk": "^2.1.0"
     }
 }
