@@ -3,7 +3,7 @@ import React, {PropTypes} from 'react';
 
 // web components
 import ScrollspyContainer from 'focus-components/components/scrollspy-container';
-import {ButtonBack, DraggableIframe} from 'focus-components/components';
+import {ButtonBack} from 'focus-components/components';
 import {cartridgeBehaviour} from 'focus-components/page/mixin';
 import {back} from 'focus-core/history';
 
@@ -22,16 +22,6 @@ export default React.createClass({
     },
     mixins: [cartridgeBehaviour],
 
-    defaultProps: {
-        helpCenterShowed: false
-    },
-
-    getInitialState() {
-        return {
-            helpCenterShowed: false
-        }
-    },
-
     /** @inheritDoc */
     componentWillMount() {
         this._registerCartridge();
@@ -39,11 +29,6 @@ export default React.createClass({
     
     componentDidMount() {
         window.scrollTo(0, 0);
-    },
-
-    showHelpcenter() {
-        const {helpCenterShowed} = this.state;
-        this.setState({helpCenterShowed: !helpCenterShowed});
     },
 
     /**
@@ -69,24 +54,15 @@ export default React.createClass({
         actions.push({label: 'Imprimer', icon: 'print', action: () => {
             window.print();
         }});
-        actions.push({label: 'Help Center', icon: 'help_outline', action: () => {this.showHelpcenter()}});
+        actions.push({label: 'Help Center', icon: 'help_outline', action: () => {window.openHelpcenter()}});
         return actions;
     },
 
     /** @inheritDoc */
     render() {
         const {id} = this.props;
-        const {helpCenterShowed} = this.state;
         return (
             <ScrollspyContainer gridContentSize={10} gridMenuSize={2}>
-                {helpCenterShowed ?
-                    <DraggableIframe
-                        width={350}
-                        height={550}
-                        iframeUrl='http://localhost:1234/extension.html'
-                        title='view.help-center.title'
-                        requestClose={this.showHelpcenter}
-                    /> : <div />}
                 <div data-demo='print-page-breaker'>
                     {/* Bloc header dupliqué juste pour print*/}
                     <div data-demo='print'>

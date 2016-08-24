@@ -3,7 +3,7 @@ import React, {PropTypes} from 'react';
 
 // web components
 import ScrollspyContainer from 'focus-components/components/scrollspy-container';
-import {ButtonBack, DraggableIframe} from 'focus-components/components';
+import {ButtonBack} from 'focus-components/components';
 import {back} from 'focus-core/history';
 import {cartridgeBehaviour} from 'focus-components/page/mixin';
 
@@ -22,11 +22,13 @@ export default React.createClass({
     propTypes: {
         id: PropTypes.number.isRequired
     },
+
     // propTypes: {
     //     params: PropTypes.shape.isRequired({
     //         id: PropTypes.number.isRequired
     //     })
     // }
+
     mixins: [cartridgeBehaviour],
     /**
     * Related to the CartridgeBehaviour.
@@ -34,23 +36,8 @@ export default React.createClass({
     * @return {[type]} [description]
     */
 
-    defaultProps: {
-        helpCenterShowed: false
-    },
-
-    getInitialState() {
-        return {
-            helpCenterShowed: false
-        }
-    },
-
     componentDidMount() {
         window.scrollTo(0, 0);
-    },
-
-    showHelpcenter() {
-        const {helpCenterShowed} = this.state;
-        this.setState({helpCenterShowed: !helpCenterShowed});
     },
 
     cartridgeConfiguration() {
@@ -71,24 +58,15 @@ export default React.createClass({
         actions.push({label: 'Imprimer', icon: 'print', action: () => {
           window.print();
         }});
-        actions.push({label: 'Help Center', icon: 'help_outline', action: () => {this.showHelpcenter()}});
+        actions.push({label: 'Help Center', icon: 'help_outline', action: () => {window.openHelpCenter()}});
         return actions;
     },
 
     /** @inheritDoc */
     render() {
         const {id} = this.props;
-        const {helpCenterShowed} = this.state;
         return (
             <ScrollspyContainer gridContentSize={10} gridMenuSize={2}>
-                {helpCenterShowed ? 
-                    <DraggableIframe
-                        width={350}
-                        height={550}
-                        iframeUrl='http://localhost:1234/extension.html'
-                        title='view.help-center.title'
-                        requestClose={this.showHelpcenter}
-                    /> : <div />}
                 {/* Bloc header dupliqué juste pour print*/}
                 <div data-demo='print-page-breaker'>
                   <div data-demo='print'>

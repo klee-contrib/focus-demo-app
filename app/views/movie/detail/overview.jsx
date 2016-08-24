@@ -34,7 +34,7 @@ export default React.createClass({
         const {code, pressRating, trailerName, trailerHRef, userRating} = this.state;
         const url = `http://www.allocine.fr/film/fichefilm_gen_cfilm=${code}.html`;
         return (
-            <Panel title='view.movie.detail.overview' data-demo='overview'>
+            <Panel title='view.movie.detail.overview' data-demo='overview' showHelp={true}>
                 {trailerHRef &&
                     <div>
                         <Button label={translate('view.movie.action.watchTrailer')} type='button' handleOnClick={this.openTrailerPopin} />

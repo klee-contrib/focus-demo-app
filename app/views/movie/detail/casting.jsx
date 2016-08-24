@@ -111,7 +111,7 @@ export default React.createClass({
         const list = this._getPeople();
         const tabs = this._getTabs();
         return (
-            <Panel title='view.movie.detail.casting'>
+            <Panel title='view.movie.detail.casting' showHelp={true}>
                 <div data-demo='detail-casting'>
                   <div className='filters-bar'>
                       {tabs.map(peopleType =>

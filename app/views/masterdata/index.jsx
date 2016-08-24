@@ -5,7 +5,6 @@ import {translate} from 'focus-core/translation';
 import {cartridgeBehaviour} from 'focus-components/page/mixin';
 import MasterdataMenu from './menu';
 import MasterdataHome from './home';
-import {DraggableIframe} from 'focus-components/components';
 
 function getReference() {
     const path = window.location.pathname;
@@ -44,27 +43,15 @@ export default React.createClass({
     mixins: [cartridgeBehaviour],
     propTypes: {
         reference: PropTypes.string,
-        ReferenceComponent: PropTypes.func,
-        helpCenterShowed: PropTypes.bool
+        ReferenceComponent: PropTypes.func
     },
     getDefaultProps() {
         return {
             reference: null,
-            ReferenceComponent: MasterdataHome,
-            helpCenterShowed: false
+            ReferenceComponent: MasterdataHome
         };
     },
 
-    getInitialState() {
-        return {
-            helpCenterShowed: false
-        }
-    },
-
-    showHelpcenter() {
-        const {helpCenterShowed} = this.state;
-        this.setState({ helpCenterShowed: !helpCenterShowed });
-    },
     /**
     * Related to the CartridgeBehaviour.
     * Define the cartridge configuration.
@@ -82,7 +69,7 @@ export default React.createClass({
                 props: { reference }
             },
             actions: {
-                primary: [{ label: 'Help Center', icon: 'help_outline', action: () => { this.showHelpcenter() } }],
+                primary: [{ label: 'Help Center', icon: 'help_outline', action: () => { window.openHelpCenter() } }],
                 secondary: []
             }
         };
@@ -92,20 +79,10 @@ export default React.createClass({
     render() {
         const {reference, ReferenceComponent} = this.props;
         const ref = this.props.routes[this.props.routes.length - 1].path;
-        const {helpCenterShowed} = this.state;
         window.scrollTo(0, 0);
         return (
             <div data-demo='masterdata'>
                 <div data-demo='masterdata--nav'>
-                    {helpCenterShowed ? 
-                        <DraggableIframe
-                            width={350}
-                            height={550}
-                            iframeUrl='http://localhost:1234/extension.html'
-                            title='view.help-center.title'
-                            requestClose={this.showHelpcenter}
-                        /> 
-                    : <div />}
                     <MasterdataMenu reference={ref} />
                 </div>
                 <div data-demo='masterdata--component'>

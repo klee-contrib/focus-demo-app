@@ -11,26 +11,11 @@ import DemoTitle from '../components/demo-title';
 import CartridgePageSearch from 'focus-components/page/search/search-header/cartridge';
 import SummaryPageSearch from 'focus-components/page/search/search-header/summary';
 import searchService from '../../services/search';
-import {DraggableIframe} from 'focus-components/components';
 
 export default React.createClass({
     displayName: 'HomeView',
     mixins: [cartridgeBehaviour],
 
-    defaultProps: {
-        helpCenterShowed: false
-    },
-
-    getInitialState() {
-        return {
-            helpCenterShowed: false
-        }
-    },
-
-    showHelpcenter() {
-        const {helpCenterShowed} = this.state;
-        this.setState({helpCenterShowed: !helpCenterShowed});
-    },
     /** @inheritDoc */
 
     /**
@@ -52,7 +37,7 @@ export default React.createClass({
                 props: { onSearchCriteriaChangeByUser: () => { navigate('/search/advanced') }, service: searchService }
             },
             actions: {
-                primary: [{ label: 'Help Center', icon: 'help_outline', action: () => { this.showHelpcenter() } }],
+                primary: [{ label: 'Help Center', icon: 'help_outline', action: () => { window.openHelpCenter() } }],
                 secondary: []
             }
         };
@@ -60,19 +45,9 @@ export default React.createClass({
 
     /** @inheritDoc */
     render() {
-        const {helpCenterShowed} = this.state;
         return (
             <div data-demo='homepage'>
                 <Rankings/>
-                {helpCenterShowed ? 
-                    <DraggableIframe
-                        width={350}
-                        height={550}
-                        iframeUrl='http://localhost:1234/extension.html'
-                        title='view.help-center.title'
-                        requestClose={this.showHelpcenter}
-                    /> 
-                : null}
             </div>
         );
     }
