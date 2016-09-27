@@ -2,7 +2,7 @@
 import React, {PropTypes} from 'react';
 
 // web components
-import Panel from 'focus-components/components/panel';
+import Panel from 'focus-components/panel';
 
 const MoviePosters = () => (
     <Panel title='view.movie.detail.posters'>

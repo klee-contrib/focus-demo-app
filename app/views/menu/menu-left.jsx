@@ -1,8 +1,8 @@
 import React from 'react';
 
 import {navigate} from 'focus-core/history';
-import Menu from 'focus-components/components/menu';
-import {component as Modal} from 'focus-components/application/popin';
+import Menu from 'focus-components/menu';
+import {component as Modal} from 'focus-components/modal';
 import {quickSearchStore} from 'focus-core/search/built-in-store';
 import dispatcher from 'focus-core/dispatcher';
 import {Link} from 'react-router';

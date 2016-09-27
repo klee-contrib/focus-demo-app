@@ -1,5 +1,5 @@
 import moment from 'moment';
-import InputDate from 'focus-components/components/input/date';
+import InputDate from 'focus-components/input-date';
 
 export default {
     InputComponent: InputDate,

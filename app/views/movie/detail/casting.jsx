@@ -6,10 +6,9 @@ import {translate} from 'focus-core/translation';
 import reduce from 'lodash/reduce';
 
 // web components
-import Panel from 'focus-components/components/panel';
-import {storeBehaviour} from 'focus-components/common/mixin';
+import Panel from 'focus-components/panel';
 import PersonCardList from '../../person/components/person-card-list';
-import Button from 'focus-components/components/button';
+import Button from 'focus-components/button';
 
 import {loadCastingAction} from '../../../action/movie';
 

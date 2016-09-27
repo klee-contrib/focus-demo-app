@@ -10,9 +10,9 @@ import {selectData} from 'focus-graph/store/create-store';
 import {loadTrailerAction} from '../../../action/movie';
 
 // web components
-import Panel from 'focus-components/components/panel';
-import {Button} from 'focus-components/components';
-import {component as Modal} from 'focus-components/application/popin';
+import Panel from 'focus-components/panel';
+import Button from 'focus-components/button';
+import {component as Modal} from 'focus-components/modal';
 import {translate} from 'focus-core/translation';
 
 const MovieOverview = ({loading}) => {

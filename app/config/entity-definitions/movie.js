@@ -1,4 +1,3 @@
-
 export default {
     code: {
         domain: 'DO_ID',

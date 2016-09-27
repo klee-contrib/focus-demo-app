@@ -4,8 +4,8 @@ import {selectData} from 'focus-graph/store/create-store';
 import {translate} from 'focus-core/translation';
 
 // components
-import Panel from 'focus-components/components/panel';
-import Button from 'focus-components/components/button';
+import Panel from 'focus-components/panel';
+import Button from 'focus-components/button';
 
 //pourcentage de completude<br/>
 // nombre de films<br/>

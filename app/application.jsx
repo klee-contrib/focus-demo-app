@@ -11,11 +11,6 @@ import definitions from './config/entity-definitions';
 import domains from './config/domains';
 import masterdatas from './config/master-datas'
 
-const propTypes = {
-    history: PropTypes.func,
-    store: PropTypes.object
-};
-
 //to make hot reload work, we have to write Application as a Component.
 class Application extends Component {
     render() {
@@ -36,4 +31,8 @@ class Application extends Component {
 
 //Application.propTypes = propTypes;
 Application.displayName = 'Application';
+Application.propTypes = {
+    history: PropTypes.object.isRequired,
+    store: PropTypes.object.isRequired
+};
 export default Application;

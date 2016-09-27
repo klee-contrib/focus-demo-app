@@ -1,4 +1,4 @@
-import {component as SelectRadio} from 'focus-components/common/select/radio';
+import {component as SelectRadio} from 'focus-components/select-radio';
 import {translate} from 'focus-core/translation';
 
 export default {

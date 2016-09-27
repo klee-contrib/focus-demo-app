@@ -3,7 +3,7 @@ import React, {PropTypes, PureComponent} from 'react';
 import {connect as connectToStore} from 'react-redux';
 
 // web components
-import Panel from 'focus-components/components/panel';
+import Panel from 'focus-components/panel';
 import MovieCardList from '../../movie/components/movie-card-list';
 
 import {loadMovieLinksAction} from '../../../action/person';

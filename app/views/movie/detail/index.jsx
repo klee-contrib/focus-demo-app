@@ -2,9 +2,9 @@
 import React, {PropTypes, PureComponent} from 'react';
 
 // web components
-import ScrollspyContainer from 'focus-components/components/scrollspy-container';
+import ScrollspyContainer from 'focus-components/scrollspy-container';
 import {setHeader} from 'focus-core/application';
-import {ButtonBack} from 'focus-components/components';
+import ButtonBack from 'focus-components/button-back';
 import {back} from 'focus-core/history';
 
 //views

@@ -1,5 +1,5 @@
 import React, {PropTypes, PureComponent} from 'react';
-import Translation from 'focus-components/behaviours/translation';
+import i18next from 'i18next';
 import includes from 'lodash/includes';
 import uniqueId from 'lodash/uniqueId';
 
@@ -16,7 +16,6 @@ const propTypes = {
 /**
 * Panel.
 */
-@Translation
 class Panel extends PureComponent {
     constructor(props) {
         super(props);
@@ -35,7 +34,7 @@ class Panel extends PureComponent {
             <div className='mdl-card mdl-card--border mdl-shadow--4dp' data-spy={this.spyId} data-focus='panel' {...otherProps}>
                 <div className='mdl-card__title mdl-card--border' data-focus='panel-title'>
                     {title &&
-                        <h3 data-spy-title>{this.i18n(title)}</h3>
+                        <h3 data-spy-title>{i18next.t(title)}</h3>
                     }
                     {shouldDisplayActionsTop &&
                         <div className='actions'>{Buttons}</div>

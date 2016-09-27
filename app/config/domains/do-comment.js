@@ -1,4 +1,4 @@
-import InputTextarea from 'focus-components/components/input/textarea';
+import InputTextarea from 'focus-components/input-textarea';
 
 export default {
     type: 'text',

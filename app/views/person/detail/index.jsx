@@ -4,8 +4,8 @@ import {setHeader} from 'focus-core/application';
 import {back} from 'focus-core/history';
 
 // web components
-import ScrollspyContainer from 'focus-components/components/scrollspy-container';
-import {ButtonBack} from 'focus-components/components';
+import ScrollspyContainer from 'focus-components/scrollspy-container';
+import ButtonBack from 'focus-components/button-back';
 
 //views
 import HeaderExpanded from './header-content-expanded';

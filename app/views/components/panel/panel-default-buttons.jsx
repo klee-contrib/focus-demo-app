@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import Button from 'focus-components/components/button';
+import Button from 'focus-components/button';
 
 
 const renderEditingButtons = (toggleEdit, getUserInput, save) => (

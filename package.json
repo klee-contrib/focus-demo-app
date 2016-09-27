@@ -1,132 +1,135 @@
 {
-    "author": "focus@kleegroup.com",
-    "name": "focus-demo-app",
-    "description": "Focus demonstration application",
-    "version": "0.17.0",
-    "main": "src/index.js",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/KleeGroup/focus-demo-app/issues"
+  "author": "focus@kleegroup.com",
+  "name": "focus-demo-app",
+  "description": "Focus demonstration application",
+  "version": "0.17.0",
+  "main": "src/index.js",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KleeGroup/focus-demo-app/issues"
+  },
+  "homepage": "https://github.com/KleeGroup/focus-demo-app",
+  "scripts": {
+    "test": "BABEL_ENV=test mocha src/**/__tests__/**/*.js",
+    "test:watch": "BABEL_ENV=test mocha src/**/__tests__/**/*.js --watch",
+    "start": "better-npm-run dev-server",
+    "build:node": "better-npm-run babelify",
+    "build": "npm run build:node",
+    "build:watch": "better-npm-run watch",
+    "publish": "npm run build"
+  },
+  "betterScripts": {
+    "dev-server": {
+      "command": "node ./server.js",
+      "env": {
+        "ANCHOR_CLASS": "demo-app",
+        "API_HOST": "localhost",
+        "API_PORT": 8080,
+        "BABELIFIED_PATH": "./app",
+        "BASE_URL": "/",
+        "DEV": true,
+        "ENTRY_FILE_PATH": "./app/",
+        "LOCAL_FOCUS": false,
+        "LEGACY_SEARCH_API": false,
+        "MINIMIFY": false,
+        "PACKAGE_JSON_PATH": "../",
+        "PAGE_TITLE": "Focus demonstration application",
+        "SOURCE_MAPS": false
+      }
     },
-    "homepage": "https://github.com/KleeGroup/focus-demo-app",
-    "scripts": {
-        "test": "BABEL_ENV=test mocha src/**/__tests__/**/*.js",
-        "test:watch": "BABEL_ENV=test mocha src/**/__tests__/**/*.js --watch",
-        "start": "better-npm-run dev-server",
-        "build:node": "better-npm-run babelify",
-        "build": "npm run build:node",
-        "build:watch": "better-npm-run watch",
-        "publish": "npm run build"
+    "watch": {
+      "command": "webpack --watch ./src/index.js",
+      "env": {
+        "ANCHOR_CLASS": "demo-app",
+        "API_HOST": "localhost",
+        "API_PORT": 8080,
+        "BABELIFIED_PATH": "./app",
+        "BASE_URL": "/",
+        "DEV": true,
+        "ENTRY_FILE_PATH": "./app/",
+        "LOCAL_FOCUS": false,
+        "LEGACY_SEARCH_API": false,
+        "MINIMIFY": false,
+        "PACKAGE_JSON_PATH": "../",
+        "PAGE_TITLE": "Focus demonstration application",
+        "SOURCE_MAPS": false
+      }
     },
-    "betterScripts": {
-        "dev-server": {
-            "command": "node ./server.js",
-            "env": {
-                "ANCHOR_CLASS": "demo-app",
-                "API_HOST": "localhost",
-                "API_PORT": 8080,
-                "BABELIFIED_PATH": "./app",
-                "BASE_URL": "/",
-                "DEV": true,
-                "ENTRY_FILE_PATH": "./app/",
-                "LOCAL_FOCUS": false,
-                "LEGACY_SEARCH_API": false,
-                "MINIMIFY": false,
-                "PACKAGE_JSON_PATH": "../",
-                "PAGE_TITLE": "Focus demonstration application",
-                "SOURCE_MAPS": false
-            }
-        },
-        "watch": {
-            "command": "webpack --watch ./src/index.js",
-            "env": {
-                "ANCHOR_CLASS": "demo-app",
-                "API_HOST": "localhost",
-                "API_PORT": 8080,
-                "BABELIFIED_PATH": "./app",
-                "BASE_URL": "/",
-                "DEV": true,
-                "ENTRY_FILE_PATH": "./app/",
-                "LOCAL_FOCUS": false,
-                "LEGACY_SEARCH_API": false,
-                "MINIMIFY": false,
-                "PACKAGE_JSON_PATH": "../",
-                "PAGE_TITLE": "Focus demonstration application",
-                "SOURCE_MAPS": false
-            }
-        },
-        "babelify": {
-            "env": {
-                "BABEL_ENV": "production"
-            },
-            "command": "node scripts/babelify.js"
-        }
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/pierr/data-behaviours.git"
-    },
-    "keywords": [
-        "react",
-        "redux",
-        "focus"
-    ],
-    "devDependencies": {
-        "autoprefixer-loader": "^3.2.0",
-        "babel-core": "^6.7.6",
-        "babel-eslint": "^6.0.2",
-        "babel-loader": "^6.2.4",
-        "babel-plugin-flow-comments": "^6.3.19",
-        "babel-polyfill": "^6.5.0",
-        "babel-preset-focus": "^0.6.1",
-        "better-npm-run": "0.0.6",
-        "body-parser": "^1.14.2",
-        "css-loader": "^0.23.1",
-        "eslint": "1.5.1",
-        "eslint-config-focus": "0.3.0",
-        "eslint-plugin-filenames": "0.1.1",
-        "eslint-plugin-react": "3.5.0",
-        "express": "^4.13.4",
-        "extract-text-webpack-plugin": "^1.0.1",
-        "file-loader": "^0.8.5",
-        "html-webpack-plugin": "^2.8.1",
-        "isomorphic-fetch": "^2.2.1",
-        "jsdom": "^8.3.1",
-        "json-loader": "^0.5.4",
-        "material-design-icons-iconfont": "^2.0.4",
-        "mocha": "^2.4.5",
-        "node-sass": "^3.4.2",
-        "react-addons-test-utils": "^0.14.7",
-        "react-hot-loader": "^3.0.0-beta.1",
-        "redux-devtools": "^3.1.1",
-        "redux-devtools-dock-monitor": "^1.1.1",
-        "redux-devtools-inspector": "^0.8.0",
-        "redux-logger": "^2.5.0",
-        "redux-slider-monitor": "^1.0.2",
-        "remarkable": "^1.6.2",
-        "sass-loader": "^3.1.2",
-        "sinon": "^1.17.3",
-        "sinon-chai": "^2.8.0",
-        "source-map-loader": "^0.1.5",
-        "style-loader": "^0.13.0",
-        "url-loader": "^0.5.7",
-        "webpack": "^1.12.13",
-        "webpack-dev-server": "^1.14.0",
-        "webpack-focus": "^0.12.2"
-    },
-    "dependencies": {
-        "focus-core": "0.17.0-beta0",
-        "focus-components": "0.17.0-beta2",
-        "focus-notifications": "0.2.0-rc6",
-        "focus-graph": "0.2.3-beta1",
-        "lodash": "^4.6.1",
-        "moment": "^2.12.0",
-        "numeral": "^1.5.3",
-        "react": "^15.3.0",
-        "react-dom": "^15.3.0",
-        "react-redux": "^4.4.5",
-        "react-router": "^2.6.0",
-        "redux": "^3.5.2",
-        "redux-thunk": "^2.1.0"
+    "babelify": {
+      "env": {
+        "BABEL_ENV": "production"
+      },
+      "command": "node scripts/babelify.js"
     }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pierr/data-behaviours.git"
+  },
+  "keywords": [
+    "react",
+    "redux",
+    "focus"
+  ],
+  "devDependencies": {
+    "autoprefixer-loader": "^3.2.0",
+    "babel-core": "^6.7.6",
+    "babel-eslint": "^6.0.2",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-flow-comments": "^6.3.19",
+    "babel-polyfill": "^6.5.0",
+    "babel-preset-focus": "^0.6.1",
+    "better-npm-run": "0.0.6",
+    "body-parser": "^1.14.2",
+    "css-loader": "^0.23.1",
+    "eslint": "1.5.1",
+    "eslint-config-focus": "0.3.0",
+    "eslint-plugin-filenames": "0.1.1",
+    "eslint-plugin-react": "3.5.0",
+    "express": "^4.13.4",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.8.5",
+    "html-webpack-plugin": "^2.8.1",
+    "isomorphic-fetch": "^2.2.1",
+    "jsdom": "^8.3.1",
+    "json-loader": "^0.5.4",
+    "mocha": "^2.4.5",
+    "node-sass": "^3.4.2",
+    "react-addons-test-utils": "^0.14.7",
+    "react-hot-loader": "^3.0.0-beta.1",
+    "redux-devtools": "^3.1.1",
+    "redux-devtools-dock-monitor": "^1.1.1",
+    "redux-devtools-inspector": "^0.8.0",
+    "redux-logger": "^2.5.0",
+    "redux-slider-monitor": "^1.0.2",
+    "remarkable": "^1.6.2",
+    "sass-loader": "^3.1.2",
+    "sinon": "^1.17.3",
+    "sinon-chai": "^2.8.0",
+    "source-map-loader": "^0.1.5",
+    "style-loader": "^0.13.0",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.12.13",
+    "webpack-dev-server": "^1.14.0",
+    "webpack-focus": "^0.12.2"
+  },
+  "dependencies": {
+    "focus-application": "^3.0.0-rc15",
+    "focus-components": "3.0.0-rc14",
+    "focus-core": "0.17.0-beta0",
+    "focus-graph": "3.0.0-rc4",
+    "focus-notifications": "0.2.0-rc6",
+    "focus-search": "^3.0.0-rc13",
+    "lodash": "^4.16.2",
+    "material-design-icons-iconfont": "^2.0.5",
+    "material-design-lite": "1.2.1",
+    "moment": "^2.15.1",
+    "numeral": "^1.5.3",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.8.1",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.1.0"
+  }
 }
