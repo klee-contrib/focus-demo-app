@@ -1,7 +1,7 @@
 // import React, {Component} from 'react';
 // import {component as Modal} from 'focus-components/modal';
 // // import {setHeader} from 'focus-core/application'
-// import {translate} from 'focus-core/translation';
+// import i18next from 'i18next';
 // import CountryList from './country-list';
 // import CountryDetail from './country-detail';
 // import CountryCriteria from './country-criteria';

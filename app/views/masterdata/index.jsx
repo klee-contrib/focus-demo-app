@@ -1,5 +1,5 @@
 // import React, {PropTypes} from 'react';
-// import {translate} from 'focus-core/translation';
+// import i18next from 'i18next';
 //
 // // web components
 // import {cartridgeBehaviour} from 'focus-components/page/mixin';
@@ -21,8 +21,8 @@
 //     }
 //     return (
 //         <div data-demo='masterdata-title'>
-//             {reference && <h6>{translate('view.admin.masterdata.title')}</h6>}
-//             <h3>{translate(title)}</h3>
+//             {reference && <h6>{i18next.t('view.admin.masterdata.title')}</h6>}
+//             <h3>{i18next.t(title)}</h3>
 //         </div>
 //     );
 // }
@@ -32,7 +32,7 @@
 //     const title = `view.admin.masterdata.${reference !== 'masterdata' ? reference : 'title'}`;
 //     return (
 //         <div data-demo='masterdata-title'>
-//             <h4>{translate(title)}</h4>
+//             <h4>{i18next.t(title)}</h4>
 //         </div>
 //     );
 // }

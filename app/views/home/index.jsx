@@ -1,5 +1,5 @@
 import React from 'react';
-import {navigate} from 'focus-core/history';
+// import {navigate} from 'focus-core/history';
 
 // web components
 // import {cartridgeBehaviour} from 'focus-components/page/mixin';

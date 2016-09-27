@@ -2,7 +2,6 @@ import 'babel-preset-focus/dist/focus-polyfill';
 
 import focusDemoConf from '../package.json';
 import focusApplicationConf from 'focus-application/package.json';
-import focusCoreConf from 'focus-core/package.json';
 import focusComponentsConf from 'focus-components/package.json';
 import focusGraphConf from 'focus-graph/package.json';
 import focusSearchConf from 'focus-search/package.json';
@@ -21,7 +20,6 @@ console.info(
         version             ${focusDemoConf.version}
         web                 http://getfocus.io
         ------------------------------------------------
-        focus-core          ${focusCoreConf.version}
         focus-application   ${focusApplicationConf.version}
         focus-components    ${focusComponentsConf.version}
         focus-graph         ${focusGraphConf.version}

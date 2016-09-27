@@ -4,7 +4,7 @@
 // import identity from 'lodash/identity';
 // import ComponentBaseBehaviour from 'focus-components/behaviours/component-base';
 // import MDBehaviour from 'focus-components/behaviours/material';
-// import {translate} from 'focus-core/translation';
+// import i18next from 'i18next';
 // import Icon from 'focus-components/icon';
 // const MODE = {isEdit: true};
 //

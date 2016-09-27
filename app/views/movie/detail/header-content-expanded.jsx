@@ -1,6 +1,6 @@
 // libraries
 import React from 'react';
-import {translate} from 'focus-core/translation';
+import i18next from 'i18next';
 import {connect as connectToStore} from 'react-redux';
 import {connect as connectToFieldHelpers} from 'focus-graph/behaviours/field';
 import {connect as connectToMetadata} from 'focus-graph/behaviours/metadata';
@@ -16,7 +16,7 @@ const MovieHeaderExpanded = ({data}) => {
         <div data-demo='header-content-expanded'>
             <Poster poster={poster} title={title} hasZoom={true} />
             <div data-demo='header-content-expanded__infos'>
-                <div className="key-concept">{translate('view.movie.keyConcept.name')}</div>
+                <div className="key-concept">{i18next.t('view.movie.keyConcept.name')}</div>
                 <h3>textFor('title')</h3>
                 <h5>textFor('movieType')</h5>
                 <h6>textFor('productionYear')</h6>

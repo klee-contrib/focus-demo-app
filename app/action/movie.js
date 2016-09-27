@@ -1,6 +1,4 @@
 import movieServices from '../services/movie';
-import actionBuilder from 'focus-core/application/action-builder';
-
 import {actionBuilder as actionBuilder2} from 'focus-graph/actions/entity-actions-builder';
 
 //---------- CARACTERISTICS
@@ -32,11 +30,11 @@ export const loadCastingTypes = _loadCastingAction.types;
 export const loadCastingAction = _loadCastingAction.action;
 
 
-export const castingActions = {
-    loadPeople: actionBuilder({
-        node: 'movieCasting',
-        service: movieServices.loadMovieCasting,
-        shouldDumpStoreOnActionCall: true,
-        status: 'loaded'
-    })
-}
+// export const castingActions = {
+//     loadPeople: actionBuilder({
+//         node: 'movieCasting',
+//         service: movieServices.loadMovieCasting,
+//         shouldDumpStoreOnActionCall: true,
+//         status: 'loaded'
+//     })
+// }

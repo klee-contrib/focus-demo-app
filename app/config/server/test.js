@@ -1,4 +1,4 @@
-import builder from 'focus-core/util/url/builder';
+import builder from 'focus-application/util/url-builder';
 
 const testRoot = './test/error/';
 

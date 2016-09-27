@@ -1,6 +1,6 @@
 //libraries
 import React, {PropTypes} from 'react';
-import {translate} from 'focus-core/translation';
+import i18next from 'i18next';
 import Icon from 'focus-components/icon';
 import moment from 'moment';
 import {Link} from 'react-router';

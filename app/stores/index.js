@@ -7,8 +7,6 @@ import headerReducer from 'focus-application/header/header-reducer';
 import confirmReducer from 'focus-application/confirm/confirm-reducer';
 import fetchReducer from 'focus-application/fetch/fetch-reducer';
 
-
-
 export default createStore(
     {
         dataset: rootReducer,

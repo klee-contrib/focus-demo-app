@@ -1,6 +1,6 @@
 // import React, {PropTypes} from 'react';
 // import {debounce} from 'lodash/function';
-// import {translate} from 'focus-core/translation';
+// import i18next from 'i18next';
 // import InputExpandableText from '../../components/input/text-expandable';
 //
 // const propTypes = {
@@ -13,7 +13,7 @@
 //         <div data-demo='country-criteria'>
 //             <InputExpandableText
 //                 onChange={value => _onSearchDebounced(value)}
-//                 placeholder={translate('countryList.filter')}
+//                 placeholder={i18next.t('countryList.filter')}
 //                 type='search'
 //                 name='search'
 //                 expandIcon='search'

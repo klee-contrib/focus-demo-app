@@ -13,7 +13,7 @@ import {loadTrailerAction} from '../../../action/movie';
 import Panel from 'focus-components/panel';
 import Button from 'focus-components/button';
 import {component as Modal} from 'focus-components/modal';
-import {translate} from 'focus-core/translation';
+import i18next from 'i18next';
 
 const MovieOverview = ({loading}) => {
     return (
@@ -21,13 +21,13 @@ const MovieOverview = ({loading}) => {
             TODO : a réactiver quand l'issue sur le field sera traitée : https://github.com/get-focus/focus-graph/issues/62
             {/**trailerHRef &&
                 <div>
-                    <Button label={translate('view.movie.action.watchTrailer')} type='button' handleOnClick={() => this.refs['modal-trailer'].toggleOpen()} />
+                    <Button label={i18next.t('view.movie.action.watchTrailer')} type='button' handleOnClick={() => this.refs['modal-trailer'].toggleOpen()} />
                     <Modal ref='modal-trailer'>
                         <Trailer url={trailerHRef} />
                     </Modal>
                 </div>
             */}
-            {/**<Button label={translate('view.movie.action.consult.allocine')} type='button' handleOnClick={() => window.open(url,'_blank')} />*/}
+            {/**<Button label={i18next.t('view.movie.action.consult.allocine')} type='button' handleOnClick={() => window.open(url,'_blank')} />*/}
         </Panel>
     );
 };

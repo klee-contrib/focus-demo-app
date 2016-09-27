@@ -4,7 +4,7 @@ import {connect as connectToFieldHelpers} from 'focus-graph/behaviours/field';
 import {connect as connectToMetadata} from 'focus-graph/behaviours/metadata';
 import {compose} from 'redux';
 import {selectData} from 'focus-graph/store/create-store';
-import {translate} from 'focus-core/translation';
+import i18next from 'i18next';
 
 //custom components
 import Picture from '../components/picture';
@@ -13,7 +13,7 @@ const PersonHeaderSummary = ({data}) => {
     const {fullName, photoURL} = data;
     return (
         <div data-demo='header-content-summary'>
-            <div className="key-concept">{translate('view.person.keyConcept.name')}</div>
+            <div className="key-concept">{i18next.t('view.person.keyConcept.name')}</div>
             <Picture url={photoURL} title={fullName} />
             <h4>textFor('fullName')</h4>
         </div>

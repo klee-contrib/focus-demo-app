@@ -1,5 +1,5 @@
 // import React from 'react';
-// import {translate} from 'focus-core/translation';
+// import i18next from 'i18next';
 // import {Link} from 'react-router';
 //
 // const links = [
@@ -20,7 +20,7 @@
 //                 }
 //                 return (
 //                     <li key={link.reference} {...otherProps}>
-//                         <Link to={link.href}>{translate(link.title)}</Link>
+//                         <Link to={link.href}>{i18next.t(link.title)}</Link>
 //                     </li>
 //                 );
 //             })

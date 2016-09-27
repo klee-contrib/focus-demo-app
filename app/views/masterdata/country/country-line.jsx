@@ -1,6 +1,6 @@
 // //librairies
 // import React from 'react';
-// import {translate} from 'focus-core/translation';
+// import i18next from 'i18next';
 // import {mixin as LinePreset} from 'focus-components/list/selection/line'
 //
 // const CountryLine = React.createClass({

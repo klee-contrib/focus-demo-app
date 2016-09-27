@@ -1,7 +1,7 @@
 // libraries
 import React, {PropTypes, PureComponent} from 'react';
-import {setHeader} from 'focus-core/application';
-import {back} from 'focus-core/history';
+// import {setHeader} from 'focus-core/application';
+// import {back} from 'focus-core/history';
 
 // web components
 import ScrollspyContainer from 'focus-components/scrollspy-container';
@@ -20,7 +20,7 @@ import Overview from './overview';
 * Define the cartridge configuration.
 */
 const cartridgeConf = {
-    barLeft: {component: ButtonBack, props: {back: back} },
+    barLeft: {component: ButtonBack, /*props: {back: back}*/ },
     cartridge: { component: HeaderExpanded },
     summary: { component: HeaderSummary },
     actions: {
@@ -32,7 +32,7 @@ const cartridgeConf = {
 class PersonDetailView extends PureComponent {
     /** @inheritDoc */
     componentWillMount() {
-        setHeader(cartridgeConf);
+        //setHeader(cartridgeConf);
     };
     /** @inheritDoc */
     componentDidMount() {

@@ -3,9 +3,9 @@ import React, {PropTypes, PureComponent} from 'react';
 
 // web components
 import ScrollspyContainer from 'focus-components/scrollspy-container';
-import {setHeader} from 'focus-core/application';
+//import {setHeader} from 'focus-core/application';
 import ButtonBack from 'focus-components/button-back';
-import {back} from 'focus-core/history';
+//import {back} from 'focus-core/history';
 
 //views
 import Caracteristics from './caracteristics';
@@ -19,7 +19,7 @@ import Trailer from './trailer';
 
 
 const cartridgeConf = {
-    barLeft: {component: ButtonBack, props: {back: back} },
+    barLeft: {component: ButtonBack, /*props: {back: back}*/ },
     cartridge: { component: HeaderExpanded },
     summary: { component: HeaderSummary },
     actions: {
@@ -32,7 +32,7 @@ const cartridgeConf = {
 class MovieDetailView extends PureComponent {
     /** @inheritDoc */
     componentWillMount() {
-        setHeader(cartridgeConf);
+        //setHeader(cartridgeConf);
     };
     /** @inheritDoc */
     componentDidMount() {

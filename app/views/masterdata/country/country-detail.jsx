@@ -1,6 +1,6 @@
 // //librairies
 // import React from 'react';
-// import {translate} from 'focus-core/translation';
+// import i18next from 'i18next';
 // import Panel from 'focus-components/panel';
 // import {mixin as formPreset} from 'focus-components/common/form';
 //
@@ -18,7 +18,7 @@
 //     renderContent() {
 //         return (
 //             <div>
-//                 <h4>{translate('country.detail.title')}</h4>
+//                 <h4>{i18next.t('country.detail.title')}</h4>
 //                 <Panel actions={this._renderActions} title='view.masterdata.country.caracteristics'>
 //                     {this.displayFor('id')}
 //                     {this.fieldFor('code')}

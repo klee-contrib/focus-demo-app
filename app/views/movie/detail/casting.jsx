@@ -2,7 +2,7 @@
 import React, {PropTypes, Component} from 'react';
 import {connect as connectToStore} from 'react-redux';
 import {selectData} from 'focus-graph/store/create-store';
-import {translate} from 'focus-core/translation';
+import i18next from 'i18next';
 import reduce from 'lodash/reduce';
 
 // web components
@@ -70,7 +70,7 @@ class MovieCasting extends Component {
     _getActionLabel(filter) {
         const people = this._getPeopleByName(filter);
         const size = people ? people.length : 0;
-        return`${translate(`view.movie.action.filter.${filter}`)} (${size})`;
+        return`${i18next.t(`view.movie.action.filter.${filter}`)} (${size})`;
     };
 
     _isActive(value) {
