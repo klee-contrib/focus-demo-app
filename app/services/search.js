@@ -14,36 +14,36 @@ export default {
      * @param  {string} scope  scope search
      * @return {object}        search response
      */
-    _search(config, scope) {
+    search(config, scope) {
         switch (scope) {
             case 'movie':
                 console.log(`[SEARCH MOVIE] config: ${JSON.stringify(config)}`);
-                return fetch(moviesUrl.search(config)).then(this._legacyfyServerResult);
+                //return fetch(moviesUrl.search(config)).then(this._legacyfyServerResult);
             case 'person':
                 console.log(`[SEARCH PERSON] config: ${JSON.stringify(config)}`);
-                return fetch(personsUrl.search(config)).then(this._legacyfyServerResult);
+                //return fetch(personsUrl.search(config)).then(this._legacyfyServerResult);
             default:
                 console.log(`[SEARCH ALL] config: ${JSON.stringify(config)}`);
-                return fetch(commonUrl.search(config)).then(this._legacyfyServerResult);
+                //return fetch(commonUrl.search(config)).then(this._legacyfyServerResult);
         }
     },
 
-    /**
-    * Search with scope.
-    * @param  {Object} AdvancedSearch config that launches the call of this service
-    * @return {Promise}
-    */
-    scoped(config) {
-        const {criteria} = config.data;
-        const {scope} = criteria;
-        return this._search(config, scope);
-    },
-    /**
-    * Search without scope.
-    * @param  {Object} AdvancedSearch config that launches the call of this service
-    * @return {Promise}
-    */
-    unscoped(config) {
-        return this._search(config);
-    }
+    // /**
+    // * Search with scope.
+    // * @param  {Object} AdvancedSearch config that launches the call of this service
+    // * @return {Promise}
+    // */
+    // scoped(config) {
+    //     const {criteria} = config.data;
+    //     const {scope} = criteria;
+    //     return this._search(config, scope);
+    // },
+    // /**
+    // * Search without scope.
+    // * @param  {Object} AdvancedSearch config that launches the call of this service
+    // * @return {Promise}
+    // */
+    // unscoped(config) {
+    //     return this._search(config);
+    // }
 };

@@ -1,52 +1,30 @@
 import React from 'react';
-// import {navigate} from 'focus-core/history';
+import compose from 'lodash/flowRight';
 
 // web components
-// import {cartridgeBehaviour} from 'focus-components/page/mixin';
-import Rankings from './rankings';
-import DemoTitle from '../components/demo-title';
+//import Rankings from './rankings';
+//import DemoTitle from '../components/demo-title';
+// import AdvancedSearch from 'focus-search/components/advanced-search';
+// import {connect as connectToSearch} from 'focus-search/behaviours/search';
+import ConnectedSearchBarComponent from '../components/connected-search-bar';
+// import {unitSearchActions} from '../../action/search';
 
-//cartridge configuration
-// import CartridgePageSearch from 'focus-components/page/search/search-header/cartridge';
-// import SummaryPageSearch from 'focus-components/page/search/search-header/summary';
-import searchService from '../../services/search';
+// //TODO factoriser avec connected-search-bar
+// const searchOptions= {
+//     searchName : 'advancedSearch',
+//     unitSearch : unitSearchActions
+// };
+//
+// const ConnectedComponentAdvancedSearch = compose (
+//     connectToSearch(searchOptions)
+// )(AdvancedSearch);
 
-export default React.createClass({
-    displayName: 'HomeView',
-    // mixins: [cartridgeBehaviour],
-    /** @inheritDoc */
-    //
-    // /**
-    // * Related to the CartridgeBehaviour.
-    // * Define the cartridge configuration.
-    // * @return {[type]} [description]
-    // */
-    // cartridgeConfiguration() {
-    //     return {
-    //         summary: {
-    //             component: SummaryPageSearch,
-    //             props: { onSearchCriteriaChangeByUser: () => {navigate('/search/advanced')}, service: searchService }
-    //         },
-    //         barLeft: {
-    //             component: DemoTitle
-    //         },
-    //         cartridge: {
-    //             component: CartridgePageSearch,
-    //             props: { onSearchCriteriaChangeByUser: () => {navigate('/search/advanced')}, service: searchService }
-    //         },
-    //         actions: {
-    //             primary: [],
-    //             secondary: []
-    //         }
-    //     };
-    // },
 
-    /** @inheritDoc */
-    render() {
-        return (
-            <div data-demo='homepage'>
-                <Rankings />
-            </div>
-        );
-    }
-});
+const Home = () => (
+    <div data-demo='home-view'>
+        <ConnectedSearchBarComponent />
+    </div>
+);
+
+Home.displayName = 'Home';
+export default Home;
