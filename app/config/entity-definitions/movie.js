@@ -55,20 +55,20 @@ export default {
         domain: 'DO_QUANTITY',
         isRequired: false,
     },
-    /** lists */
-    actors: {
-        redirect: ['moviePeople']
-    },
-    writers: {
-        redirect: ['moviePeople']
-    },
-    camera: {
-        redirect: ['moviePeople']
-    },
-    producers: {
-        redirect: ['moviePeople']
-    },
-    directors: {
-        redirect: ['moviePeople']
-    }
+    // /** lists */
+    // actors: {
+    //     redirect: ['moviePeople']
+    // },
+    // writers: {
+    //     redirect: ['moviePeople']
+    // },
+    // camera: {
+    //     redirect: ['moviePeople']
+    // },
+    // producers: {
+    //     redirect: ['moviePeople']
+    // },
+    // directors: {
+    //     redirect: ['moviePeople']
+    // }
 };

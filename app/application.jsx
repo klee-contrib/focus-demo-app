@@ -10,7 +10,8 @@ import { Provider as SearchProvider } from 'focus-search/behaviours/search';
 import routes from './router/routes';
 import definitions from './config/entity-definitions';
 import domains from './config/domains';
-import masterdatas from './config/master-datas'
+import masterdatas from './config/master-datas';
+import listMetada from './config/search';
 
 //to make hot reload work, we have to write Application as a Component.
 class Application extends Component {
@@ -21,7 +22,7 @@ class Application extends Component {
                 <MetadataProvider definitions={definitions} domains={domains}>
                     <FieldHelpersProvider>
                         <MasterdataProvider configuration={masterdatas}>
-                            <SearchProvider store={store} searchMetadata={{getListMetadata : _getListMetadata,
+                            <SearchProvider store={store} searchMetadata={{getListMetadata : listMetada,
                                     scopes:[{value: 'all', label:'All', selected:false}, {value: 'scope', label: 'Scope 01', selected:true}, {value: 'scope2', label:'Scope 02', selected:false}]
                                 }}>
                                 <Router history={history} routes={routes} />
@@ -41,66 +42,3 @@ Application.propTypes = {
     store: PropTypes.object.isRequired
 };
 export default Application;
-
-
-const _getListMetadata = (contentType, listData) => {
-    switch (contentType) {
-        case 'MovieIndex':
-            return {
-                LineComponent: props => {
-                    const color = props.isSelected ? 'orange' : 'blue'
-                    return (
-                        <div>
-                            <div>MovieIndex {JSON.stringify(props)}</div>
-                        </div>
-                    )
-                },
-                actionsLine: [
-                    {label: 'Yo', icon: 'print', action: () => {console.log('action')}},
-                    {label: 'La', icon: 'print', action: () => {console.log('action')}}
-
-                ],
-                sortList : [
-                    'ouuuuaaa',
-                    'trrropo',
-                    'lalal'
-                ],
-                groupList: [
-                    'lala',
-                    'lulu',
-                    'lolo'
-                ]
-            };
-            break;
-        case 'PersonIndex':
-            return {
-                LineComponent: props =>                             <div>PersonIndex {JSON.stringify(props)}</div>
-,
-                sortList : [
-                    'lala',
-                    'lolo',
-                    'lulu'
-                ],
-
-                groupList: [
-                    'lala',
-                    'lulu'
-                ]
-            };
-            break;
-        default:
-            return {
-                LineComponent: props => <div>Bien le bonsoir</div>,
-                sortList : [
-                    'ouuuuaaa',
-                    'trrropo',
-                    'lalal'
-                ],
-                groupList: [
-                    'lala',
-                    'lulu',
-                    'lolo'
-                ]
-            };
-    }
-};
