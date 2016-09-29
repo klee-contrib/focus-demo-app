@@ -11,7 +11,9 @@ import routes from './router/routes';
 import definitions from './config/entity-definitions';
 import domains from './config/domains';
 import masterdatas from './config/master-datas';
-import listMetada from './config/search';
+import searchMetadata from './config/search';
+
+console.log(searchMetadata);
 
 //to make hot reload work, we have to write Application as a Component.
 class Application extends Component {
@@ -22,9 +24,7 @@ class Application extends Component {
                 <MetadataProvider definitions={definitions} domains={domains}>
                     <FieldHelpersProvider>
                         <MasterdataProvider configuration={masterdatas}>
-                            <SearchProvider store={store} searchMetadata={{getListMetadata : listMetada,
-                                    scopes:[{value: 'all', label:'All', selected:false}, {value: 'scope', label: 'Scope 01', selected:true}, {value: 'scope2', label:'Scope 02', selected:false}]
-                                }}>
+                            <SearchProvider store={store} searchMetadata={searchMetadata}>
                                 <Router history={history} routes={routes} />
                             </SearchProvider>
                         </MasterdataProvider>
