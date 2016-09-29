@@ -7,7 +7,8 @@ import AdvancedSearch from 'focus-search/components/advanced-search';
 
 const searchOptions = {
     searchName : 'advancedSearch',
-    unitSearch : unitSearchActions
+    unitSearch : unitSearchActions,
+    titi: "toto"
 };
 
 

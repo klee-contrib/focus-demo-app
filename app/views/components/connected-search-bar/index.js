@@ -6,7 +6,8 @@ import {unitSearchActions} from '../../../action/search';
 
 const searchOptions = {
     searchName : 'advancedSearch',
-    unitSearch : unitSearchActions
+    unitSearch : unitSearchActions,
+    test: 'lala'
 };
 
 // search bar component

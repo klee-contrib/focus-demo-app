@@ -23,7 +23,7 @@ export default {
         }
         config.data = {
           facets: config.selectedFacets,
-          criteria: config.query.term
+          criteria: config.query ? config.query.term : '*'
         }
         config.skip = 0;
         config.top = 0;
