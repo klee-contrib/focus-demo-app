@@ -10,7 +10,7 @@ function PureMovieLine ({textFor}) {
     const code = 0;
     return (
         <div key={code} data-demo='movie-line'>
-            <div className='level1'>{textFor('title')}</div>
+            <div className='level1'>{textFor('title'), {entityPath: 'movie'}}</div>
         </div>
     );
 };
