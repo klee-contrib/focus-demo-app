@@ -1,4 +1,4 @@
-//import fetch from 'focus-core/network/fetch';
+import fetch from 'focus-core/network/fetch';
 
 import commonUrl from '../config/server/common';
 import moviesUrl from '../config/server/movies';
@@ -14,7 +14,19 @@ export default {
      * @param  {string} scope  scope search
      * @return {object}        search response
      */
-    search(config, scope) {
+    search(config) {
+        const scope = config.query;
+        config.urlData = {
+          skip: 0,
+          sortDesc: false,
+          top: 50
+        }
+        config.data = {
+          facets: config.selectedFacets,
+          criteria: config.query.term
+        }
+        config.skip = 0;
+        config.top = 0;
         switch (scope) {
             case 'movie':
                 console.log(`[SEARCH MOVIE] config: ${JSON.stringify(config)}`);
@@ -24,7 +36,7 @@ export default {
                 //return fetch(personsUrl.search(config)).then(this._legacyfyServerResult);
             default:
                 console.log(`[SEARCH ALL] config: ${JSON.stringify(config)}`);
-                //return fetch(commonUrl.search(config)).then(this._legacyfyServerResult);
+                return fetch(commonUrl.search(config)).then(data =>{ console.log(data); return data} );
         }
     },
 

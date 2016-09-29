@@ -45,13 +45,13 @@ export default Application;
 
 const _getListMetadata = (contentType, listData) => {
     switch (contentType) {
-        case 'DonDiegoType':
+        case 'MovieIndex':
             return {
                 LineComponent: props => {
                     const color = props.isSelected ? 'orange' : 'blue'
                     return (
                         <div>
-                            <div>Line DonDiegoType {JSON.stringify(props)}</div>
+                            <div>MovieIndex {JSON.stringify(props)}</div>
                         </div>
                     )
                 },
@@ -72,9 +72,10 @@ const _getListMetadata = (contentType, listData) => {
                 ]
             };
             break;
-        case 'DonRicardoType':
+        case 'PersonIndex':
             return {
-                LineComponent: props => <div>Line DonRicardoType {JSON.stringify(props)}</div>,
+                LineComponent: props =>                             <div>PersonIndex {JSON.stringify(props)}</div>
+,
                 sortList : [
                     'lala',
                     'lolo',
@@ -90,8 +91,16 @@ const _getListMetadata = (contentType, listData) => {
         default:
             return {
                 LineComponent: props => <div>Bien le bonsoir</div>,
-                sortList : [],
-                groupList: []
+                sortList : [
+                    'ouuuuaaa',
+                    'trrropo',
+                    'lalal'
+                ],
+                groupList: [
+                    'lala',
+                    'lulu',
+                    'lolo'
+                ]
             };
     }
 };
