@@ -1,15 +1,25 @@
-import React from 'react';
+import React, {PureComponent} from 'react';
 import compose from 'lodash/flowRight';
-
-import ConnectedSearchBarComponent from '../components/connected-search-bar';
-//import ConnectedAdvancedSearch from '../components/advanced-search';
 import ConnectedSearch from '../components/connected-advanced-search';
-const Home = () => (
-    <div data-demo='home-view'>
-        <ConnectedSearchBarComponent />
-        <ConnectedSearch/>
-    </div>
-);
+import SearchHeader from '../components/search/search-header';
+
+const Toto = () => <div>toto</div>
+
+class Home extends PureComponent {
+    // componentWillMount() {
+    //     injectBarContentSummaryHeader(Toto);
+    //     injectBarContentExpandedHeader(Toto);
+    // }
+
+    render() {
+        return (
+            <div data-demo='home-view'>
+                <SearchHeader />
+                <ConnectedSearch/>
+            </div>
+        );
+    }
+};
 
 Home.displayName = 'Home';
 export default Home;

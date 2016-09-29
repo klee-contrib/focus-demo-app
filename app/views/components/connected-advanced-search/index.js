@@ -11,7 +11,6 @@ const searchOptions = {
     truc: "lala"
 };
 
-console.log(unitSearchActions)
 // search bar component connected to search store
 const ConnectedSearch = compose(
     connectToSearch(searchOptions)
