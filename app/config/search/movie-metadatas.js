@@ -10,10 +10,9 @@ import identity from 'lodash/identity'
 
 export const buildFieldForLineSearch = ({searchName, codeId, entityPath, code} ) => (state ={}, props) => {
   const {definitions, domains} = props;
-  console.log('Bonjour je suis dans le select de la ligne')
   const entityDefintion = definitions[entityPath];
   const results = state[searchName].results;
-  const list = results.data[0].list
+  const list = results.data[0].list ? results.data[0].list  : results.data
   return {fields: Object.keys(list.find(element => element[codeId] ===props[codeId])).map(element => {
     const propertyDefinition = entityDefintion[element]
     const domain = get(domains, propertyDefinition ? propertyDefinition.domain : "", {})
