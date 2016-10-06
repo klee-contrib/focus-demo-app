@@ -15,25 +15,28 @@ export default {
      * @return {object}        search response
      */
     search(config) {
-        const scope = config.query;
+        console.log(config)
+        const scope =( config.query && config.query.scope) ? config.query.scope : 'all';
         config.urlData = {
           skip: 0,
           sortDesc: false,
           top: 50
         }
         config.data = {
-          facets: config.selectedFacets,
-          criteria: config.query ? config.query.term : '*'
+          scope: scope,
+          facets: {},
+          criteria: ( config.query && config.query.term) ? config.query.term : '*'
         }
         config.skip = 0;
         config.top = 0;
         switch (scope) {
             case 'movie':
+            
                 console.log(`[SEARCH MOVIE] config: ${JSON.stringify(config)}`);
-                //return fetch(moviesUrl.search(config)).then(this._legacyfyServerResult);
+                return fetch(moviesUrl.search(config))
             case 'person':
                 console.log(`[SEARCH PERSON] config: ${JSON.stringify(config)}`);
-                //return fetch(personsUrl.search(config)).then(this._legacyfyServerResult);
+                return fetch(personsUrl.search(config))
             default:
                 console.log(`[SEARCH ALL] config: ${JSON.stringify(config)}`);
                 return fetch(commonUrl.search(config)).then(data =>{ console.log(data); return data} );

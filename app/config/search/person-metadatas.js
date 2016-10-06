@@ -6,25 +6,25 @@ import {connect as connectToFieldHelpers} from 'focus-graph/behaviours/field';
 import {selectFieldsByFormKey} from 'focus-graph/store/create-store';
 
 
-function PurePersonLine({textFor}) {
+function PurePersonLine({textFor, ...props}) {
     const code = 0;
     return (
         <div key={code} data-demo='person-line'>
-            <div className='level1'>{textFor('fullName')}</div>
-            <div className='level2'>{textFor('activity')}</div>
+          Bonjour
+          <div className='level1'>{textFor('fullName', {entityPath: 'person'})}</div>
+
         </div>
     );
 };
 
 const PersonLine = compose(
-    connectToState(selectFieldsByFormKey('person')),
-    connectToMetadata(['person']),
-    connectToFieldHelpers()
+  connectToMetadata(['person']),
+  connectToFieldHelpers()
 )(PurePersonLine);
 
 
 export default {
-    LineComponent: props => (<PersonLine {...props} />),
+    LineComponent: props => (<div></div>),
     sortList : [
         'lala',
         'lolo',

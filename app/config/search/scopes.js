@@ -3,16 +3,16 @@ export default [
     {
         value: 'all',
         label: 'All',
-        selected:false
+        selected:true
     },
     {
-        value: 'scope',
-        label: 'Scope 01',
-        selected: true
+        value: 'movie',
+        label: 'Films',
+        selected: false
     },
     {
-        value: 'scope2',
-        label: 'Scope 02',
+        value: 'person',
+        label: 'Acteurs',
         selected: false
     }
 ];
