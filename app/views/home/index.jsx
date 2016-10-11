@@ -1,25 +1,27 @@
 import React, {PureComponent} from 'react';
 import compose from 'lodash/flowRight';
-import ConnectedSearch from '../components/connected-advanced-search';
-import SearchHeader from '../components/search/search-header';
-
-const Toto = () => <div>toto</div>
+//import ConnectedSearch from '../components/connected-advanced-search';
+import ConnectedSearchBarComponent from '../components/connected-search-bar';
+import HomeHeader from './header';
+import DemoTitle from '../components/demo-title';
+import {connect as connectToHeader} from 'focus-application/behaviours/header';
 
 class Home extends PureComponent {
-    // componentWillMount() {
-    //     injectBarContentSummaryHeader(Toto);
-    //     injectBarContentExpandedHeader(Toto);
-    // }
-
     render() {
         return (
             <div data-demo='home-view'>
-                <SearchHeader />
-                <ConnectedSearch/>
+                Bienvenue
             </div>
         );
     }
 };
 
-Home.displayName = 'Home';
-export default Home;
+const HomeExtended = compose(
+    connectToHeader({
+        actions: {primary: [{action: () => console.log('Primaire'), label: 'Primaire', icon: 'home'}], secondary: [{action: () => console.log('secondary'), label: 'Secondaire', icon: 'home'}]},
+        ExpandedHeaderComponent: HomeHeader,
+        SummaryHeaderComponent: HomeHeader,
+        LeftHeaderComponent: DemoTitle
+    })
+)(Home);
+export default HomeExtended;

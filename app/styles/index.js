@@ -20,6 +20,7 @@ import './field.scss';
 import './footer.scss';
 import './header.scss';
 import './home.scss';
+import './home-header.scss';
 import './list-action-bar.scss';
 import './list-summary.scss';
 import './masterdata.scss';

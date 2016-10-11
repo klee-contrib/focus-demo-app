@@ -108,11 +108,11 @@
     "webpack-focus": "^0.12.2"
   },
   "dependencies": {
-    "focus-application": "3.0.0-rc16",
-    "focus-components": "3.0.0-rc14",
-    "focus-graph": "3.0.0-rc4",
+    "focus-application": "^3.0.0-rc19",
+    "focus-components": "^3.0.0-rc17",
+    "focus-graph": "^3.0.0-rc10",
     "focus-notifications": "0.2.0-rc6",
-    "focus-search": "^3.0.0-rc57",
+    "focus-search": "^3.0.0-rc64",
     "lodash": "^4.16.2",
     "material-design-icons-iconfont": "2.0.5",
     "material-design-lite": "1.2.1",
