@@ -1,14 +1,14 @@
 import React from 'react';
 
 //import {navigate} from 'focus-core/history';
-import Menu from 'focus-components/menu';
+import Menu from '../menu';
 import {component as Modal} from 'focus-components/modal';
 //import {quickSearchStore} from 'focus-core/search/built-in-store';
 //import dispatcher from 'focus-core/dispatcher';
 import {Link} from 'react-router';
 
 //custom web component
-import QuickSearchView from '../search/quick';
+//import QuickSearchView from '../search/quick';
 
 export default React.createClass({
     displayName: 'DemoMenuLeft',
@@ -19,9 +19,20 @@ export default React.createClass({
     },
     _getMenuItems() {
         return [
-            { icon: 'home', route: '/' }, // route: 'home'
-            { icon: 'search', handleOnClick: () => { /*this._onQuickSearchModalToggle()*/ }},
-            { icon: 'build', route: '/admin/masterdata' }
+            { icon: 'home', label: 'menu.home', route: '/' }, // route: 'home'
+            { icon: 'search', label: 'menu.search', handleOnClick: () => { /*this._onQuickSearchModalToggle()*/ }},
+            { label: 'menu.test', route: '/admin/masterdata', subMenus: [
+                { label: 'menu.home', route: '/' },
+                { label: 'menu.home', route: '/' },
+                { label: 'menu.home', route: '/' },
+                { label: 'menu.home', route: '/' }
+            ]},
+            { icon: 'settings', label: 'menu.admin', route: '/admin/masterdata', subMenus: [
+                { icon: 'settings', label: 'menu.home', route: '/' },
+                { icon: 'settings', label: 'menu.home', route: '/' },
+                { icon: 'settings', label: 'menu.home', route: '/' },
+                { icon: 'settings', label: 'menu.home', route: '/' }
+            ]},
         ];
     },
 
@@ -59,7 +70,7 @@ export default React.createClass({
         const {isQuickSearchModalOpen} = this.state;
         return (
             <div>
-                <Menu items={items} LinkComponent={Link}/>
+                <Menu menus={items} LinkComponent={Link}/>
                 {isQuickSearchModalOpen &&
                     <div data-demo='quick-search-area'>
                         <Modal open={true} type='from-menu'>

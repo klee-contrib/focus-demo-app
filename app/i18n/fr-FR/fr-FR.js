@@ -31,6 +31,11 @@ export default {
             powered: 'Propulsé par'
         }
     },
+    menu: {
+        admin: 'Administration',
+        home: 'Accueil',
+        search: 'Recherche'
+    },
     live: {
         filter: {
             title: 'Filtres',

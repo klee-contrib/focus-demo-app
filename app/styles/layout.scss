@@ -2,15 +2,15 @@
 @import "mixins";
 
 .demo-app  {
-    width: 100%;
-    min-height: 100%;
-    margin: 0;
+    // width: 100%;
+    // min-height: 100%;
+    // margin: 0;
 
     [data-focus='layout']{
         //font-family: Roboto, Helvetica, Arial, sans-serif;
         color: $primary-text-color;
-        position: relative;
-        min-height: 100%;
+        //position: relative;
+        //min-height: 100%;
 
         a {
             color: $accent-color;

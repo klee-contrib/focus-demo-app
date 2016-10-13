@@ -14,7 +14,7 @@ import ContentActionsComponent from 'focus-components/header-actions';
 import ConfirmationPopin from 'focus-components/confirmation-popin';
 import SnackBar from 'focus-components/snackbar';
 
-import DemoMenuLeft from '../../views/menu/menu-left';
+import DemoMenuLeft from '../menu-left';
 import DemoFooter from '../../views/footer';
 import DevTools from '../../tools/dev-tools';
 
