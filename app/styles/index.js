@@ -10,7 +10,6 @@ import 'material-design-icons-iconfont/dist/material-design-icons.scss';
 //--------------------------------------------------------------------------
 //styles from demo
 import './layout.scss';
-import '../components/menu/index.scss';
 //
 import './advanced-search.scss';
 import './back-to-top.scss';

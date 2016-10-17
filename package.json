@@ -108,8 +108,8 @@
     "webpack-focus": "^0.12.2"
   },
   "dependencies": {
-    "focus-application": "^3.0.0-rc20",
-    "focus-components": "^3.0.0-rc17",
+    "focus-application": "^3.0.0-rc22",
+    "focus-components": "^3.0.0-rc18",
     "focus-graph": "^3.0.0-rc10",
     "focus-notifications": "0.2.0-rc6",
     "focus-search": "^3.0.0-rc64",

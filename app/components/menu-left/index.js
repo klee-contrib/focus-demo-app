@@ -1,7 +1,7 @@
 import React from 'react';
 
 //import {navigate} from 'focus-core/history';
-import Menu from '../menu';
+import Menu from 'focus-components/menu';
 import {component as Modal} from 'focus-components/modal';
 //import {quickSearchStore} from 'focus-core/search/built-in-store';
 //import dispatcher from 'focus-core/dispatcher';
@@ -70,7 +70,7 @@ export default React.createClass({
         const {isQuickSearchModalOpen} = this.state;
         return (
             <div>
-                <Menu menus={items} LinkComponent={Link}/>
+                <Menu menus={items} LinkComponent={Link} showLabels={true} />
                 {isQuickSearchModalOpen &&
                     <div data-demo='quick-search-area'>
                         <Modal open={true} type='from-menu'>
