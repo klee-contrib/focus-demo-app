@@ -1,10 +1,10 @@
 //libraries
 import React, {PropTypes} from 'react';
-import {navigate} from 'focus-core/history';
+//import {navigate} from 'focus-core/history';
 import {Link} from 'react-router';
 
 //web components
-import Button from 'focus-components/components/button';
+import Button from 'focus-components/button';
 
 function PersonCard({onClickPreview, person}) {
     const {code, leadActor, linked, name, photoURL, role, existsInBdd} = person;
@@ -30,7 +30,7 @@ function PersonCard({onClickPreview, person}) {
             { showButtons &&
               <div className='mdl-card__actions mdl-card--border'>
                   {onClickPreview && <Button shape={null} label='view.person.action.preview' handleOnClick={() => onClickPreview(+code)} />}
-                      <Button shape={null} label='view.person.action.consult.sheet' handleOnClick={() => {navigate(`/persons/${code}`)}} />
+                      <Button shape={null} label='view.person.action.consult.sheet' handleOnClick={() => {/*navigate(`/persons/${code}`)*/}} />
               </div>
             }
         </div>

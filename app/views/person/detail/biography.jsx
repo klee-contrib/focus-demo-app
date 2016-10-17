@@ -1,31 +1,47 @@
 //librairies
-import React, {PropTypes} from 'react';
+import React, {PropTypes, PureComponent} from 'react';
+import {connect as connectToForm } from 'focus-graph/behaviours/form';
+import {connect as connectToMetadata} from 'focus-graph/behaviours/metadata';
+import {connect as connectToFieldHelpers} from 'focus-graph/behaviours/field';
+import {compose} from 'redux';
+
+//actions
+import {loadBiographyAction, saveBiographyAction} from '../../../action/person';
 
 // web components
-import Panel from 'focus-components/components/panel';
-import {mixin as formPreset} from 'focus-components/common/form';
+import Panel from '../../components/panel';
+import Form from '../../components/form';
+import PanelDefaultButtons from '../../components/panel/panel-default-buttons';
 
-//stores & actions
-import personStore from '../../../stores/person';
-import {biographyActions} from '../../../action/person';
+class PersonBiography extends PureComponent {
+    componentWillMount() {
+        const {id, load} = this.props;
+        load(id);
+    }
 
-export default React.createClass({
-    displayName: 'PersonBiography',
-    propTypes: {
-        id: PropTypes.number.isRequired
-    },
-    mixins: [formPreset],
-    definitionPath: 'person',
-    stores: [{store: personStore, properties: ['personBiography']}],
-    action: biographyActions,
-
-    /** @inheritDoc */
-    renderContent() {
+    render() {
+        const {editing, fieldFor, toggleEdit, save, getUserInput, loading, saving, selectFor, renderActions} = this.props;
         return (
-            <Panel actions={this._renderActions} title='view.person.detail.biography'>
-                {this.fieldFor('biography')}
-                {this.fieldFor('shortBiography')}
-            </Panel>
+            <Form editing={editing}>
+                <Panel Buttons={PanelDefaultButtons({editing, toggleEdit, getUserInput, save})}  title='view.person.detail.biography'>
+                    {fieldFor('biography')}
+                    {fieldFor('shortBiography')}
+                </Panel>
+            </Form>
         );
     }
-});
+};
+PersonBiography.displayName = 'PersonBiography';
+PersonBiography.propTypes = {
+    id: PropTypes.number.isRequired
+};
+export default compose(
+    connectToMetadata(['person']),
+    connectToForm({
+        formKey: 'personBiographyForm',
+        entityPathArray: ['person'],
+        loadAction: loadBiographyAction,
+        saveAction: saveBiographyAction
+    }),
+    connectToFieldHelpers()
+)(PersonBiography);

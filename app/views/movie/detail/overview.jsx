@@ -1,50 +1,42 @@
-//librairies
-import React, {PropTypes} from 'react';
+//libraries
+import React, {PropTypes, PureComponent} from 'react';
+import {compose} from 'redux';
+import {connect as connectToStore} from 'react-redux';
+import {connect as connectToFieldHelpers} from 'focus-graph/behaviours/field';
+import {connect as connectToMetadata} from 'focus-graph/behaviours/metadata';
+import {selectData} from 'focus-graph/store/create-store';
+
+//actions
+import {loadTrailerAction} from '../../../action/movie';
 
 // web components
-import Panel from 'focus-components/components/panel';
-import {mixin as formPreset} from 'focus-components/common/form';
-import {Button} from 'focus-components/components';
-import {component as Modal} from 'focus-components/application/popin';
-import {translate} from 'focus-core/translation';
+import Panel from 'focus-components/panel';
+import Button from 'focus-components/button';
+import {component as Modal} from 'focus-components/modal';
+import i18next from 'i18next';
 
-//stores & actions
-import movieStore from '../../../stores/movie';
+const MovieOverview = ({loading}) => {
+    return (
+        <Panel title='view.movie.detail.overview' data-demo='overview'>
+            TODO : a réactiver quand l'issue sur le field sera traitée : https://github.com/get-focus/focus-graph/issues/62
+            {/**trailerHRef &&
+                <div>
+                    <Button label={i18next.t('view.movie.action.watchTrailer')} type='button' handleOnClick={() => this.refs['modal-trailer'].toggleOpen()} />
+                    <Modal ref='modal-trailer'>
+                        <Trailer url={trailerHRef} />
+                    </Modal>
+                </div>
+            */}
+            {/**<Button label={i18next.t('view.movie.action.consult.allocine')} type='button' handleOnClick={() => window.open(url,'_blank')} />*/}
+        </Panel>
+    );
+};
 
-//custom components
-import Trailer from '../components/trailer';
-
-export default React.createClass({
-    displayName: 'Overview',
-    mixins: [formPreset],
-    definitionPath: 'movie',
-    stores: [{store: movieStore, properties: ['movieCaracteristics']}],
-
-    /**
-     * Open the trailer popin.
-     */
-    openTrailerPopin() {
-        this.refs['modal-trailer'].toggleOpen();
-    },
-    // pourcentage de complétude<br/>
-    // {userRating}<br/>
-    // {pressRating}<br/>
-    /** @inheritDoc */
-    renderContent() {
-        const {code, pressRating, trailerName, trailerHRef, userRating} = this.state;
-        const url = `http://www.allocine.fr/film/fichefilm_gen_cfilm=${code}.html`;
-        return (
-            <Panel title='view.movie.detail.overview' data-demo='overview'>
-                {trailerHRef &&
-                    <div>
-                        <Button label={translate('view.movie.action.watchTrailer')} type='button' handleOnClick={this.openTrailerPopin} />
-                        <Modal ref='modal-trailer'>
-                            <Trailer url={trailerHRef} />
-                        </Modal>
-                    </div>
-                }
-                <Button label={translate('view.movie.action.consult.allocine')} type='button' handleOnClick={() => window.open(url,'_blank')} />
-            </Panel>
-        );
-    }
-});
+MovieOverview.displayName = 'MovieOverview';
+export default compose(
+    connectToStore(
+        selectData('movie'), // same thing : (state) => state.dataset.person
+    ),
+    connectToMetadata(['movie']),
+    connectToFieldHelpers()
+)(MovieOverview);

@@ -1,35 +1,33 @@
-// libraries
-import React from 'react';
-import {translate} from 'focus-core/translation';
-
-//web components
-import {mixin as formPreset} from 'focus-components/common/form';
-
-//stores
-import personStore from '../../../stores/person';
+import React, {PropTypes} from 'react';
+import {connect as connectToStore} from 'react-redux';
+import {connect as connectToFieldHelpers} from 'focus-graph/behaviours/field';
+import {connect as connectToMetadata} from 'focus-graph/behaviours/metadata';
+import {compose} from 'redux';
+import {selectData} from 'focus-graph/store/create-store';
+import i18next from 'i18next';
 
 //custom components
 import Picture from '../components/picture';
 
-export default React.createClass({
-    displayName: 'PersonDetailHeaderExpanded',
-    mixins: [formPreset],
-    definitionPath: 'person',
-    stores: [{store: personStore, properties: ['personIdentity']}],
-
-    /** @inheritDoc */
-    renderContent() {
-        const {fullName, photoURL} = this.state;
-        return (
-            <div data-demo='header-content-expanded'>
-                <Picture url={photoURL} title={fullName} />
-                <div data-demo='header-content-expanded__infos'>
-                    <div className="key-concept">{translate('view.person.keyConcept.name')}</div>
-                    <h3>{this.textFor('fullName')}</h3>
-                    <h5>{this.textFor('activity')}</h5>
-                    <div>{this.textFor('shortBiography')}</div>
-                </div>
+const PersonHeaderExpanded = ({data}) => {
+    const {fullName, photoURL} = data;
+    return (
+        <div data-demo='header-content-expanded'>
+            <Picture url={photoURL} title={fullName} />
+            <div data-demo='header-content-expanded__infos'>
+                <div className="key-concept">{i18next.t('view.person.keyConcept.name')}</div>
+                <h3>textFor('fullName')</h3>
+                <h5>textFor('activity')</h5>
+                <div>textFor('shortBiography')</div>
             </div>
-        );
-    }
-})
+        </div>
+    );
+}
+
+export default compose(
+    connectToStore(
+        selectData('person'), // same thing : (state) => state.dataset.person
+    ),
+    connectToMetadata(['person']),
+    connectToFieldHelpers()
+)(PersonHeaderExpanded);

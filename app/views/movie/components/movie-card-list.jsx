@@ -3,7 +3,7 @@ import React, {PropTypes} from 'react';
 
 //web components
 import MovieCard from './movie-card';
-import {component as Modal} from 'focus-components/application/popin';
+import {component as Modal} from 'focus-components/modal';
 import MoviePreview from '../../movie/preview';
 
 export default React.createClass({

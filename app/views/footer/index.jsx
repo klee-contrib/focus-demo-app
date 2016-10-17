@@ -1,11 +1,11 @@
 import React from 'react';
-import {translate} from 'focus-core/translation';
+import i18next from 'i18next';
 
 function masterdataHome() {
     return (
         <div data-demo='footer'>
             <div>
-                <div>{translate('footer.klee.powered')}</div>
+                <div>{i18next.t('footer.klee.powered')}</div>
             </div>
             <div>
                 <ul>

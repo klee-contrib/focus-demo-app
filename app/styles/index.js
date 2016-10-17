@@ -1,6 +1,9 @@
 //--------------------------------------------------------------------------
 //styles from focus-components
 import 'focus-components/style';
+import 'focus-application/style';
+import 'focus-search/style';
+
 //import 'material-design-lite/material.css';
 import 'material-design-icons-iconfont/dist/material-design-icons.scss';
 
@@ -17,6 +20,7 @@ import './field.scss';
 import './footer.scss';
 import './header.scss';
 import './home.scss';
+import './home-header.scss';
 import './list-action-bar.scss';
 import './list-summary.scss';
 import './masterdata.scss';

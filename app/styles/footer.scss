@@ -3,45 +3,35 @@
 $footer-height:150px;
 $footer-menu-left:70px;
 
-[data-focus='layout'] {
-    padding-bottom:$footer-height;
-    [data-focus="footer"] {
-        background-color: #FFF;
-        position: absolute;
-        bottom: 0;
-        padding: 0;
-        width: calc(100% - 60px);
-        [data-demo='footer'] {
-            padding: 15px 50px;
+[data-demo='footer'] {
+    padding: 15px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    & > div:nth-child(1) {
+        div {
+            display: block;
+            color: #000;
+            font-size: 10px;
+            font-weight: 400;
+            text-transform: uppercase;
+            width: 130px;
+            height: 60px;
+            text-align: left;
+            background: url('../images/klee.png') no-repeat 0px 20px;
+        }
+    }
+    & > div:nth-child(2) {
+        ul {
+            list-style: none;
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 100%;
-            & > div:nth-child(1) {
-                div {
-                    display: block;
-                    color: #000;
-                    font-size: 10px;
-                    font-weight: 400;
-                    text-transform: uppercase;
-                    width: 130px;
-                    height: 60px;
-                    text-align: left;
-                    background: url('../images/klee.png') no-repeat 0px 20px;
-                }
-            }
-            & > div:nth-child(2) {
-                ul {
-                    list-style: none;
-                    display: flex;
-                    li {
-                        padding: 10px 10px;
-                        a {
-                            font-weight: 600;
-                            color: $secondary-text-color;
-                            text-decoration: none;
-                        }
-                    }
+            li {
+                padding: 10px 10px;
+                a {
+                    font-weight: 600;
+                    color: $secondary-text-color;
+                    text-decoration: none;
                 }
             }
         }

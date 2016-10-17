@@ -2,8 +2,8 @@
 import React, {PropTypes} from 'react';
 
 //web components
-import Button from 'focus-components/components/button';
-import {component as Modal} from 'focus-components/application/popin';
+import Button from 'focus-components/button';
+import {component as Modal} from 'focus-components/modal';
 
 
 export default React.createClass({

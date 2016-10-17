@@ -1,36 +1,57 @@
 //librairies
-import React, {PropTypes} from 'react';
+import React, {PropTypes, PureComponent} from 'react';
+import {connect as connectToForm } from 'focus-graph/behaviours/form';
+import {connect as connectToMetadata} from 'focus-graph/behaviours/metadata';
+import {connect as connectToFieldHelpers} from 'focus-graph/behaviours/field';
+import {connect as connectToMasterData} from 'focus-graph/behaviours/master-data';
+import {compose} from 'redux';
+
+//actions
+import {loadIdentityAction, saveIdentityAction} from '../../../action/person';
 
 // web components
-import Panel from 'focus-components/components/panel';
-import {mixin as formPreset} from 'focus-components/common/form';
+import Panel from '../../components/panel';
+import Form from '../../components/form';
+import PanelDefaultButtons from '../../components/panel/panel-default-buttons';
 
-//stores & actions
-import personStore from '../../../stores/person';
-import {identityActions} from '../../../action/person';
 
-export default React.createClass({
-    displayName: 'PersonIdentity',
-    propTypes: {
-        id: PropTypes.number.isRequired
-    },
-    mixins: [formPreset],
-    definitionPath: 'person',
-    stores: [{store: personStore, properties: ['personIdentity']}],
-    action: identityActions,
-    referenceNames: ['genders'],
+class PersonIdentity extends PureComponent {
+    componentWillMount() {
+        const {id, load, loadMasterData} = this.props;
+        load(id);
+        loadMasterData();
+    }
 
-    /** @inheritDoc */
-    renderContent() {
+    render() {
+        const {editing, fieldFor, toggleEdit, save, getUserInput, loading, saving, selectFor, renderActions} = this.props;
         return (
-            <Panel actions={this._renderActions} title='view.person.detail.identity'>
-                {this.fieldFor('fullName')}
-                {this.fieldFor('firstName')}
-                {this.fieldFor('sex', {listName: 'genders'})}
-                {this.fieldFor('birthDate')}
-                {this.fieldFor('birthPlace')}
-                {this.fieldFor('activity')}
-            </Panel>
+            <Form editing={editing}>
+                <Panel Buttons={PanelDefaultButtons({editing, toggleEdit, getUserInput, save})} title='view.person.detail.identity'>
+                    {fieldFor('fullName')}
+                    {fieldFor('firstName')}
+                    {selectFor('sex', {masterDatum: 'genders'})}
+                    {fieldFor('birthDate')}
+                    {fieldFor('birthPlace')}
+                    {fieldFor('activity')}
+                </Panel>
+            </Form>
         );
     }
-});
+};
+
+PersonIdentity.displayName = 'PersonIdentity';
+PersonIdentity.propTypes = {
+    id: PropTypes.number.isRequired
+};
+export default compose(
+    connectToMetadata(['person']),
+    connectToMasterData(['genders']),
+    connectToForm({
+        formKey: 'personIdentityForm',
+        entityPathArray: ['person'],
+        loadAction: loadIdentityAction,
+        saveAction: saveIdentityAction,
+        nonValidatedFields: ['person.movieLinks']
+    }),
+    connectToFieldHelpers()
+)(PersonIdentity);

@@ -1,0 +1,19 @@
+
+[data-demo="home-header"] {
+    text-align: center;
+    h1 {
+        font-size: 42px;
+        line-height: 50px;
+    }
+}
+
+[data-focus="header"] {
+    &[data-is-expanded="false"] {
+        [data-focus="header-bar-summary"] {
+            justify-content: center;
+            h1 {
+                display: none;
+            }
+        }
+    }
+}

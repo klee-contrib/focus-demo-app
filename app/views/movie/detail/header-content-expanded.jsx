@@ -1,36 +1,37 @@
 // libraries
 import React from 'react';
-import {translate} from 'focus-core/translation';
-
-//web components
-import {mixin as formPreset} from 'focus-components/common/form';
-
-//stores
-import movieStore from '../../../stores/movie';
+import i18next from 'i18next';
+import {connect as connectToStore} from 'react-redux';
+import {connect as connectToFieldHelpers} from 'focus-graph/behaviours/field';
+import {connect as connectToMetadata} from 'focus-graph/behaviours/metadata';
+import {compose} from 'redux';
+import {selectData} from 'focus-graph/store/create-store';
 
 //custom components
 import Poster from '../components/poster';
 
-export default React.createClass({
-    displayName: 'MovieDetailHeaderExpanded',
-    mixins: [formPreset],
-    definitionPath: 'movie',
-    stores: [{store: movieStore, properties: ['movieCaracteristics', 'movieSynopsis']}],
-
-    /** @inheritDoc */
-    renderContent() {
-        const {title, poster, trailerHRef} = this.state;
-        return (
-            <div data-demo='header-content-expanded'>
-                <Poster poster={poster} title={title} hasZoom={true} />
-                <div data-demo='header-content-expanded__infos'>
-                    <div className="key-concept">{translate('view.movie.keyConcept.name')}</div>
-                    <h3>{this.textFor('title')}</h3>
-                    <h5>{this.textFor('movieType')}</h5>
-                    <h6>{this.textFor('productionYear')}</h6>
-                    <div>{this.textFor('shortSynopsis')}</div>
-                </div>
+const MovieHeaderExpanded = ({data}) => {
+    const {title, poster, trailerHRef} = data;
+    return (
+        <div data-demo='header-content-expanded'>
+            <Poster poster={poster} title={title} hasZoom={true} />
+            <div data-demo='header-content-expanded__infos'>
+                <div className="key-concept">{i18next.t('view.movie.keyConcept.name')}</div>
+                <h3>textFor('title')</h3>
+                <h5>textFor('movieType')</h5>
+                <h6>textFor('productionYear')</h6>
+                <div>textFor('shortSynopsis')</div>
+                TODO : a terminer quand l'issue sur le textfor sera traitée.
             </div>
-        );
-    }
-})
+        </div>
+    );
+};
+
+MovieHeaderExpanded.displayName = 'MovieHeaderExpanded';
+export default compose(
+    connectToStore(
+        selectData('movie'), // same thing : (state) => state.dataset.movie
+    ),
+    connectToMetadata(['movie']),
+    connectToFieldHelpers()
+)(MovieHeaderExpanded);

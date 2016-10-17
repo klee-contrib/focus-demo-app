@@ -1,31 +1,50 @@
 //libraries
-import React, {PropTypes} from 'react';
+import React, {PropTypes, PureComponent} from 'react';
+import {connect as connectToForm } from 'focus-graph/behaviours/form';
+import {connect as connectToFieldHelpers} from 'focus-graph/behaviours/field';
+import {connect as connectToMetadata} from 'focus-graph/behaviours/metadata';
+import {compose} from 'redux';
+
+//actions
+import {loadSynopsisAction, saveSynopsisAction} from '../../../action/movie';
 
 // web components
-import Panel from 'focus-components/components/panel';
-import {mixin as formPreset} from 'focus-components/common/form';
+import Panel from '../../components/panel';
+import Form from '../../components/form';
+import PanelDefaultButtons from '../../components/panel/panel-default-buttons';
 
-//stores & actions
-import movieStore from '../../../stores/movie';
-import {synopsisActions} from '../../../action/movie';
-
-export default React.createClass({
-    displayName: 'MovieSynopsis',
-    propTypes: {
-        id: PropTypes.number.isRequired
-    },
-    mixins: [formPreset],
-    definitionPath: 'movie',
-    stores: [{store: movieStore, properties: ['movieSynopsis']}],
-    action: synopsisActions,
-
+class MovieSynopsis extends PureComponent {
     /** @inheritDoc */
-    renderContent() {
+    componentWillMount() {
+        const {id, load} = this.props;
+        load(id);
+    };
+    /** @inheritDoc */
+    render() {
+        const {editing, fieldFor, toggleEdit, save, getUserInput, loading, saving, selectFor, renderActions} = this.props;
         return (
-            <Panel actions={this._renderActions} title='view.movie.detail.synopsis'>
-                {this.fieldFor('synopsis')}
-                {this.fieldFor('shortSynopsis')}
-            </Panel>
+            <Form editing={editing}>
+                <Panel Buttons={PanelDefaultButtons({editing, toggleEdit, getUserInput, save})} title='view.movie.detail.synopsis'>
+                    {fieldFor('synopsis')}
+                    {fieldFor('shortSynopsis')}
+                </Panel>
+            </Form>
         );
-    }
-});
+    };
+};
+
+MovieSynopsis.displayName = 'MovieSynopsis';
+MovieSynopsis.propTypes = {
+    id: PropTypes.number.isRequired
+};
+export default compose(
+    connectToMetadata(['movie']),
+    connectToForm({
+        formKey: 'movieSynopsisForm',
+        entityPathArray: ['movie'],
+        loadAction: loadSynopsisAction,
+        saveAction: saveSynopsisAction,
+        nonValidatedFields: ['movie.actors', 'movie.writers', 'movie.camera', 'movie.producers', 'movie.directors']
+    }),
+    connectToFieldHelpers()
+)(MovieSynopsis);
