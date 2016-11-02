@@ -19,7 +19,6 @@ class PersonMovies extends PureComponent {
     /** @inheritDoc */
     render() {
         const {movieLink} = this.props;
-        console.log(this.props);
         return (
             <Panel title='view.person.detail.movies'>
                 <MovieCardList movies={movieLink} />

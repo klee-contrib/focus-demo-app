@@ -11,8 +11,8 @@ const searchOptions = {
 };
 
 // search bar component
-const SearchBarComponent = ({unitSearchDispatch: {group, query, scopeFunction}, scope, scopes}) => (
-    <SearchBar data-focus='test' group={group} query={query} scopes={scopes} scope={scope} scopeFunction={scopeFunction}/>
+const SearchBarComponent = ({ SearchBarProps: {scopeList, scopes, unitSearchDispatch: {groupAction, queryAction, scopeAction}}}) => (
+    <SearchBar data-focus='test' queryAction={queryAction} scopes={scopes} scope={scopeList} scopeAction={scopeAction}/>
 );
 
 // search bar component connected to search store

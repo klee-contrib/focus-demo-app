@@ -4,34 +4,39 @@ import {connect as connectToState} from 'react-redux';
 import {connect as connectToMetadata} from 'focus-graph/behaviours/metadata';
 import {connect as connectToFieldHelpers} from 'focus-graph/behaviours/field';
 import {selectFieldsByFormKey} from 'focus-graph/store/create-store';
+import {buildFieldForLineSearch} from 'focus-search/store'
+
+
 
 
 function PurePersonLine({textFor, ...props}) {
-    const code = 0;
     return (
-        <div key={code} data-demo='person-line'>
-          Bonjour
-          <div className='level1'>{textFor('fullName', {entityPath: 'person'})}</div>
-
+        <div data-demo='person-line'>
+         {textFor('fullName', {entityPath: 'person'})}
         </div>
     );
 };
 
+const config = {
+  searchName: 'advancedSearch',
+  codeId : 'perId',
+  entityPath: 'person',
+  code: 'PERSON'
+}
 const PersonLine = compose(
   connectToMetadata(['person']),
+  connectToState(buildFieldForLineSearch(config)),
   connectToFieldHelpers()
 )(PurePersonLine);
 
 
 export default {
-    LineComponent: props => (<div></div>),
+    lineIdentifierProperty : 'perId',
+    LineComponent: props => (<PersonLine {...props}/>),
     sortList : [
-        'lala',
-        'lolo',
-        'lulu'
+        {label: 'lala', code: 'dhjskhfdkhsk'}
     ],
     groupList: [
-        'lala',
-        'lulu'
+        {label: 'ruex', code: 'fkjdsf'}
     ]
 };

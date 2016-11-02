@@ -30,7 +30,7 @@ const customConfig = localFocus ? {
             'focus-components': path.resolve(process.cwd(), '../focus-components'),
             moment: path.resolve(process.cwd(), './node_modules/moment'),
             numeral: path.resolve(process.cwd(), './node_modules/numeral'),
-            react: path.resolve(process.cwd(), './node_modules/react')
+            react: path.resolve(process.cwd(), './node_modules/focus-search/node_modules/react')
         }
     }
 } : {};

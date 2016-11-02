@@ -1,17 +1,17 @@
 
 export default [
     {
-        value: 'all',
+        value: 'ALL',
         label: 'All',
         selected:true
     },
     {
-        value: 'movie',
+        value: 'MOVIE',
         label: 'Films',
         selected: false
     },
     {
-        value: 'person',
+        value: 'PERSON',
         label: 'Acteurs',
         selected: false
     }

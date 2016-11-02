@@ -11,7 +11,7 @@ import {
 
 
 // Données initiales pour la state redux
-const DEFAULT_DATA = {};
+const DEFAULT_DATA = { fjdkoslfjlks: 'fkjledjflks'};
 
 const caracteristics = reducerBuilder({
     name: 'movie', //put here the name of the action

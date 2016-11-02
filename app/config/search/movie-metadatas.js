@@ -4,22 +4,11 @@ import {connect as connectToState} from 'react-redux';
 import {connect as connectToMetadata} from 'focus-graph/behaviours/metadata';
 import {connect as connectToFieldHelpers} from 'focus-graph/behaviours/field';
 import {selectFieldsByFormKey} from 'focus-graph/store/create-store';
+import {buildFieldForLineSearch} from 'focus-search/store'
+
 
 import get from 'lodash/get';
 import identity from 'lodash/identity'
-
-export const buildFieldForLineSearch = ({searchName, codeId, entityPath, code} ) => (state ={}, props) => {
-  const {definitions, domains} = props;
-  const entityDefintion = definitions[entityPath];
-  const results = state[searchName].results;
-  const list = results.data[0].list ? results.data[0].list  : results.data
-  return {fields: Object.keys(list.find(element => element[codeId] ===props[codeId])).map(element => {
-    const propertyDefinition = entityDefintion[element]
-    const domain = get(domains, propertyDefinition ? propertyDefinition.domain : "", {})
-    const value = list.find(element => element[codeId] ===props[codeId])[element]
-    const formator = domain.formator || identity
-    return {entityPath: 'movie', label: 'title', name: element,  formattedInputValue: formator(value)}}  )}
-}
 
 
 function PureMovieLine ({textFor, ...props}) {
@@ -48,19 +37,16 @@ const MovieLine = compose(
 
 
 export default {
+    lineIdentifierProperty : 'movId',
     LineComponent: props => (<MovieLine {...props} />),
     actionsLine: [
         {label: 'Yo', icon: 'print', action: () => {console.log('action')}},
         {label: 'La', icon: 'print', action: () => {console.log('action')}}
     ],
     sortList : [
-        'ouuuuaaa',
-        'trrropo',
-        'lalal'
+      {label: 'lala', code: 'TITLE_SORT_ONLY'}
     ],
     groupList: [
-        'lala',
-        'lulu',
-        'lolo'
+        {code: 'FCT_MOVIE_TYPE', label: 'Movie Type'}
     ]
 };

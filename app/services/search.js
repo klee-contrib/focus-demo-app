@@ -4,6 +4,9 @@ import commonUrl from '../config/server/common';
 import moviesUrl from '../config/server/movies';
 import personsUrl from '../config/server/persons';
 
+import {parseForVertigo, getScope} from 'focus-search/store';
+
+
 export default {
 
     /**
@@ -15,31 +18,20 @@ export default {
      * @return {object}        search response
      */
     search(config) {
-        console.log(config)
-        const scope =( config.query && config.query.scope) ? config.query.scope : 'all';
-        config.urlData = {
-          skip: 0,
-          sortDesc: false,
-          top: 50
-        }
-        config.data = {
-          scope: scope,
-          facets: {},
-          criteria: ( config.query && config.query.term) ? config.query.term : '*'
-        }
-        config.skip = 0;
-        config.top = 0;
-        switch (scope) {
-            case 'movie':
-            
+        switch (getScope(config)) {
+            case 'MOVIE':
                 console.log(`[SEARCH MOVIE] config: ${JSON.stringify(config)}`);
-                return fetch(moviesUrl.search(config))
-            case 'person':
+                if(config.sort){
+                  return fetch(moviesUrl.searchSort(parseForVertigo(config)))
+                }
+
+                return fetch(moviesUrl.search(parseForVertigo(config)))
+            case 'PERSON':
                 console.log(`[SEARCH PERSON] config: ${JSON.stringify(config)}`);
-                return fetch(personsUrl.search(config))
+                return fetch(personsUrl.search(parseForVertigo(config)))
             default:
                 console.log(`[SEARCH ALL] config: ${JSON.stringify(config)}`);
-                return fetch(commonUrl.search(config)).then(data =>{ console.log(data); return data} );
+                return fetch(commonUrl.search(parseForVertigo(config))).then(data =>{  return data} );
         }
     },
 

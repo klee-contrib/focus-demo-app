@@ -21,6 +21,7 @@ const listMetadata = (listType, list) => {
 export default {
     getListMetadata: listMetadata,
     scopes: scopes,
+    GlobalActions: props=> <div>Lalallalalallalalalallalalalalallala</div>,
     scopeEntityDefintion: {
       MovieIndex: {
         title: {

@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react';
 import compose from 'lodash/flowRight';
-import ConnectedSearch from '../components/connected-advanced-search';
+import ConnectedSearch from '../components/connected-advanced-search/';
 import SearchHeader from '../components/search/search-header';
 
 const Toto = () => <div>toto</div>
@@ -20,6 +20,7 @@ class Home extends PureComponent {
         );
     }
 };
+
 
 Home.displayName = 'Home';
 export default Home;

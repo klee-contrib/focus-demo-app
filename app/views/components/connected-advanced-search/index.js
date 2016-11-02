@@ -7,8 +7,7 @@ import {AdvancedSearch} from 'focus-search/components/advanced-search';
 
 const searchOptions = {
     searchName : 'advancedSearch',
-    unitSearch : unitSearchActions,
-    truc: "lala"
+    unitSearch : unitSearchActions
 };
 
 // search bar component connected to search store
