@@ -85,10 +85,10 @@ export default React.createClass({
     },
 
     _getTabs() {
-        const tabs = reduce(['actors','camera','directors','producers','writers'], (tabs, peopleType) => {
+        const tabs = reduce(['actors','camera','directors','producers','writers'], (t, peopleType) => {
             const people = this._getPeopleByName(peopleType);
             if(people) tabs.push(peopleType);
-            return tabs;
+            return t;
         }, []);
         return tabs;
     },
