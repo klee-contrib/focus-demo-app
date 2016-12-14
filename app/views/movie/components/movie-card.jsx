@@ -17,7 +17,7 @@ export default React.createClass({
 
     render() {
         const {movie, onClickPreview} = this.props;
-        const {code, linked, movieType, poster, productionYear, runtime, title, userRating, existsInBdd} = movie;
+        const {movId, linked, movieType, poster, productionYear, runtime, title, userRating, existsInBdd} = movie;
         const showButtons = false !== existsInBdd;
         const duration = moment.utc(moment.duration(runtime, 'seconds').asMilliseconds()).format('h:mm');
         const hasUserRating = userRating > -1;
@@ -66,8 +66,8 @@ export default React.createClass({
                 </div>
                 { showButtons &&
                     <div className='mdl-card__actions mdl-card--border'>
-                        {onClickPreview && <Button shape={null} label='view.movie.action.preview' handleOnClick={() => onClickPreview(+code)} />}
-                        <Link to={`/movies/${code}`}>
+                        {onClickPreview && <Button shape={null} label='view.movie.action.preview' handleOnClick={() => onClickPreview(+movId)} />}
+                        <Link to={`/movies/${movId}`}>
                             <Button shape={null} label='view.movie.action.consult.sheet' />
                         </Link>
                     </div>
