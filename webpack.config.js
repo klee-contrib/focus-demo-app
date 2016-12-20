@@ -12,6 +12,8 @@ const localFocus = process.env.LOCAL_FOCUS ? JSON.parse(process.env.LOCAL_FOCUS)
 const customConfig = localFocus ? {
     resolve: {
         alias: {
+            react: path.resolve(process.cwd(), './node_modules/react'),
+            'react-dom': path.resolve(process.cwd(), './node_modules/react-dom'),
             'focus-core': path.resolve(process.cwd(), '../focus-core'),
             'focus-components': path.resolve(process.cwd(), '../focus-components'),
             moment: path.resolve(process.cwd(), './node_modules/moment'),

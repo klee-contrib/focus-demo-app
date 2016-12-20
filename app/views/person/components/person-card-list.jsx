@@ -34,7 +34,7 @@ export default React.createClass({
             <div data-demo='concept-card-list'>
                 {persons &&
                     persons.map(person =>
-                        <PersonCard key={`person-card-${person.code}`} person={person} onClickPreview={personId => this.setState({personCodePreview: personId})} />
+                        <PersonCard key={`person-card-${person.perId}`} person={person} onClickPreview={personId => this.setState({personCodePreview: personId})} />
                     )
                 }
                 {personCodePreview &&

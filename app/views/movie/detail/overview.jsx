@@ -31,8 +31,8 @@ export default React.createClass({
     // {pressRating}<br/>
     /** @inheritDoc */
     renderContent() {
-        const {code, pressRating, trailerName, trailerHRef, userRating} = this.state;
-        const url = `http://www.allocine.fr/film/fichefilm_gen_cfilm=${code}.html`;
+        const {movId, pressRating, trailerName, trailerHRef, userRating} = this.state;
+        const url = `http://www.allocine.fr/film/fichefilm_gen_cfilm=${movId}.html`;
         return (
             <Panel title='view.movie.detail.overview' data-demo='overview'>
                 {trailerHRef &&

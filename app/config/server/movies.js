@@ -5,6 +5,7 @@ const movieRoot = `${apiRoot}movies/`;
 
 export default {
     create: builder(movieRoot, 'POST'),
+    casting: builder(movieRoot + '${id}/casting', 'GET'),
     load: builder(movieRoot + '${id}', 'GET'),
     search: builder(movieRoot + 'search?listState.skip=${skip}&listState.sortDesc=${sortDesc}&listState.top=${top}', 'POST'),
     update: builder(movieRoot + '${id}', 'PUT')

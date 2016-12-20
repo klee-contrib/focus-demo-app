@@ -51,6 +51,7 @@ export default React.createClass({
 
     _getPeopleByName(filter) {
         const {actors, camera, directors, producers, writers} = this.state;
+
         switch (filter) {
             case 'actors':
                 return actors;
@@ -85,10 +86,10 @@ export default React.createClass({
     },
 
     _getTabs() {
-        const tabs = reduce(['actors','camera','directors','producers','writers'], (tabs, peopleType) => {
+        const tabs = reduce(['actors','camera','directors','producers','writers'], (t, peopleType) => {
             const people = this._getPeopleByName(peopleType);
-            if(people) tabs.push(peopleType);
-            return tabs;
+            if(people) t.push(peopleType);
+            return t;
         }, []);
         return tabs;
     },

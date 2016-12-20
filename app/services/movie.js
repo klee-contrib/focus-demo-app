@@ -9,7 +9,7 @@ export default {
     },
     loadMovieCasting(id) {
         console.log(`[MOVIE] call loadMovieCasting(${id}) method`);
-        return fetch(movieUrl.load({urlData: {id}}), {isCORS: true}).then(({actors, camera, directors, producers, writers}) => {
+        return fetch(movieUrl.casting({urlData: {id}}), {isCORS: true}).then(({actors, camera, directors, producers, writers}) => {
             return {actors, camera, directors, producers, writers};
         });
     },

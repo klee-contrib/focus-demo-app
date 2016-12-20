@@ -34,8 +34,8 @@ export default React.createClass({
             <div data-demo='concept-card-list'>
                 {movies &&
                     movies.map(movie => {
-                        const {code} = movie;
-                        const key = `movie-card-${code}`;
+                        const {movId} = movie;
+                        const key = `movie-card-${movId}`;
                         return (
                             <MovieCard key={key} movie={movie} onClickPreview={
                                 movieId =>
