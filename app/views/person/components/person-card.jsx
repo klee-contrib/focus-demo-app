@@ -7,7 +7,7 @@ import {Link} from 'react-router';
 import Button from 'focus-components/components/button';
 
 function PersonCard({onClickPreview, person}) {
-    const {code, leadActor, linked, name, photoURL, role, existsInBdd} = person;
+    const {perId, leadActor, linked, name, photoURL, role, existsInBdd} = person;
     const showButtons = false !== existsInBdd;
     return (
         <div className='mdl-card mdl-shadow--4dp person-card' data-demo='material-card'>
@@ -29,8 +29,8 @@ function PersonCard({onClickPreview, person}) {
             </div>
             { showButtons &&
               <div className='mdl-card__actions mdl-card--border'>
-                  {onClickPreview && <Button shape={null} label='view.person.action.preview' handleOnClick={() => onClickPreview(+code)} />}
-                      <Button shape={null} label='view.person.action.consult.sheet' handleOnClick={() => {navigate(`/persons/${code}`)}} />
+                  {onClickPreview && <Button shape={null} label='view.person.action.preview' handleOnClick={() => onClickPreview(+perId)} />}
+                      <Button shape={null} label='view.person.action.consult.sheet' handleOnClick={() => {navigate(`/persons/${perId}`)}} />
               </div>
             }
         </div>
