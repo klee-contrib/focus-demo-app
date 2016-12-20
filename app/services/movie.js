@@ -9,7 +9,6 @@ export default {
     },
     loadMovieCasting(id) {
         console.log(`[MOVIE] call loadMovieCasting(${id}) method`);
-        fetch(movieUrl.casting({urlData: {id}}), {isCORS: true}).then((data) => console.log('THE LOADED MOVIE', data));
         return fetch(movieUrl.casting({urlData: {id}}), {isCORS: true}).then(({actors, camera, directors, producers, writers}) => {
             return {actors, camera, directors, producers, writers};
         });
