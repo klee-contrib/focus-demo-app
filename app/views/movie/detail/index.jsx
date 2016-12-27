@@ -17,6 +17,8 @@ import Posters from './posters';
 import Synopsis from './synospis';
 import Trailer from './trailer';
 
+import {Comments} from './comments';
+
 export default React.createClass({
     displayName: 'MovieDetailView',
     propTypes: {
@@ -54,7 +56,7 @@ export default React.createClass({
     _getGlobalPrimaryActions() {
         const actions = [];
         actions.push({label: 'Imprimer', icon: 'print', action: () => {
-          window.print();
+            window.print();
         }});
         return actions;
     },
@@ -66,21 +68,24 @@ export default React.createClass({
             <ScrollspyContainer>
                 {/* Bloc header dupliqué juste pour print*/}
                 <div data-demo='print-page-breaker'>
-                  <div data-demo='print'>
-                      <HeaderExpanded hasLoad={false}/>
-                  </div>
-                  <div data-demo='detail-overview'>
-                    <Overview hasLoad={false} hasForm={false} />
-                  </div>
-                  <Caracteristics id={id} />
-                  <Synopsis id={id} />
+                    <div data-demo='print'>
+                        <HeaderExpanded hasLoad={false}/>
+                    </div>
+                    <div data-demo='detail-overview'>
+                        <Overview hasLoad={false} hasForm={false} />
+                    </div>
+                    <Caracteristics id={id} />
+                    <Synopsis id={id} />
                 </div>
                 <div data-demo='print-page-breaker'>
-                  <Trailer id={id} />
-                  <Posters id={id} />
+                    <Trailer id={id} />
+                    <Posters id={id} />
                 </div>
                 <div data-demo='print-page-breaker'>
-                  <Casting id={id} />
+                    <Casting id={id} />
+                </div>
+                <div data-demo='print-page-breaker'>
+                    <Comments />
                 </div>
             </ScrollspyContainer>
         );
