@@ -9,8 +9,8 @@ export default function lineComponentMapper(groupKey, list) {
         newKey = scopesConfig[groupKey];
     }
     switch (newKey) {
-        case 'Films': return MovieLine;
-        case 'Acteurs': return PersonLine;
+        case 'movie': return MovieLine;
+        case 'person': return PersonLine;
         default: return DefaultLine;
     }
 }

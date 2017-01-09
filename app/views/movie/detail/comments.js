@@ -34,7 +34,7 @@ export class Comments extends Component {
         console.log('HEY', this);
         return(
             <Panel title='components.comments.title'>
-                <FocusComments apiRootUrl={`http://localhost:9999/x/comment`} texts={this.translateTexts()} concept='fakeConcept' conceptId='fakeConceptId' currentUserId='me'/>
+                <FocusComments showAvatar={true} apiRootUrl={`http://localhost:9999/x/comment`} texts={this.translateTexts()} concept='fakeConcept' conceptId='fakeConceptId' currentUserId='me'/>
             </Panel>
         );
     }
