@@ -86,5 +86,4 @@ exports.yo = function() {
         const authorId = req.params.authorId;
         res.redirect(avatars[authorId]);
     });
-    console.log('MAN');
 }
