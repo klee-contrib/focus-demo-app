@@ -1,4 +1,18 @@
 export default {
+    components: {
+        comments: {
+            title: 'Commentaires',
+            placeholder: 'Laissez un commentaire...',
+            send: 'Envoyer',
+            edit: 'Modifier',
+            cancel: 'Annuler',
+            singleComment: 'commentaire',
+            multipleComments: 'commentaires',
+            lastUpdate: 'Dernière mise à jour',
+            loading: 'Chargement',
+            empty: 'Soyez le premier à laisser un commentaire !'
+        }
+    },
     button: {
         cancel: 'Abandonner',
         back: 'Retour',
