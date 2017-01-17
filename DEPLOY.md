@@ -54,12 +54,12 @@ La partie JS  et la partie API de l'application démo sont accessibles via le se
 Exécuter la commande suivante pour arrêter le serveur apache :
 
 ```shell 
-service http stop
+service httpd stop
 ``` 
 Exécuter la commande suivante pour démarrer le serveur apache :
 
 ```shell 
-service http start
+service httpd start
 ``` 
 
 
