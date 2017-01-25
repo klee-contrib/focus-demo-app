@@ -59,7 +59,7 @@ export default React.createClass({
         const {isQuickSearchModalOpen} = this.state;
         return (
             <div>
-                <Menu items={items} handleBrandClick={() => {navigate('/');}} navigate={navigate} LinkComponent={Link}/>
+                <Menu items={items} handleBrandClick={() => {this.props.history.push('/');}} navigate={navigate} LinkComponent={Link}/>
                 {isQuickSearchModalOpen &&
                     <div data-demo='quick-search-area'>
                         <Modal open={true} type='from-menu'>

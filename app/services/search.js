@@ -29,15 +29,15 @@ export default {
         switch (scope) {
             case 'movie':
                 console.log(`[SEARCH MOVIE] config: ${JSON.stringify(config)}`);
-                return fetch(moviesUrl.search(config))
+                return fetch(moviesUrl.search(config), {isCORS: true})
                 .then(this._legacyfyServerResult);
             case 'person':
                 console.log(`[SEARCH PERSON] config: ${JSON.stringify(config)}`);
-                return fetch(personsUrl.search(config))
+                return fetch(personsUrl.search(config), {isCORS: true})
                 .then(this._legacyfyServerResult);
             default:
                 console.log(`[SEARCH ALL] config: ${JSON.stringify(config)}`);
-                return fetch(commonUrl.search(config))
+                return fetch(commonUrl.search(config), {isCORS: true})
                 .then(this._legacyfyServerResult);
         }
     },

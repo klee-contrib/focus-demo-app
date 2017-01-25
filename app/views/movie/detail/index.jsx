@@ -17,8 +17,6 @@ import Posters from './posters';
 import Synopsis from './synospis';
 import Trailer from './trailer';
 
-import {Comments} from './comments';
-
 export default React.createClass({
     displayName: 'MovieDetailView',
     propTypes: {
@@ -85,7 +83,6 @@ export default React.createClass({
                     <Casting id={id} />
                 </div>
                 <div data-demo='print-page-breaker'>
-                    <Comments />
                 </div>
             </ScrollspyContainer>
         );

@@ -7,12 +7,14 @@ import {cartridgeBehaviour} from 'focus-components/page/mixin';
 import Rankings from './rankings';
 import DemoTitle from '../components/demo-title';
 
+import {withRouter} from 'react-router';
+
 //cartridge configuration
 import CartridgePageSearch from 'focus-components/page/search/search-header/cartridge';
 import SummaryPageSearch from 'focus-components/page/search/search-header/summary';
 import searchService from '../../services/search';
 
-export default React.createClass({
+const HomePage = React.createClass({
     displayName: 'HomeView',
     mixins: [cartridgeBehaviour],
     /** @inheritDoc */
@@ -26,14 +28,14 @@ export default React.createClass({
         return {
             summary: {
                 component: SummaryPageSearch,
-                props: { onSearchCriteriaChangeByUser: () => {navigate('/search/advanced')}, service: searchService }
+                props: { onSearchCriteriaChangeByUser: () => {this.props.router.push('search/advanced')}, service: searchService }
             },
             barLeft: {
                 component: DemoTitle
             },
             cartridge: {
                 component: CartridgePageSearch,
-                props: { onSearchCriteriaChangeByUser: () => {navigate('/search/advanced')}, service: searchService }
+                props: { onSearchCriteriaChangeByUser: () => {this.props.router.push('search/advanced')}, service: searchService }
             },
             actions: {
                 primary: [],
@@ -51,3 +53,5 @@ export default React.createClass({
         );
     }
 });
+
+export default withRouter(HomePage);

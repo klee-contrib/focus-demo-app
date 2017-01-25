@@ -30,7 +30,9 @@ function PersonCard({onClickPreview, person}) {
             { showButtons &&
               <div className='mdl-card__actions mdl-card--border'>
                   {onClickPreview && <Button shape={null} label='view.person.action.preview' handleOnClick={() => onClickPreview(+perId)} />}
-                      <Button shape={null} label='view.person.action.consult.sheet' handleOnClick={() => {navigate(`/persons/${perId}`)}} />
+                  <Link to={`/persons/${perId}`}>
+                      <Button shape={null} label='view.person.action.consult.sheet' />
+                  </Link>
               </div>
             }
         </div>
