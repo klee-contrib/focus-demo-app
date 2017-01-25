@@ -12,11 +12,10 @@ const DemoMenu = React.createClass({
         )
     }
 })
-const Menu = withRouter(DemoMenu)
 
 const AppLayout = (props) => (
     <div>
-        <Layout MenuLeft={Menu} Footer={DemoFooter}>
+        <Layout MenuLeft={withRoute(Menu)} Footer={DemoFooter}>
             {props.children}
         </Layout>
         {/*<DevTools/>*/}
