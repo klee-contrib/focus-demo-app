@@ -12,6 +12,9 @@ import CartridgePageSearch from 'focus-components/page/search/search-header/cart
 import SummaryPageSearch from 'focus-components/page/search/search-header/summary';
 import searchService from '../../services/search';
 
+import ScheduleDaysPicker from '../components/schedule-days-picker';
+import ScheduleMonthsPicker from '../components/schedule-months-picker';
+
 export default React.createClass({
     displayName: 'HomeView',
     mixins: [cartridgeBehaviour],
@@ -46,7 +49,8 @@ export default React.createClass({
     render() {
         return (
             <div data-demo='homepage'>
-                <Rankings/>
+                <ScheduleDaysPicker onClickDay={(day) => alert('You clicked ' + day + ' !')} selectedDays={[9, 12]} />
+                <ScheduleMonthsPicker onClickMonth={(month) => alert('You clicked ' + month + ' !')} selectedMonths={[2]} />
             </div>
         );
     }

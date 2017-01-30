@@ -1,0 +1,26 @@
+$schedule-days-picker-button-width: 100px;
+$schedule-days-picker-button-height: 40px;
+$schedule-days-picker-button-text-color: #8a7878;
+$schedule-days-picker-button-border-color: #EEE;
+$schedule-days-picker-button-color-default: white;
+$schedule-days-picker-button-color-selected: #EEE;
+$schedule-days-picker-width: 7 * $schedule-days-picker-button-width;
+
+[data-cavimac="schedule-months-picker"] {
+    width: $schedule-days-picker-width;
+    display: flex;
+
+    button {
+        width: $schedule-days-picker-button-width;
+        height: $schedule-days-picker-button-height;
+        background-color: $schedule-days-picker-button-color-default;
+        border:1px solid $schedule-days-picker-button-border-color;
+        color: $schedule-days-picker-button-text-color;
+        &:hover {
+            cursor: pointer;
+        }
+        &[data-selected="true"] {
+            background-color: $schedule-days-picker-button-color-selected;
+        }
+    }
+}
