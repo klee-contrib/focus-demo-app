@@ -7,5 +7,5 @@ export default {
     create: builder(personRoot, 'POST'),
     load: builder(personRoot + '${id}', 'GET'),
     search: builder(personRoot + 'search?listState.skip=${skip}&listState.sortDesc=${sortDesc}&listState.top=${top}', 'POST'),
-    update: builder(personRoot + '${id}', 'PUT')
+    update: builder(personRoot + '${id}', 'POST')
 };
